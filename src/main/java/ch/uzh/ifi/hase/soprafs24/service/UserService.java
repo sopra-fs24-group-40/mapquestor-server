@@ -3,6 +3,8 @@ package ch.uzh.ifi.hase.soprafs24.service;
 import ch.uzh.ifi.hase.soprafs24.constant.UserStatus;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPostDTO;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,11 +43,12 @@ public class UserService {
   }
 
   public User createUser(User newUser) {
+
     newUser.setToken(UUID.randomUUID().toString());
-    newUser.setStatus(UserStatus.OFFLINE);
+    newUser.setStatus(UserStatus.ONLINE);
+    newUser.setCreation_date(LocalDateTime.now());
+
     checkIfUserExists(newUser);
-    // saves the given entity but data is only persisted in the database once
-    // flush() is called
     newUser = userRepository.save(newUser);
     userRepository.flush();
 
@@ -64,16 +68,72 @@ public class UserService {
    */
   private void checkIfUserExists(User userToBeCreated) {
     User userByUsername = userRepository.findByUsername(userToBeCreated.getUsername());
-    User userByName = userRepository.findByName(userToBeCreated.getName());
 
     String baseErrorMessage = "The %s provided %s not unique. Therefore, the user could not be created!";
-    if (userByUsername != null && userByName != null) {
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+    if (userByUsername != null) {
+      throw new ResponseStatusException(HttpStatus.CONFLICT,
           String.format(baseErrorMessage, "username and the name", "are"));
-    } else if (userByUsername != null) {
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, String.format(baseErrorMessage, "username", "is"));
-    } else if (userByName != null) {
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, String.format(baseErrorMessage, "name", "is"));
     }
   }
+
+  public User checkUser(User LoginUser) {
+    User userByToken = null;
+    User us = userRepository.findByUsername(LoginUser.getUsername());
+
+    if (us.getUsername().equals(LoginUser.getUsername())) {
+            userByToken = us;
+    }
+    String password = LoginUser.getPassword();
+    boolean valid = userByToken != null && userByToken.getPassword().equals(password); //equal password check
+    if (!valid) {
+        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "False Username or password");
+    } 
+    userByToken.setStatus(UserStatus.ONLINE); //Status => Online
+    userByToken.setToken(UUID.randomUUID().toString());
+    User EntityUser = userRepository.save(userByToken);
+    userRepository.flush(); //save all changes done
+    return EntityUser;
+}
+
+public boolean logout(UserPostDTO userPostDTO) {
+    User user = userRepository.findByUsername(userPostDTO.getUsername());
+    if (user != null) {
+        user.setStatus(UserStatus.OFFLINE);
+        user.setToken("");
+        userRepository.save(user);
+        return true;
+    }
+    return false;
+}
+  public User getOneUser(Long userID) {
+    User userByID = null;
+    List<User> usersByUsername = userRepository.findAll();
+    for (User user : usersByUsername) {
+        if (user.getId().equals(userID)) {
+            userByID = user;
+        }
+    }
+    if (userByID == null) {
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No such User found!");
+    }
+    return userByID;
+}
+
+    public void updateUser(Long userID, String uname, String password) {
+      User fetchedUser = getOneUser(userID);
+      User user = userRepository.findByUsername(uname);
+    if (user != null && !user.getId().equals(userID)) {
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Username taken!");
+    }
+      if (uname != null) {
+          fetchedUser.setUsername(uname);
+      }
+    
+      if (password != null) {
+          fetchedUser.setPassword(password);
+      }
+    
+      userRepository.save(fetchedUser);
+      userRepository.flush();
+    }
 }
