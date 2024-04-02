@@ -136,4 +136,15 @@ public boolean logout(UserPostDTO userPostDTO) {
       userRepository.save(fetchedUser);
       userRepository.flush();
     }
-}
+
+    public void deleteTheUser(Long userID) {
+      // Check if the user exists
+      if (userRepository.existsById(userID)) {
+          // If user exists, delete it
+          userRepository.deleteById(userID);
+      } else {
+          // Handle the case where the user does not exist
+          throw new ResponseStatusException(HttpStatus.METHOD_NOT_ALLOWED, "User not found for deletion!");
+      }
+  }}
+

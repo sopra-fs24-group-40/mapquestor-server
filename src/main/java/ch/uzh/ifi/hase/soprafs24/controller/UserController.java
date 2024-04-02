@@ -33,20 +33,23 @@ public class UserController {
   @GetMapping("/users")
   @ResponseStatus(HttpStatus.OK)
   @ResponseBody
-  public List<UserGetDTO> getAllUsers() {
+  public ResponseEntity<List<UserGetDTO>> getAllUsers() {
     // fetch all users in the internal representation
     List<User> users = userService.getUsers();
+    if (users.isEmpty()){
+      return ResponseEntity.notFound().build();
+    }
     List<UserGetDTO> userGetDTOs = new ArrayList<>();
 
     // convert each user to the API representation
     for (User user : users) {
       userGetDTOs.add(DTOMapper.INSTANCE.convertEntityToUserGetDTO(user));
     }
-    return userGetDTOs;
+    return ResponseEntity.ok(userGetDTOs);
   }
 
-  @PostMapping("/users/login") //used for logging in the user
-  @ResponseStatus(HttpStatus.OK) //used post, there is no strict rule what to use put/post
+  @PutMapping("/login") //used for logging in the user
+  @ResponseStatus(HttpStatus.CREATED) //used post, there is no strict rule what to use put/post
   @ResponseBody
   public UserGetDTO loginTheUser(@RequestBody UserPostDTO userPostDTO){
       // convert API user to internal representation
@@ -59,7 +62,7 @@ public class UserController {
       return DTOMapper.INSTANCE.convertEntityToUserGetDTO(EntityUser);
   }
 
-  @PostMapping("/logout")
+  @PutMapping("/logout")
   @ResponseStatus(HttpStatus.OK)
   public ResponseEntity<String> logOut(@RequestBody UserPostDTO userPostDTO) {
       boolean loggedOut = userService.logout(userPostDTO);
@@ -72,7 +75,7 @@ public class UserController {
   }
 
 
-  @PostMapping("/users")
+  @PostMapping("/register")
   @ResponseStatus(HttpStatus.CREATED)
   @ResponseBody
   public UserGetDTO createUser(@RequestBody UserPostDTO userPostDTO) {
@@ -103,5 +106,12 @@ public class UserController {
       String newPassword = editUser.getPassword();
 
       userService.updateUser(userID, newUsername, newPassword);
+  }
+
+  @DeleteMapping("/users/{userID}")
+  @ResponseStatus(HttpStatus.OK) //if it was found the OK https
+  @ResponseBody
+  public void deleteUser(@PathVariable(value="userID") Long userID){
+      userService.deleteTheUser(userID); 
   }
 }
