@@ -1,8 +1,5 @@
 package ch.uzh.ifi.hase.soprafs24.rest.dto;
 
-import java.sql.Date;
-import java.time.LocalDateTime;
-
 //we use this for put requests
 public class UserPutDTO {
 
