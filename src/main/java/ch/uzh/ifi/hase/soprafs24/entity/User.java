@@ -48,6 +48,20 @@ public class User implements Serializable {
     @Column(nullable = false)
     private LocalDateTime creation_date;
 
+    @ManyToOne
+    @JoinColumn(name = "game_id")
+    private Game game;
+
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+
     public Long getId() {
         return id;
     }
