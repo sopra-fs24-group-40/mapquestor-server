@@ -3,15 +3,13 @@ package ch.uzh.ifi.hase.soprafs24.controller;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPostDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPutDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,94 +22,60 @@ import java.util.List;
 @RestController
 public class UserController {
 
-  private final UserService userService;
+    private final UserService userService;
 
-  UserController(UserService userService) {
-    this.userService = userService;
-  }
-
-  @GetMapping("/users")
-  @ResponseStatus(HttpStatus.OK)
-  @ResponseBody
-  public ResponseEntity<List<UserGetDTO>> getAllUsers() {
-    // fetch all users in the internal representation
-    List<User> users = userService.getUsers();
-    if (users.isEmpty()){
-      return ResponseEntity.notFound().build();
+    UserController(UserService userService) {
+        this.userService = userService;
     }
-    List<UserGetDTO> userGetDTOs = new ArrayList<>();
 
-    // convert each user to the API representation
-    for (User user : users) {
-      userGetDTOs.add(DTOMapper.INSTANCE.convertEntityToUserGetDTO(user));
+    @GetMapping("/users")
+    public ResponseEntity<List<UserGetDTO>> getAllUsers() {
+        List<UserGetDTO> users = userService.getUsers();
+        return ResponseEntity.ok(users);
     }
-    return ResponseEntity.ok(userGetDTOs);
-  }
 
-  @PutMapping("/login") //used for logging in the user
-  @ResponseStatus(HttpStatus.CREATED) //used post, there is no strict rule what to use put/post
-  @ResponseBody
-  public UserGetDTO loginTheUser(@RequestBody UserPostDTO userPostDTO){
-      // convert API user to internal representation
-      User userInput = DTOMapper.INSTANCE.convertUserPostDTOtoEntity(userPostDTO);
+    @GetMapping("/users/{id}")
+    public ResponseEntity<UserGetDTO> getUser(@PathVariable("id") long id) {
+        UserGetDTO user = userService.getUser(id);
+        return ResponseEntity.ok(user);
+    }
 
-      // check credentials
-      User EntityUser = userService.checkUser(userInput);
+    @PostMapping("/users")
+    public ResponseEntity<UserGetDTO> createUser(@RequestBody UserPostDTO userPostDTO) {
+        UserGetDTO newUser = userService.createUser(userPostDTO);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+    }
 
-      //convert mappedUser back to API and return
-      return DTOMapper.INSTANCE.convertEntityToUserGetDTO(EntityUser);
-  }
-
-  @PutMapping("/logout")
-  @ResponseStatus(HttpStatus.OK)
-  public ResponseEntity<String> logOut(@RequestBody UserPostDTO userPostDTO) {
-      boolean loggedOut = userService.logout(userPostDTO);
-      if (loggedOut) {
-          return ResponseEntity.ok("Logged out!");
-      }
-      else {
-          return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
-      }
-  }
+    @PutMapping("/users/{id}")
+    public ResponseEntity<Void> updateUser(@PathVariable Long id, @RequestBody UserPutDTO userDetails) {
+        userService.updateUser(id, userDetails);
+        return ResponseEntity.noContent().build();
+    }
 
 
-  @PostMapping("/register")
-  @ResponseStatus(HttpStatus.CREATED)
-  @ResponseBody
-  public UserGetDTO createUser(@RequestBody UserPostDTO userPostDTO) {
-    // convert API user to internal representation
-    User userInput = DTOMapper.INSTANCE.convertUserPostDTOtoEntity(userPostDTO);
+    @PostMapping("/login")
+    public ResponseEntity<UserGetDTO> login(@RequestBody UserPostDTO userPostDTO) {
+        UserGetDTO loggedInUser = userService.login(userPostDTO);
+        return ResponseEntity.ok(loggedInUser);
+    }
 
-    // create user
-    User createdUser = userService.createUser(userInput);
-    // convert internal representation of user back to API
-    return DTOMapper.INSTANCE.convertEntityToUserGetDTO(createdUser);
-  }
 
-  @GetMapping("/users/{userID}")
-  @ResponseStatus(HttpStatus.OK) //if it was found the OK https
-  @ResponseBody
-  public UserGetDTO getOneUser(@PathVariable(value="userID") Long userID){
-      User fetched = userService.getOneUser(userID); 
-      fetched.setToken(null); 
-      return DTOMapper.INSTANCE.convertEntityToUserGetDTO(fetched);
-  }
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(@RequestBody UserPostDTO userPostDTO) {
+        boolean loggedOut = userService.logout(userPostDTO);
+        if (loggedOut) {
+            return ResponseEntity.ok("Logged out successfully");
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found or already logged out");
+        }
+    }
 
-  @PutMapping("/users/{userID}")
-  @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void updateTheUser(@RequestBody UserPostDTO userPostDTO, @PathVariable(value="userID") Long userID){
-      User editUser = DTOMapper.INSTANCE.convertUserPostDTOtoEntity(userPostDTO);
 
-      String newUsername = editUser.getUsername();
-      String newPassword = editUser.getPassword();
-
-      userService.updateUser(userID, newUsername, newPassword);
-  }
-
-  @DeleteMapping("/users/{userID}")
-  @ResponseStatus(HttpStatus.OK) //if it was found the OK https
-  @ResponseBody
-  public void deleteUser(@PathVariable(value="userID") Long userID){
-      userService.deleteTheUser(userID); 
-  }
+    @DeleteMapping("/users/{userID}")
+    @ResponseStatus(HttpStatus.OK) //if it was found the OK https
+    @ResponseBody
+    public void deleteUser(@PathVariable(value = "userID") Long userID) {
+        userService.deleteTheUser(userID);
+    }
 }

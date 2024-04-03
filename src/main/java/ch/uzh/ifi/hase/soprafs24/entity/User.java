@@ -21,72 +21,94 @@ import java.util.Date;
 @Table(name = "USER")
 public class User implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  @Id
-  @GeneratedValue
-  private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-  @Column(nullable = false, unique = true)
-  private String username;
+    @Column(nullable = false, unique = true)
+    private String username;
 
-  @Column(nullable = false)
-  private String token;
+    @Column(nullable = false)
+    private int playedGames;
 
-  @Column(nullable = false)
-  private UserStatus status;
+    @Column(nullable = false)
+    private int wonGames;
 
-  @Column(nullable = false)
-  private String password;
+    @Column(nullable = false)
+    private UserStatus status;
 
-  @Column(nullable = false)
-  private LocalDateTime creation_date;
+    @Column(nullable = false)
+    private String token;
 
-  public Long getId() {
-    return id;
-  }
+    @Column(nullable = false)
+    private String password;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    @Column(nullable = false)
+    private LocalDateTime creation_date;
 
-  public String getUsername() {
-    return username;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public String getToken() {
-    return token;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public void setToken(String token) {
-    this.token = token;
-  }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public UserStatus getStatus() {
-    return status;
-  }
+    public int getPlayedGames() {
+        return playedGames;
+    }
 
-  public void setStatus(UserStatus status) {
-    this.status = status;
-  }
+    public void setPlayedGames(int playedGames) {
+        this.playedGames = playedGames;
+    }
 
-  public void setPassword(String password){
-    this.password = password;
-  }
-  
-  public String getPassword(){
-    return password;
-  }
+    public int getWonGames() {
+        return wonGames;
+    }
 
-  public void setCreation_date(LocalDateTime creation_date){
-    this.creation_date = creation_date;
-  }
-  
-  public LocalDateTime getCreation_date(){
-    return creation_date;
-  }
+    public void setWonGames(int wonGames) {
+        this.wonGames = wonGames;
+    }
+
+    public UserStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public LocalDateTime getCreation_date() {
+        return creation_date;
+    }
+
+    public void setCreation_date(LocalDateTime creation_date) {
+        this.creation_date = creation_date;
+    }
 }

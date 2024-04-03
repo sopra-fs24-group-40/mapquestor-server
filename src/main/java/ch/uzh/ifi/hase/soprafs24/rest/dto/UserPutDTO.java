@@ -1,12 +1,9 @@
 package ch.uzh.ifi.hase.soprafs24.rest.dto;
 
-//we use this for put requests
 public class UserPutDTO {
 
-    private Long id;
     private String username;
     private String password;
-
 
     public String getUsername() {
         return username;
@@ -23,9 +20,4 @@ public class UserPutDTO {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public Long getId() {
-        return id;
-    }
-
 }

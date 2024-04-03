@@ -2,63 +2,61 @@ package ch.uzh.ifi.hase.soprafs24.rest.dto;
 
 import ch.uzh.ifi.hase.soprafs24.constant.UserStatus;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-
 public class UserGetDTO {
+    private Long id;
+    private String username;
 
-  private Long id;
-  private String username;
-  private UserStatus status;
-  private String password;
-  private String token;
-  private LocalDateTime creation_date;
+    private int playedGames;
+    private int wonGames;
+    private UserStatus status;
 
-  public Long getId() {
-    return id;
-  }
+    private String creation_date;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setToken(String token) {
-    this.token = token;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public String getToken() {
-    return token;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public String getUsername() {
-    return username;
-  }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
+    public int getPlayedGames() {
+        return playedGames;
+    }
 
-  public UserStatus getStatus() {
-    return status;
-  }
+    public void setPlayedGames(int playedGames) {
+        this.playedGames = playedGames;
+    }
 
-  public void setStatus(UserStatus status) {
-    this.status = status;
-  }
+    public int getWonGames() {
+        return wonGames;
+    }
 
-  public String getPassword(){
-    return password;
-  }
+    public void setWonGames(int wonGames) {
+        this.wonGames = wonGames;
+    }
 
-  public void setPassword(String password){
-    this.password = password;
-  }
+    public UserStatus getStatus() {
+        return status;
+    }
 
-  public LocalDateTime getCreation_date(){
-    return creation_date;
-  }
-  public void setCreation_date(LocalDateTime creation_date){
-    this.creation_date = creation_date;
-  }
+    public void setStatus(UserStatus status) {
+        this.status = status;
+    }
+
+    public String getCreation_date() {
+        return creation_date;
+    }
+
+    public void setCreation_date(String creation_date) {
+        this.creation_date = creation_date;
+    }
 }
-
