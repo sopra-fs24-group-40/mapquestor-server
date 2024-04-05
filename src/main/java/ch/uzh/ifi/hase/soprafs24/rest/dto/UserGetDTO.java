@@ -6,6 +6,8 @@ public class UserGetDTO {
     private Long id;
     private String username;
 
+    private String token;
+
     private int playedGames;
     private int wonGames;
     private UserStatus status;
@@ -58,5 +60,13 @@ public class UserGetDTO {
 
     public void setCreation_date(String creation_date) {
         this.creation_date = creation_date;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

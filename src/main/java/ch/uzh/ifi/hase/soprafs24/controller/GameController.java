@@ -1,13 +1,12 @@
 package ch.uzh.ifi.hase.soprafs24.controller;
 
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.GameJoinRequest;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class GameController {
 
     private final GameService gameService;
@@ -16,24 +15,18 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @MessageMapping("/game/join")
-    @SendTo("/topic/games")
-    public Game joinGame(GameJoinRequest request) {
-        boolean success = gameService.addUserToGame(request.getUserId(), request.getGameId());
-        if (success) {
-            Game updatedGame = gameService.findById(request.getGameId());
-            return updatedGame;
-        }
-        else {
-            return null;
-        }
+
+    @PostMapping("/games")
+    public ResponseEntity<Game> createGame(@RequestBody Game game) {
+        Game newGame = gameService.createGame(game);
+        return new ResponseEntity<>(newGame, HttpStatus.CREATED);
     }
 
-    @MessageMapping("/game/create")
-    @SendTo("/topic/games")
-    public Game createGame() {
-        return gameService.createGame();
+    @GetMapping("/games/{gameCode}")
+    public Game getGame(@PathVariable("gameCode") String gameCode) {
+        return gameService.getGame(gameCode);
     }
+
 
 
 }

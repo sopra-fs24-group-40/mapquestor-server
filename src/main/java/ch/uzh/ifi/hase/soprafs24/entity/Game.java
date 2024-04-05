@@ -16,6 +16,8 @@ public class Game {
     @GeneratedValue
     private Long gameId;
 
+    private String gameCode;
+
     private int playerCount;
 
     private int maxPlayers;
@@ -84,5 +86,13 @@ public class Game {
 
     public void setGameStatus(GameStatus gameStatus) {
         this.gameStatus = gameStatus;
+    }
+
+    public String getGameCode() {
+        return gameCode;
+    }
+
+    public void setGameCode(String gameCode) {
+        this.gameCode = gameCode;
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -41,6 +42,13 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id: " + id));
         return DTOMapper.INSTANCE.convertEntityToUserGetDTO(user);
+    }
+
+    public UserGetDTO getUserByToken(String token) {
+        User user = userRepository.findByToken(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id: " + token));
+        return DTOMapper.INSTANCE.convertEntityToUserGetDTO(user);
+
     }
 
 
@@ -111,8 +119,8 @@ public class UserService {
             return false;
         }
 
-        User user = userRepository.findByToken(token.trim());
-        return user != null;
+        Optional<User> user = userRepository.findByToken(token.trim());
+        return user.isPresent();
     }
 
     private boolean checkPassword(String old_password, String new_password) {
