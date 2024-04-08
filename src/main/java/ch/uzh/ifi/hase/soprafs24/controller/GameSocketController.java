@@ -33,6 +33,9 @@ public class GameSocketController {
             message = new ChatMessage(userService.getUsernameByToken(message.getFrom()), message.getText(), MessageType.JOIN);
 
         }
+        else if (type == MessageType.START_COUNTDOWN) {
+            message = new ChatMessage(userService.getUsernameByToken(message.getFrom()), message.getText(), MessageType.START_COUNTDOWN);
+        }
         else {
             message = new ChatMessage(userService.getUsernameByToken(message.getFrom()), message.getText(), MessageType.CHAT);
         }
