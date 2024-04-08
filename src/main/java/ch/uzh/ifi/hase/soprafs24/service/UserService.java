@@ -51,6 +51,12 @@ public class UserService {
 
     }
 
+    public String getUsernameByToken(String token) {
+        User user = userRepository.findByToken(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id: " + token));
+        return user.getUsername();
+    }
+
 
     public UserGetDTO createUser(UserPostDTO userPostDTO) {
 

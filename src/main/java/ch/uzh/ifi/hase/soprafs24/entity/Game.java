@@ -18,6 +18,8 @@ public class Game {
 
     private String gameCode;
 
+    private String creator;
+
     private int playerCount;
 
     private int maxPlayers;
@@ -94,5 +96,13 @@ public class Game {
 
     public void setGameCode(String gameCode) {
         this.gameCode = gameCode;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 }

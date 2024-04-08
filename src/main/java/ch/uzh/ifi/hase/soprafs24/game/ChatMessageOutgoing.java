@@ -3,28 +3,28 @@ package ch.uzh.ifi.hase.soprafs24.game;
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserGameInfoDTO;
 
-public class ChatMessage {
+public class ChatMessageOutgoing {
 
-    private String from;
+    private UserGameInfoDTO from;
     private String text;
 
     private MessageType type;
 
-    public ChatMessage() {
+    public ChatMessageOutgoing() {
     }
 
-    public ChatMessage(String from, String text, MessageType type) {
+    public ChatMessageOutgoing(UserGameInfoDTO from, String text, MessageType type) {
         this.from = from;
         this.text = text;
         this.type = type;
     }
 
 
-    public String getFrom() {
+    public UserGameInfoDTO getFrom() {
         return from;
     }
 
-    public void setFrom(String from) {
+    public void setFrom(UserGameInfoDTO from) {
         this.from = from;
     }
 
