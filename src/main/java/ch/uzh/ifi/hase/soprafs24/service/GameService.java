@@ -44,8 +44,6 @@ public class GameService {
     }
 
 
-
-
     public Game getGame(String gameCode) {
         return gameRepository.findByGameCode(gameCode)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with id: " + gameCode));

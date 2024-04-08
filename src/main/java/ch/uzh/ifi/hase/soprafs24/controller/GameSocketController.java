@@ -1,7 +1,9 @@
 package ch.uzh.ifi.hase.soprafs24.controller;
 
+import ch.uzh.ifi.hase.soprafs24.constant.GameStatus;
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
 import ch.uzh.ifi.hase.soprafs24.game.ChatMessage;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserGameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
@@ -30,11 +32,18 @@ public class GameSocketController {
             gameService.addUserToGame(message.getFrom(), gameId);
             message = new ChatMessage(userService.getUsernameByToken(message.getFrom()), message.getText(), MessageType.JOIN);
 
-        } else {
+        }
+        else {
             message = new ChatMessage(userService.getUsernameByToken(message.getFrom()), message.getText(), MessageType.CHAT);
         }
 
         return message;
+    }
+
+    @MessageMapping("/{gameId}/gameState")
+    @SendTo("/topic/{gameId}/gameState")
+    public GameStatusDTO startGame(@DestinationVariable String gameId, GameStatusDTO gameStatus) {
+        return gameStatus;
     }
 
 }
