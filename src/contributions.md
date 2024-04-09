@@ -23,7 +23,7 @@ This document serves to track the contributions of each team member as part of t
 ## Arber
 
 - **Week 1**
-    - Task 1: Back-end user story 1, storing the user data [](#f05e66fdd36212bbf7a3d96625bc9874c47859f3) (#61)
+    - Task 1: Back-end user story 1, storing the user data [#f05e66fdd36212bbf7a3d96625bc9874c47859f3]() (#61)
     - Task 2: Ability to edit profile in the back-end [f05e66fdd36212bbf7a3d96625bc9874c47859f3](#) (#28)
 
 ## Nikola
