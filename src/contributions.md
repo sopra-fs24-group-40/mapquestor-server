@@ -23,8 +23,8 @@ This document serves to track the contributions of each team member as part of t
 ## Arber
 
 - **Week 1**
-    - Task 1: Back-end user story 1, storing the user data [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) (#61)
-    - Task 2: Ability to edit profile in the back-end [f05e66fdd36212bbf7a3d96625bc9874c47859f3](#) (#28)
+    - Task 1: Back-end user story 1, storing the user data [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) (Issue #61)
+    - Task 2: Ability to edit profile in the back-end [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) (Issue #28)
 
 ## Nikola
 
