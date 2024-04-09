@@ -17,8 +17,8 @@ This document serves to track the contributions of each team member as part of t
 ## Shanthos
 
 - **Week 1**
-    - Task 1: Set up the Continuous Integration pipeline. [Commit Link](#)
-    - Task 2: Wrote unit tests for the login component. [Commit Link](#)
+    - Task 1: Front-end user story 1. creating the Login and Register View [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/90be600c8b40ad22a79af4c6cff8fa50b1dbedc0) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179279)
+    - Task 2: create Leaderboard and Buttons in Dashboard View [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e12537cf4b7775f6a40a0d1668f6d294fde6c456) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121339)
 
 ## Arber
 
