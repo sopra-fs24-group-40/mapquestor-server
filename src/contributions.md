@@ -29,6 +29,5 @@ This document serves to track the contributions of each team member as part of t
 ## Nikola
 
 - **Week 1**
-    - Task 1: Designed and implemented the user interface. [Commit Link](#)
-    - Task 2: Integrated the frontend with the backend. [Commit Link](#)
+    - I took the "No continuous progress work done" Joker for this week.
 
