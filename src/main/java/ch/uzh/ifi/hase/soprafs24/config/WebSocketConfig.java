@@ -20,5 +20,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/ws")
                 .setAllowedOrigins("https://sopra-fs24-group-40-client.oa.r.appspot.com/")
                 .withSockJS();
+
     }
 }
