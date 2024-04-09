@@ -11,8 +11,8 @@ This document serves to track the contributions of each team member as part of t
 ## Branislav
 
 - **Week 1**
-    - Task 1: Set up the database. [Commit Link](#)
-    - Task 2: Created Docker containers for the backend. [Commit Link](#)
+    - Task 1: Created Header in Dashboard. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/29d232526275e5bcc4d177714ccd9a46a57e0f85) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121340)
+    - Task 2: Created overview of all registered users. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/23586624fc17275ac8ce99bf212010ca3aafcc21) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59124176)
 
 ## Shanthos
 
