@@ -6,6 +6,9 @@ import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -31,22 +35,54 @@ public class GameService {
         this.userRepository = userRepository;
     }
 
-    public Game createGame(Game gamePost) {
+    public Game createGame(CreateGameDTO newGame) {
+
+        User creator = userRepository.findByToken(newGame.getCreator())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+
+        if (creator.getGame() != null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is already in a game");
+        }
+
         Game game = new Game();
-        game.setPlayerCount(1);
-        game.setMaxPlayers(gamePost.getMaxPlayers());
-        game.setRoundCount(gamePost.getRoundCount());
-        game.setGameStatus(GameStatus.LOBBY);
-        game.setCreator(gamePost.getCreator());
+
         game.setGameCode(UUID.randomUUID().toString().substring(0, 5));
+        game.setCreator(newGame.getCreator());
+        game.setPlayerCount(1);
+        game.setMaxPlayers(newGame.getMaxPlayers());
+        game.setRoundCount(newGame.getRoundCount());
+        game.setGameType(newGame.getGameType());
+        game.setGameStatus(GameStatus.LOBBY);
+        game.addPlayer(creator);
 
         return gameRepository.save(game);
     }
 
 
-    public Game getGame(String gameCode) {
-        return gameRepository.findByGameCode(gameCode)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with id: " + gameCode));
+    public GameInfoDTO getGame(String gameCode) {
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
+
+        List<PlayerInfoDTO> playerInfoDTOs = game.getPlayers().stream()
+                .map(player -> {
+                    PlayerInfoDTO dto = new PlayerInfoDTO();
+                    dto.setUsername(player.getUsername());
+                    dto.setToken(player.getToken());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+
+        GameInfoDTO gameDTO = new GameInfoDTO();
+        gameDTO.setGameCode(game.getGameCode());
+        gameDTO.setCreator(game.getCreator());
+        gameDTO.setPlayerCount(game.getPlayerCount());
+        gameDTO.setMaxPlayers(game.getMaxPlayers());
+        gameDTO.setRoundCount(game.getRoundCount());
+        gameDTO.setGameType(game.getGameType());
+        gameDTO.setGameStatus(game.getGameStatus());
+        gameDTO.setPlayers(playerInfoDTOs);
+
+        return gameDTO;
     }
 
     public List<User> getUsersByGameId(String gameCode) {

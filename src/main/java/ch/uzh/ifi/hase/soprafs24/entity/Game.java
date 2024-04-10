@@ -1,9 +1,12 @@
 package ch.uzh.ifi.hase.soprafs24.entity;
 
 import ch.uzh.ifi.hase.soprafs24.constant.GameStatus;
-import org.springframework.context.annotation.Primary;
+import ch.uzh.ifi.hase.soprafs24.constant.GameType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,22 +16,31 @@ import java.util.List;
 public class Game {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long gameId;
 
     private String gameCode;
 
+    @NotBlank(message = "Creator is required")
     private String creator;
 
-    private int playerCount;
+    @Min(value = 1, message = "Player count must be at least 1")
+    private int playerCount = 1; // Initialwert hier setzen, falls standardmäßig 1
 
+    @Min(value = 2, message = "Maximum players must be at least 2")
     private int maxPlayers;
 
+    @Min(value = 1, message = "# of Rounds must be at least 1")
     private int roundCount;
 
+    @Enumerated(EnumType.STRING)
+    private GameType gameType;
+
+    @Enumerated(EnumType.STRING)
     private GameStatus gameStatus;
 
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<User> players = new ArrayList<>();
 
     public List<User> getPlayers() {
@@ -38,7 +50,6 @@ public class Game {
     public void setPlayers(List<User> players) {
         this.players = players;
     }
-
     public void addPlayer(User user) {
         this.players.add(user);
         user.setGame(this);
@@ -104,5 +115,13 @@ public class Game {
 
     public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public GameType getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(GameType gameType) {
+        this.gameType = gameType;
     }
 }

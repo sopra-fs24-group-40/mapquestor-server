@@ -1,0 +1,1 @@
+- Fix list of players in game -> use PlayerGetDTO instead of player

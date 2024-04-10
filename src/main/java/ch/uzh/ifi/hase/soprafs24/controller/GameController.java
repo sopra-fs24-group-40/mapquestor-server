@@ -2,6 +2,8 @@ package ch.uzh.ifi.hase.soprafs24.controller;
 
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,13 +23,13 @@ public class GameController {
 
 
     @PostMapping("/games")
-    public ResponseEntity<Game> createGame(@RequestBody Game game) {
+    public ResponseEntity<Game> createGame(@RequestBody CreateGameDTO game) {
         Game newGame = gameService.createGame(game);
         return new ResponseEntity<>(newGame, HttpStatus.CREATED);
     }
 
     @GetMapping("/games/{gameCode}")
-    public Game getGame(@PathVariable("gameCode") String gameCode) {
+    public GameInfoDTO getGame(@PathVariable("gameCode") String gameCode) {
         return gameService.getGame(gameCode);
     }
 

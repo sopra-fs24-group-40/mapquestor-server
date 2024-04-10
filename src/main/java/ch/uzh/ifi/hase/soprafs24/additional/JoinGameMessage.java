@@ -1,5 +1,6 @@
-package ch.uzh.ifi.hase.soprafs24.controller;
+package ch.uzh.ifi.hase.soprafs24.additional;
 
+import ch.uzh.ifi.hase.soprafs24.additional.GameMessage;
 import lombok.*;
 
 @Getter

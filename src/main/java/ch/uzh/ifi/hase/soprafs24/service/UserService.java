@@ -97,7 +97,9 @@ public class UserService {
 
 
     public UserGetDTO login(UserPostDTO userPostDTO) {
-        User user = userRepository.findByUsername(userPostDTO.getUsername());
+        User user = userRepository.findByUsername(userPostDTO.getUsername())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid username or password!"));
+
         if (user != null && checkPassword(userPostDTO.getPassword(), user.getPassword())) {
             user.setStatus(UserStatus.ONLINE);
             user.setToken(UUID.randomUUID().toString());
@@ -110,8 +112,9 @@ public class UserService {
     }
 
     public boolean logout(UserPostDTO userPostDTO) {
-        User user = userRepository.findByUsername(userPostDTO.getUsername());
-        if (user != null) {
+        Optional<User> userOptional = userRepository.findByUsername(userPostDTO.getUsername());
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
             user.setStatus(UserStatus.OFFLINE);
             user.setToken("");
             userRepository.save(user);

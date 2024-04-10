@@ -1,8 +1,5 @@
-package ch.uzh.ifi.hase.soprafs24.controller;
+package ch.uzh.ifi.hase.soprafs24.additional;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
@@ -15,8 +12,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Getter
 @Setter
-// {"type": "join", "name": "Alice"}
-// {"type": "chat", "message": "Hello, world!"}
 public abstract class GameMessage {
     public static ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
     public static Map<String, Class<?>> registry = new ConcurrentHashMap<>();
