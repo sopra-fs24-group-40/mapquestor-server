@@ -1,7 +1,7 @@
 package ch.uzh.ifi.hase.soprafs24.controller;
 
-import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
-import ch.uzh.ifi.hase.soprafs24.game.ChatMessage;
+import ch.uzh.ifi.hase.soprafs24.messages.Message;
+import ch.uzh.ifi.hase.soprafs24.messages.MessageHandler;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
@@ -16,29 +16,18 @@ public class GameWebSocketController {
     private final GameService gameService;
     private final UserService userService;
 
-    GameWebSocketController(GameService gameService, UserService userService) {
+    private final MessageHandler messageHandler;
+
+    GameWebSocketController(GameService gameService, UserService userService, MessageHandler messageHandler) {
         this.gameService = gameService;
         this.userService = userService;
+        this.messageHandler = messageHandler;
     }
 
     @MessageMapping("/{gameId}/chat")
     @SendTo("/topic/{gameId}/chat")
-    public ChatMessage sendChatMessage(@DestinationVariable String gameId, ChatMessage message) {
-        MessageType type = message.getType();
-
-        if (type == MessageType.JOIN) {
-            gameService.addUserToGame(message.getFrom(), gameId);
-            message = new ChatMessage(userService.getUsernameByToken(message.getFrom()), message.getText(), MessageType.JOIN);
-
-        }
-        else if (type == MessageType.START_COUNTDOWN) {
-            message = new ChatMessage(userService.getUsernameByToken(message.getFrom()), message.getText(), MessageType.START_COUNTDOWN);
-        }
-        else {
-            message = new ChatMessage(userService.getUsernameByToken(message.getFrom()), message.getText(), MessageType.CHAT);
-        }
-
-        return message;
+    public Message<?> sendChatMessage(@DestinationVariable String gameId, Message<?> message) {
+        return messageHandler.handleMessage(message, gameId);
     }
 
     @MessageMapping("/{gameId}/gameState")

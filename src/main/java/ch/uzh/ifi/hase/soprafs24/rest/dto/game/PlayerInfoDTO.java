@@ -5,6 +5,8 @@ public class PlayerInfoDTO {
 
     private String token;
 
+    private int points;
+
     public String getUsername() {
         return username;
     }
@@ -19,5 +21,13 @@ public class PlayerInfoDTO {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }

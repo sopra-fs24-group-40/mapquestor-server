@@ -10,7 +10,6 @@ import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -28,6 +27,7 @@ public class GameService {
 
     private final GameRepository gameRepository;
     private final UserRepository userRepository;
+
 
 
     public GameService(GameRepository gameRepository, UserRepository userRepository) {
@@ -68,6 +68,7 @@ public class GameService {
                     PlayerInfoDTO dto = new PlayerInfoDTO();
                     dto.setUsername(player.getUsername());
                     dto.setToken(player.getToken());
+                    dto.setPoints(0);
                     return dto;
                 })
                 .collect(Collectors.toList());
