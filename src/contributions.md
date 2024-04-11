@@ -14,6 +14,10 @@ This document serves to track the contributions of each team member as part of t
     - Task 1: Created Header in Dashboard. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/29d232526275e5bcc4d177714ccd9a46a57e0f85) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121340)
     - Task 2: Created overview of all registered users. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/23586624fc17275ac8ce99bf212010ca3aafcc21) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59124176)
 
+- **Week 2**
+    Thursday, 11-04-2024
+        Made a first draft of a user's Profile Page. I created the file ProfilePage and updated the Users file by linking the listed user to its profile page. The Edit button inside Profile Page navigates the user to the Edit Profile page. A back button was added inside the Edit Profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fae7a7081e53f93cef5314bc1de9047dbb353b84) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
+
 ## Shanthos
 
 - **Week 1**
