@@ -30,7 +30,10 @@ This document serves to track the contributions of each team member as part of t
     - Task 1: Back-end user story 1, storing the user data [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179570)
     - Task 2: Ability to edit profile in the back-end [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56785118)
 - **Week 2**
-    - Task 1: return the map from the API, connecting to API [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0ec6be1613bee310ac3af9739d0136b379d1287e) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56784172)
+  Thursday, 11-04-2024
+      Return the map from the API, connecting to API [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0ec6be1613bee310ac3af9739d0136b379d1287e) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56784172)
+  Friday, 12-04-2024
+    -  Task 2: edit page constructed, data gests changed in the server, further changes in the edit profile [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/65e9ac05818c3fa048b04baf596ca4a139700b80) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785117)
     
 ## Nikola
 
