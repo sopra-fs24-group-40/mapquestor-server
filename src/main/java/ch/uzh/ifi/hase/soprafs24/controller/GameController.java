@@ -4,6 +4,7 @@ import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserGameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,13 @@ public class GameController {
     public ResponseEntity<Game> createGame(@RequestBody CreateGameDTO game) {
         Game newGame = gameService.createGame(game);
         return new ResponseEntity<>(newGame, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/games/{gameCode}/join")
+    public ResponseEntity<Game> joinGame(@PathVariable("gameCode") String gameCode, @RequestBody UserGameInfoDTO user) {
+        System.out.println("Received token: " + user.getToken());  // Debugging line
+        Game game = gameService.joinGame(gameCode, user.getToken());
+        return new ResponseEntity<>(game, HttpStatus.OK);
     }
 
     @GetMapping("/games/{gameCode}")
