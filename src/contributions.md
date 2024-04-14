@@ -18,6 +18,11 @@ This document serves to track the contributions of each team member as part of t
     Thursday, 11-04-2024
         Made a first draft of a user's Profile Page. I created the file ProfilePage and updated the Users file by linking the listed user to its profile page. The Edit button inside Profile Page navigates the user to the Edit Profile page. A back button was added inside the Edit Profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fae7a7081e53f93cef5314bc1de9047dbb353b84) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
 
+    Sunday, 14-04-2024
+        Completed the user's Profile Page by making some fixes. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a17f1fe4aecb6b81d581692cc6b1e1d94d3e9a40) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
+
+        Worked on the Lobby Page. Creator can update the settings of the game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/dc4da74dba46c5127928abccca4684708189f69d) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785115)
+
 ## Shanthos
 
 - **Week 1**
