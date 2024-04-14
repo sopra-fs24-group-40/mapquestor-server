@@ -45,3 +45,6 @@ This document serves to track the contributions of each team member as part of t
 - **Week 1**
     - I took the "No continuous progress work done" Joker for this week.
 
+- **Week 2**
+    - Task 1: Frontend Issue 17: User-Friendly Game Screen (placement of containers, sizeing, created timer).
+    - Task 2: Make the hints and leaderboard (created the hints and placed it above the map, the leaderboard is on the left side and the chat field placed on the right side)
