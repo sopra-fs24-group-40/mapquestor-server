@@ -46,5 +46,5 @@ This document serves to track the contributions of each team member as part of t
     - I took the "No continuous progress work done" Joker for this week.
 
 - **Week 2**
-    - Task 1: Frontend Issue 17: User-Friendly Game Screen (placement of containers, sizeing, created timer).
-    - Task 2: Make the hints and leaderboard (created the hints and placed it above the map, the leaderboard is on the left side and the chat field placed on the right side)
+    - Task 1: Frontend Issue 17: User-Friendly Game Screen (placement of containers, sizeing, created timer). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784177)
+    - Task 2: Frontend Issue 23: Make the hints and leaderboard (created the hints and placed it above the map, the leaderboard is on the left side and the chat field placed on the right side). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784173)
