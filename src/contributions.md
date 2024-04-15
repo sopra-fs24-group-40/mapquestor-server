@@ -12,6 +12,7 @@ This document serves to track the contributions of each team member as part of t
 - **Week 2**
     - Added join game support [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d)
     - Add users to a game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d)
+    - 
   
 
 ## Branislav
