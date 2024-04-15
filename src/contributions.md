@@ -30,6 +30,10 @@ This document serves to track the contributions of each team member as part of t
 
         Worked on the Lobby Page. Creator can update the settings of the game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/dc4da74dba46c5127928abccca4684708189f69d) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785115)
 
+- **Week 3**
+    Monday, 15-04-2024
+        Updated Profile Page, so user can change username in the same page and fixed some errors. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5b8d6bcf99f5b12e10363fc0a14084650b75eaa2) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
+
 ## Shanthos
 
 - **Week 1**
