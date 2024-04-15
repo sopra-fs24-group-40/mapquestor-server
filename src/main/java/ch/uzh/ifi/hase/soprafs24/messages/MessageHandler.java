@@ -27,7 +27,6 @@ public class MessageHandler {
         else if (message.getType() == MessageType.JOIN) {
             @SuppressWarnings("unchecked")
             Message<String> joinMessage = (Message<String>) message;
-            gameService.addUserToGame(joinMessage.getFrom(), gameCode);
             return processJoinMessage(joinMessage);
         }
         else if (message.getType() == MessageType.START_COUNTDOWN) {
