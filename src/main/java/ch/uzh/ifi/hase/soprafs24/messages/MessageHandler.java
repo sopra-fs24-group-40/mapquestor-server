@@ -30,6 +30,9 @@ public class MessageHandler {
             gameService.addUserToGame(joinMessage.getFrom(), gameCode);
             return processJoinMessage(joinMessage);
         }
+        else if (message.getType() == MessageType.START_COUNTDOWN) {
+            return message;
+        }
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
         }
