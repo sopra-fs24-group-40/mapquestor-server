@@ -147,5 +147,20 @@ public class GameService {
         return gameStatus;
     }
 
+    // public User addPointsToUser(String gameCode, String username, Integer points) {
+    //     Game game = gameRepository.findByGameCode(gameCode)
+    //             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
 
+    //     User user = userRepository.findByUsername(username)
+    //             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with username: " + username));
+
+    //     if (game.getPlayers().contains(user)) {
+    //         user.setPoints(user.getPoints() + points);
+    //         userRepository.save(user);
+    //         return user;
+    //     }
+    //     else {
+    //         throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is not in the game");
+    //     }        
+    // }
 }

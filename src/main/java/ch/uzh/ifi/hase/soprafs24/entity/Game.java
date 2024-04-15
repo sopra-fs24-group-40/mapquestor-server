@@ -53,6 +53,7 @@ public class Game {
     public void addPlayer(User user) {
         this.players.add(user);
         user.setGame(this);
+        this.setPlayerCount(this.getPlayerCount() + 1);
     }
 
     public void removePlayer(User user) {
