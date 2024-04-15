@@ -37,4 +37,6 @@ public abstract class GameMessage {
         return new TextMessage(mapper.writeValueAsString(this));
     }
 
+
+
 }
