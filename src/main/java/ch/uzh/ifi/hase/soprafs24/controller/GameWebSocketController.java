@@ -33,7 +33,7 @@ public class GameWebSocketController {
     @MessageMapping("/{gameId}/gameState")
     @SendTo("/topic/{gameId}/gameState")
     public GameStatusDTO startGame(@DestinationVariable String gameId, GameStatusDTO gameStatus) {
-        return gameStatus;
+        return gameService.updateGameStatus(gameId, gameStatus);
     }
 
 }

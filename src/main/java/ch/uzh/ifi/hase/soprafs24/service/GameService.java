@@ -8,6 +8,7 @@ import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -134,6 +135,16 @@ public class GameService {
         else {
             throw new RuntimeException("Das Spiel ist bereits voll");
         }
+    }
+
+    public GameStatusDTO updateGameStatus(String gameCode, GameStatusDTO gameStatus) {
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
+
+        game.setGameStatus(gameStatus.getStatus());
+        gameRepository.save(game);
+
+        return gameStatus;
     }
 
 
