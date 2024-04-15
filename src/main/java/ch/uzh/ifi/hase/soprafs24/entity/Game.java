@@ -25,7 +25,7 @@ public class Game {
     private String creator;
 
     @Min(value = 1, message = "Player count must be at least 1")
-    private int playerCount = 1; // Initialwert hier setzen, falls standardmäßig 1
+    private int playerCount = 0; // Initialwert hier setzen, falls standardmäßig 1
 
     @Min(value = 2, message = "Maximum players must be at least 2")
     private int maxPlayers;
