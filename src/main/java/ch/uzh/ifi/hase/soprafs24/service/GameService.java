@@ -49,7 +49,7 @@ public class GameService {
 
         game.setGameCode(UUID.randomUUID().toString().substring(0, 5));
         game.setCreator(newGame.getCreator());
-        game.setPlayerCount(1);
+        game.setPlayerCount(0);
         game.setMaxPlayers(newGame.getMaxPlayers());
         game.setRoundCount(newGame.getRoundCount());
         game.setGameType(newGame.getGameType());
