@@ -2,31 +2,27 @@ package ch.uzh.ifi.hase.soprafs24.service;
 
 
 import ch.uzh.ifi.hase.soprafs24.constant.GameStatus;
+import ch.uzh.ifi.hase.soprafs24.entity.City;
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
-import ch.uzh.ifi.hase.soprafs24.entity.City;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
-import ch.uzh.ifi.hase.soprafs24.repository.CityRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CityDTO;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
-import javax.validation.constraints.Null;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.io.IOException;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.Random;
 
 @Service
 @Transactional
@@ -34,14 +30,31 @@ public class GameService {
 
     private final GameRepository gameRepository;
     private final UserRepository userRepository;
-    private final CityRepository cityRepository;
+
+    private List<City> cities;
+    private final Random random = new Random();
 
 
-
-    public GameService(GameRepository gameRepository, UserRepository userRepository, CityRepository cityRepository) {
+    public GameService(GameRepository gameRepository, UserRepository userRepository) {
         this.gameRepository = gameRepository;
         this.userRepository = userRepository;
-        this.cityRepository = cityRepository;
+        this.cities = loadCities();
+    }
+
+
+    private List<City> loadCities() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.readValue(new ClassPathResource("cities.json").getInputStream(), new TypeReference<List<City>>() {
+            });
+        }
+        catch (IOException e) {
+            throw new RuntimeException("Failed to load cities from JSON file", e);
+        }
+    }
+
+    public City getRandomCity() {
+        return cities.get(random.nextInt(cities.size()));
     }
 
     public Game createGame(CreateGameDTO newGame) {
@@ -155,29 +168,7 @@ public class GameService {
         return gameStatus;
     }
 
-    public CityDTO sendRandomCityData(String gameId) {
-        List<City> cities = cityRepository.findAll();
 
-        if (cities.isEmpty()) {
-            throw new IllegalStateException("No cities found in the repository");
-        }
-
-        Random random = new Random();
-        City randomCity = cities.get(random.nextInt(cities.size()));
-
-        // Convert City entity to CityDTO
-        CityDTO randomCityDTO = convertToDTO(randomCity);
-        
-        // Assuming you want to send the random city data over WebSocket
-        return randomCityDTO;
-    }
-    
-    // Method to convert City entity to CityDTO
-    private CityDTO convertToDTO(City city) {
-        return new CityDTO(city.getId(), city.getName(), city.getCapital(), city.getLongitude(), city.getLatitude());
-    }
-
-    
     // public User addPointsToUser(String gameCode, String username, Integer points) {
     //     Game game = gameRepository.findByGameCode(gameCode)
     //             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
