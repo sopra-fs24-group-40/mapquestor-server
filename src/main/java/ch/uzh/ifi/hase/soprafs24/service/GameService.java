@@ -33,76 +33,68 @@ public class GameService {
     private final UserRepository userRepository;
     private final CityRepository cityRepository;
 
-    private List<City> cities;
-    private final Random random = new Random();
-
 
     public GameService(GameRepository gameRepository, UserRepository userRepository, CityRepository cityRepository) {
         this.gameRepository = gameRepository;
         this.userRepository = userRepository;
         this.cityRepository = cityRepository;
-        this.cities = loadCities();
-    }
-
-
-    private List<City> loadCities() {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(new ClassPathResource("cities.json").getInputStream(), new TypeReference<List<City>>() {
-            });
-        }
-        catch (IOException e) {
-            throw new RuntimeException("Failed to load cities from JSON file ", e);
-        }
     }
 
     public City getRandomCity() {
+        System.out.println(1);
         List<City> cities = cityRepository.findAll();
-
+        System.out.println(cities);
         if (cities.isEmpty()) {
             throw new IllegalStateException("No cities found in the repository");
         }
 
         Random random = new Random();
         City randomCity = cities.get(random.nextInt(cities.size()));
+        System.out.println("Random City: " + randomCity);
         return randomCity;
     }
 
-    private List<City> selectCitiesForGame(int roundCount) {
-        Collections.shuffle(this.cities);
-        return new ArrayList<>(this.cities.subList(0, Math.min(roundCount, this.cities.size())));
-    }
-
+    @Transactional
     public Game createGame(CreateGameDTO newGame) {
-
+        // Find the creator user
         User creator = userRepository.findByToken(newGame.getCreator())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
-
+    
+        // Check if the creator is already in a game
         if (creator.getGame() != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is already in a game");
         }
-
+    
+        // Create the game entity
         Game game = new Game();
-
         game.setGameCode(UUID.randomUUID().toString().substring(0, 5));
         game.setCreator(newGame.getCreator());
-        game.setPlayerCount(0);
         game.setMaxPlayers(newGame.getMaxPlayers());
         game.setRoundCount(newGame.getRoundCount());
         game.setGameType(newGame.getGameType());
         game.setGameStatus(GameStatus.LOBBY);
-        game.addPlayer(creator);
-
+    
+        // Now add random cities to the game
         List<City> selectedCities = new ArrayList<>();
-
         for (int i = 0; i < newGame.getRoundCount(); i++) {
             selectedCities.add(getRandomCity());
         }
-        
         game.setCities(selectedCities);
-
-        return gameRepository.save(game);
+    
+        // Save the game entity to generate a valid ID
+        game = gameRepository.save(game);
+    
+        // Add the creator user to the game
+        game.addPlayer(creator);
+    
+        // Update the user's game reference
+        creator.setGame(game);
+        userRepository.save(creator);
+    
+        return game;
     }
+    
+
 
 
     public GameInfoDTO getGame(String gameCode) {

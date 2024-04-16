@@ -23,10 +23,6 @@ public class CityDataInitializer implements CommandLineRunner {
         cityService.saveCities(countries);
 
         // Print the list of cities to the console
-        System.out.println("Cities inserted:");
-        for (City city : countries) {
-            System.out.println(city);
-        }
     }
 
     private List<City> getCountriesList() {

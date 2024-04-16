@@ -24,7 +24,7 @@ public class Game {
     @NotBlank(message = "Creator is required")
     private String creator;
 
-    @Min(value = 1, message = "Player count must be at least 1")
+    @Min(value = 0, message = "Player count must be at least 1")
     private int playerCount = 0;
 
     @Min(value = 2, message = "Maximum players must be at least 2")
