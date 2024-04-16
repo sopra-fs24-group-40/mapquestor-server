@@ -7,6 +7,7 @@ import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
+import ch.uzh.ifi.hase.soprafs24.repository.CityRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
@@ -30,14 +31,16 @@ public class GameService {
 
     private final GameRepository gameRepository;
     private final UserRepository userRepository;
+    private final CityRepository cityRepository;
 
     private List<City> cities;
     private final Random random = new Random();
 
 
-    public GameService(GameRepository gameRepository, UserRepository userRepository) {
+    public GameService(GameRepository gameRepository, UserRepository userRepository, CityRepository cityRepository) {
         this.gameRepository = gameRepository;
         this.userRepository = userRepository;
+        this.cityRepository = cityRepository;
         this.cities = loadCities();
     }
 
@@ -54,7 +57,15 @@ public class GameService {
     }
 
     public City getRandomCity() {
-        return cities.get(random.nextInt(cities.size()));
+        List<City> cities = cityRepository.findAll();
+
+        if (cities.isEmpty()) {
+            throw new IllegalStateException("No cities found in the repository");
+        }
+
+        Random random = new Random();
+        City randomCity = cities.get(random.nextInt(cities.size()));
+        return randomCity;
     }
 
     private List<City> selectCitiesForGame(int roundCount) {
@@ -82,10 +93,12 @@ public class GameService {
         game.setGameStatus(GameStatus.LOBBY);
         game.addPlayer(creator);
 
-        List<City> selectedCities = selectCitiesForGame(newGame.getRoundCount());
-        for (City city : selectedCities) {
-            city.setGame(game);
+        List<City> selectedCities = new ArrayList<>();
+
+        for (int i = 0; i < newGame.getRoundCount(); i++) {
+            selectedCities.add(getRandomCity());
         }
+        
         game.setCities(selectedCities);
 
         return gameRepository.save(game);
