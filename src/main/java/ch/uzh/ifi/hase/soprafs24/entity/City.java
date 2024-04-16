@@ -3,25 +3,22 @@ package ch.uzh.ifi.hase.soprafs24.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
+
 @Getter
 @Setter
+@Entity
 public class City {
 
+
+    @Id
+    private Long id;
     private String name;
     private String capital;
     private double longitude;
     private double latitude;
 
-    // Constructors
-    public City() {
-    }
-
-    public City(String name, String capital, double longitude, double latitude) {
-        this.name = name;
-        this.capital = capital;
-        this.longitude = longitude;
-        this.latitude = latitude;
-    }
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Game game;
 
 }

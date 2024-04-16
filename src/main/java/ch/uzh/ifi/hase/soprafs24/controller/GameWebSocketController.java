@@ -38,10 +38,5 @@ public class GameWebSocketController {
         return gameService.updateGameStatus(gameId, gameStatus);
     }
 
-    @MessageMapping("/{gameId}/sendCityData")
-    @SendTo("/topic/{gameId}/cityData")
-    public CityDTO sendCityData(@DestinationVariable String gameId) {
-        return gameService.sendRandomCityData(gameId);
-    }
 
 }

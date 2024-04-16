@@ -25,7 +25,7 @@ public class Game {
     private String creator;
 
     @Min(value = 1, message = "Player count must be at least 1")
-    private int playerCount = 0; // Initialwert hier setzen, falls standardmäßig 1
+    private int playerCount = 0;
 
     @Min(value = 2, message = "Maximum players must be at least 2")
     private int maxPlayers;
@@ -39,6 +39,11 @@ public class Game {
     @Enumerated(EnumType.STRING)
     private GameStatus gameStatus;
 
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "game_id") // This column will be in the City table
+    private List<City> cities = new ArrayList<>();
+
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<User> players = new ArrayList<>();
@@ -50,6 +55,7 @@ public class Game {
     public void setPlayers(List<User> players) {
         this.players = players;
     }
+
     public void addPlayer(User user) {
         this.players.add(user);
         user.setGame(this);
@@ -124,5 +130,13 @@ public class Game {
 
     public void setGameType(GameType gameType) {
         this.gameType = gameType;
+    }
+
+    public List<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
     }
 }

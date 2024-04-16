@@ -1,5 +1,6 @@
 package ch.uzh.ifi.hase.soprafs24.controller;
 
+import ch.uzh.ifi.hase.soprafs24.entity.City;
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
@@ -55,5 +56,10 @@ public class GameController {
     //     User users = gameService.addPointsToUser(gameCode, username, points);
     //     return ResponseEntity.ok(users);
     // }
+
+    @GetMapping("/city")
+    public ResponseEntity<City> getCity() {
+        return ResponseEntity.ok(gameService.getRandomCity());
+    }
 
 }

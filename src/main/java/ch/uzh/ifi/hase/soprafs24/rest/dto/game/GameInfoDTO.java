@@ -2,6 +2,7 @@ package ch.uzh.ifi.hase.soprafs24.rest.dto.game;
 
 import ch.uzh.ifi.hase.soprafs24.constant.GameStatus;
 import ch.uzh.ifi.hase.soprafs24.constant.GameType;
+import ch.uzh.ifi.hase.soprafs24.entity.City;
 
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class GameInfoDTO {
     private GameStatus gameStatus;
 
     private List<PlayerInfoDTO> players;
+
+    private List<City> cities;
 
 
     public String getGameCode() {
@@ -87,5 +90,12 @@ public class GameInfoDTO {
 
     public void setPlayers(List<PlayerInfoDTO> players) {
         this.players = players;
+    }
+
+    public List<City> getCities() {
+        return cities;
+    }
+    public void setCities(List<City> cities) {
+        this.cities = cities;
     }
 }

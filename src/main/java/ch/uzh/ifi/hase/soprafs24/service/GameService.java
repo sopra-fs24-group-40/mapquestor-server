@@ -57,6 +57,11 @@ public class GameService {
         return cities.get(random.nextInt(cities.size()));
     }
 
+    private List<City> selectCitiesForGame(int roundCount) {
+        Collections.shuffle(this.cities);
+        return new ArrayList<>(this.cities.subList(0, Math.min(roundCount, this.cities.size())));
+    }
+
     public Game createGame(CreateGameDTO newGame) {
 
         User creator = userRepository.findByToken(newGame.getCreator())
@@ -76,6 +81,12 @@ public class GameService {
         game.setGameType(newGame.getGameType());
         game.setGameStatus(GameStatus.LOBBY);
         game.addPlayer(creator);
+
+        List<City> selectedCities = selectCitiesForGame(newGame.getRoundCount());
+        for (City city : selectedCities) {
+            city.setGame(game);
+        }
+        game.setCities(selectedCities);
 
         return gameRepository.save(game);
     }
@@ -104,6 +115,8 @@ public class GameService {
         gameDTO.setGameType(game.getGameType());
         gameDTO.setGameStatus(game.getGameStatus());
         gameDTO.setPlayers(playerInfoDTOs);
+        gameDTO.setCities(game.getCities());
+
 
         return gameDTO;
     }
