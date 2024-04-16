@@ -49,7 +49,7 @@ public class GameService {
             });
         }
         catch (IOException e) {
-            throw new RuntimeException("Failed to load cities from JSON file", e);
+            throw new RuntimeException("Failed to load cities from JSON file ", e);
         }
     }
 
