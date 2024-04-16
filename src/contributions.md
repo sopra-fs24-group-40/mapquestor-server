@@ -55,7 +55,10 @@ This document serves to track the contributions of each team member as part of t
       Return the map from the API, connecting to API [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0ec6be1613bee310ac3af9739d0136b379d1287e) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56784172)
   Friday, 12-04-2024
     -  Task 2: edit page constructed, data gests changed in the server, further changes in the edit profile [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/65e9ac05818c3fa048b04baf596ca4a139700b80) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785117)
-    
+- **Week 3**
+  Monday, 15-04-2024
+      Update leaderboard in Ingame component, addpoints Assign points correctly [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f08cb49753029ded66844cb7642c67a9ba7cf77a) [Issue link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/30)
+      Disable street names and Google Maps links in Ingame compnenet [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e134ed038591a996c66004ffbdb31c4dd3410147)
 ## Nikola
 
 - **Week 1**
