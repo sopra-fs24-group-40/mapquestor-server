@@ -48,7 +48,8 @@ This document serves to track the contributions of each team member as part of t
     - Task 2: Connecting Buttons with API and styling [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e25bece91020c84de23af92edf91cf8965cac320) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56786646)    
 - **Week 3**
     - Task 1: Reworked the Create Game File, has now proper functionality and proper UI Design [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/05412db436f34632129a1b2a18c12f5f6f4d893f) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785116)
-    - Task 2: Eifach ULTRA KRASSE MENSCH si
+    - Task 2: functionalities given in "open lobbies screen", UI also finished [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9a0434bca4e6610e1d7faca7f126d9af22903732) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60085103)
+  
 ## Arber
 
 - **Week 1**
