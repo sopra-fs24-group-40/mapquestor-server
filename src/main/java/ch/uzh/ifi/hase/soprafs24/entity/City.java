@@ -1,4 +1,5 @@
 package ch.uzh.ifi.hase.soprafs24.entity;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,18 +13,21 @@ public class City {
 
     private String name;
     private String capital;
-    private double longitude;
+
     private double latitude;
+    private double longitude;
+
 
     // Constructors
     public City() {
     }
 
-    public City(String name, String capital, double longitude, double latitude) {
+    public City(String name, String capital, double latitude, double longitude) {
         this.name = name;
         this.capital = capital;
-        this.longitude = longitude;
         this.latitude = latitude;
+        this.longitude = longitude;
+
     }
 
     // Getters and setters
