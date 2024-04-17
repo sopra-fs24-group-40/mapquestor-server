@@ -8,10 +8,12 @@ import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.CityRepository;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.io.ClassPathResource;
@@ -40,6 +42,7 @@ public class GameService {
         this.cityRepository = cityRepository;
     }
 
+
     public City getRandomCity() {
         System.out.println(1);
         List<City> cities = cityRepository.findAll();
@@ -59,12 +62,12 @@ public class GameService {
         // Find the creator user
         User creator = userRepository.findByToken(newGame.getCreator())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
-    
+
         // Check if the creator is already in a game
         if (creator.getGame() != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is already in a game");
         }
-    
+
         Game game = new Game();
         game.setGameCode(UUID.randomUUID().toString().substring(0, 5));
         game.setCreator(newGame.getCreator());
@@ -72,26 +75,34 @@ public class GameService {
         game.setRoundCount(newGame.getRoundCount());
         game.setGameType(newGame.getGameType());
         game.setGameStatus(GameStatus.LOBBY);
-    
+
         List<City> selectedCities = new ArrayList<>();
         for (int i = 0; i < newGame.getRoundCount(); i++) {
             selectedCities.add(getRandomCity());
         }
         game.setCities(selectedCities);
-    
+
         game = gameRepository.save(game);
-    
+
         // Add the creator user to the game
         game.addPlayer(creator);
-    
+
         // Update the user's game reference
         creator.setGame(game);
         userRepository.save(creator);
-    
+
         return game;
     }
-    
 
+
+    public List<GameInfoDTO> getGames() {
+        List<Game> games = gameRepository.findAll();
+        List<GameInfoDTO> gameInfoDTOS = new ArrayList<>();
+
+        games.forEach(game -> gameInfoDTOS.add(DTOMapper.INSTANCE.convertEntityToGameInfoDTO(game)));
+
+        return gameInfoDTOS;
+    }
 
 
     public GameInfoDTO getGame(String gameCode) {

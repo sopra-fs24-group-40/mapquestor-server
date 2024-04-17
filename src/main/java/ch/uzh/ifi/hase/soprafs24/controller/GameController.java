@@ -30,6 +30,12 @@ public class GameController {
         return new ResponseEntity<>(newGame, HttpStatus.CREATED);
     }
 
+    @GetMapping("/games")
+    public ResponseEntity<List<GameInfoDTO>> getGames() {
+        List<GameInfoDTO> games = gameService.getGames();
+        return ResponseEntity.ok(games);
+    }
+
     @PostMapping("/games/{gameCode}/join")
     public ResponseEntity<Game> joinGame(@PathVariable("gameCode") String gameCode, @RequestBody UserGameInfoDTO user) {
         System.out.println("Received token: " + user.getToken());  // Debugging line
