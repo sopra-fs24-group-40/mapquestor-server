@@ -54,7 +54,7 @@ public class GameService {
         return randomCity;
     }
 
-    @Transactional
+
     public Game createGame(CreateGameDTO newGame) {
         // Find the creator user
         User creator = userRepository.findByToken(newGame.getCreator())
