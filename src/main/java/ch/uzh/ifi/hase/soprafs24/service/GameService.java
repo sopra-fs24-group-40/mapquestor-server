@@ -65,7 +65,6 @@ public class GameService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is already in a game");
         }
     
-        // Create the game entity
         Game game = new Game();
         game.setGameCode(UUID.randomUUID().toString().substring(0, 5));
         game.setCreator(newGame.getCreator());
@@ -74,14 +73,12 @@ public class GameService {
         game.setGameType(newGame.getGameType());
         game.setGameStatus(GameStatus.LOBBY);
     
-        // Now add random cities to the game
         List<City> selectedCities = new ArrayList<>();
         for (int i = 0; i < newGame.getRoundCount(); i++) {
             selectedCities.add(getRandomCity());
         }
         game.setCities(selectedCities);
     
-        // Save the game entity to generate a valid ID
         game = gameRepository.save(game);
     
         // Add the creator user to the game

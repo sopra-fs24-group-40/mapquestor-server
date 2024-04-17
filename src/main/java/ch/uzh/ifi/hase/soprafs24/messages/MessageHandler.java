@@ -6,6 +6,8 @@ import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MessageHandler {
 
@@ -38,6 +40,13 @@ public class MessageHandler {
         else if (message.getType() == MessageType.START_COUNTDOWN) {
             return message;
         }
+
+        else if (message.getType() == MessageType.POINTS) {
+            @SuppressWarnings("unchecked")
+            Message<List<PlayerInfoDTO>> pointsMessage = (Message<List<PlayerInfoDTO>>) message;
+            return processPointsMessage(pointsMessage);
+        }
+
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
         }
@@ -54,6 +63,10 @@ public class MessageHandler {
         playerInfo.setPoints(0);
 
         return new Message<>(message.getFrom(), playerInfo, MessageType.JOIN);
+    }
+
+    public Message<List<PlayerInfoDTO>> processPointsMessage(Message<List<PlayerInfoDTO>> message) {
+        return message;
     }
 
 

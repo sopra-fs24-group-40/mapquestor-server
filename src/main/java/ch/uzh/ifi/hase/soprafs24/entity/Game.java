@@ -41,7 +41,7 @@ public class Game {
 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "game_id") // This column will be in the City table
+    @JoinColumn(name = "game_id")
     private List<City> cities = new ArrayList<>();
 
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
