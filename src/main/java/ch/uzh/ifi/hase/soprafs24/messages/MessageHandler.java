@@ -42,9 +42,11 @@ public class MessageHandler {
         }
 
         else if (message.getType() == MessageType.POINTS) {
+            System.out.println("debug:" + message);
             @SuppressWarnings("unchecked")
+
             Message<List<PlayerInfoDTO>> pointsMessage = (Message<List<PlayerInfoDTO>>) message;
-            return processPointsMessage(pointsMessage);
+            return pointsMessage;
         }
 
         else {
