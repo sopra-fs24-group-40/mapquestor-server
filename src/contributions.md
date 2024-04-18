@@ -38,6 +38,10 @@ This document serves to track the contributions of each team member as part of t
         Updated All Users page, so only the username is visible as a list without bulletpoints. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b8079a01ba940480ffdcd310e946cbc8ab6e7154) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59124176)
         Fixed Profile Page for editing, started to include avatars. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b8079a01ba940480ffdcd310e946cbc8ab6e7154) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
 
+    Thursday, 18-04-2024
+        Added a Spinner file, that can be used in between rounds. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/55b0c04c435baa88e44ec9c98e8696afda111781) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=60228743)
+        Updated Profile Page so the username is updated on the current page after changing it. Added Change Avatar button for later use. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/55b0c04c435baa88e44ec9c98e8696afda111781) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
+
 ## Shanthos
 
 - **Week 1**
