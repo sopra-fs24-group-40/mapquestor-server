@@ -2,6 +2,7 @@ package ch.uzh.ifi.hase.soprafs24.service;
 
 
 import ch.uzh.ifi.hase.soprafs24.constant.GameStatus;
+import ch.uzh.ifi.hase.soprafs24.constant.UserStatus;
 import ch.uzh.ifi.hase.soprafs24.entity.City;
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
@@ -23,6 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.constraints.Null;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -44,16 +47,13 @@ public class GameService {
 
 
     public City getRandomCity() {
-        System.out.println(1);
         List<City> cities = cityRepository.findAll();
-        System.out.println(cities);
         if (cities.isEmpty()) {
             throw new IllegalStateException("No cities found in the repository");
         }
 
         Random random = new Random();
         City randomCity = cities.get(random.nextInt(cities.size()));
-        System.out.println("Random City: " + randomCity);
         return randomCity;
     }
 
@@ -98,6 +98,7 @@ public class GameService {
     public List<GameInfoDTO> getGames() {
         List<Game> games = gameRepository.findAll();
         List<GameInfoDTO> gameInfoDTOS = new ArrayList<>();
+        System.out.println(games);
 
         games.forEach(game -> gameInfoDTOS.add(DTOMapper.INSTANCE.convertEntityToGameInfoDTO(game)));
 
@@ -194,21 +195,30 @@ public class GameService {
         return gameStatus;
     }
 
+    public void dumpUserAndDeleteGameIfEmpty(String token, String gameCode) {
+        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Spiel nicht gefunden"));
+        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("Benutzer nicht gefunden"));
+        
+        System.out.println(token);
+        System.out.println(user.getToken());
+        // Remove the user from the game
+        game.removePlayer(user);
+        game.setPlayerCount(game.getPlayerCount() - 1);
+    
+        user.setStatus(UserStatus.ONLINE);
+        user.setGame(null);
+    
+        // Save the user's status and the updated game
+        userRepository.save(user);
+        gameRepository.save(game);
 
-    // public User addPointsToUser(String gameCode, String username, Integer points) {
-    //     Game game = gameRepository.findByGameCode(gameCode)
-    //             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
-
-    //     User user = userRepository.findByUsername(username)
-    //             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with username: " + username));
-
-    //     if (game.getPlayers().contains(user)) {
-    //         user.setPoints(user.getPoints() + points);
-    //         userRepository.save(user);
-    //         return user;
-    //     }
-    //     else {
-    //         throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is not in the game");
-    //     }        
-    // }
+        System.out.println("----------------------------------------------------------");
+        System.out.println(userRepository.findAll());
+        System.out.println("----------------------------------------------------------");
+        // Check if the game is empty and delete if needed
+        if (game.getPlayerCount() == 0) {
+            gameRepository.delete(game);
+        }
+    }
+    
 }

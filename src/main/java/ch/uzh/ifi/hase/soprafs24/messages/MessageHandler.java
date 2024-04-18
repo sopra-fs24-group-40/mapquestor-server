@@ -49,6 +49,12 @@ public class MessageHandler {
             return pointsMessage;
         }
 
+        else if (message.getType() == MessageType.LEAVE) {
+            @SuppressWarnings("unchecked")
+            Message<String> leavMessage = (Message<String>) message;
+            return porcessLeaveMessage(leavMessage, gameCode);
+        }
+
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
         }
@@ -71,5 +77,9 @@ public class MessageHandler {
         return message;
     }
 
-
+    public Message<String> porcessLeaveMessage(Message<String> message, String gameCode) {
+        System.out.println("User " + message.getFrom() + " left game " + gameCode);
+        gameService.dumpUserAndDeleteGameIfEmpty(message.getFrom(), gameCode);
+        return message;
+    }
 }

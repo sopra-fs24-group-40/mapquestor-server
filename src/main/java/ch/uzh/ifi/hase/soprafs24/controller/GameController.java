@@ -57,12 +57,6 @@ public class GameController {
         return ResponseEntity.ok(usernames);
     }
 
-    // @PutMapping("/games/{gameCode}/users/{username}")
-    // public ResponseEntity<User> updatePointsUser(@PathVariable("gameCode") String gameCode, @PathVariable String username,  @RequestBody Integer points) {
-    //     User users = gameService.addPointsToUser(gameCode, username, points);
-    //     return ResponseEntity.ok(users);
-    // }
-
     @GetMapping("/city")
     public ResponseEntity<City> getCity() {
         return ResponseEntity.ok(gameService.getRandomCity());
