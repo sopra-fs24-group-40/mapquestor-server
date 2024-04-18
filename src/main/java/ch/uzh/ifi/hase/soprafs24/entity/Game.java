@@ -44,9 +44,10 @@ public class Game {
     @JoinColumn(name = "game_id")
     private List<City> cities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "game", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JsonManagedReference
     private List<User> players = new ArrayList<>();
+
 
     public List<User> getPlayers() {
         return players;
