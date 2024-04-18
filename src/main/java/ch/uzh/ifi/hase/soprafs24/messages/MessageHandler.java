@@ -51,8 +51,8 @@ public class MessageHandler {
 
         else if (message.getType() == MessageType.LEAVE) {
             @SuppressWarnings("unchecked")
-            Message<String> leavMessage = (Message<String>) message;
-            return porcessLeaveMessage(leavMessage, gameCode);
+            Message<String> leaveMessage = (Message<String>) message;
+            return processLeaveMessage(leaveMessage, gameCode);
         }
 
         else if (message.getType() == MessageType.JOKER) {
@@ -80,12 +80,8 @@ public class MessageHandler {
         return new Message<>(message.getFrom(), playerInfo, MessageType.JOIN);
     }
 
-    public Message<List<PlayerInfoDTO>> processPointsMessage(Message<List<PlayerInfoDTO>> message) {
-        return message;
-    }
 
-    public Message<String> porcessLeaveMessage(Message<String> message, String gameCode) {
-        System.out.println("User " + message.getFrom() + " left game " + gameCode);
+    public Message<String> processLeaveMessage(Message<String> message, String gameCode) {
         gameService.dumpUserAndDeleteGameIfEmpty(message.getFrom(), gameCode);
         return message;
     }
