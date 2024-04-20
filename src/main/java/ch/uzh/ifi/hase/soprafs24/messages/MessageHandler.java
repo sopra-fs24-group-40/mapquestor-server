@@ -55,6 +55,13 @@ public class MessageHandler {
             return porcessLeaveMessage(leavMessage, gameCode);
         }
 
+        else if (message.getType() == MessageType.JOKER) {
+            @SuppressWarnings("unchecked")
+            Message<String> jokerMessage = (Message<String>) message;
+            System.out.println("Joker message received: ");
+            return jokerMessage;
+        }
+
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
         }
