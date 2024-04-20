@@ -73,7 +73,9 @@ This document serves to track the contributions of each team member as part of t
       Update leaderboard in Ingame component, addpoints Assign points correctly [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f08cb49753029ded66844cb7642c67a9ba7cf77a) [Issue link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/30)
       Disable street names and Google Maps links in Ingame compnenet [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e134ed038591a996c66004ffbdb31c4dd3410147)
   Tuesday, 16-04-2024
-      Returning cities for all user, so all users have the same city to play [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/7cf98e80c47e233c3b5d0f39a2e45c93f5ea3100) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b6480c879713a36a4a580dee4757118136b9a358) [Commit link 3](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5ebffa855b0ea901199c5099e466d4a7ded50585) 
+      Returning cities for all user, so all users have the same city to play [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/7cf98e80c47e233c3b5d0f39a2e45c93f5ea3100) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b6480c879713a36a4a580dee4757118136b9a358) [Commit link 3](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5ebffa855b0ea901199c5099e466d4a7ded50585)
+  Thursday, 18-04-2024
+      Leave match option [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5a34baa45f48fddab17f7cd5519695ab22d993d7) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/15aeb32872597cd00c525b6845645ff2512af062)
 ## Nikola
 
 - **Week 1**
