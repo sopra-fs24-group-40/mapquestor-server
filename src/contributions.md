@@ -76,6 +76,8 @@ This document serves to track the contributions of each team member as part of t
       - Returning cities for all user, so all users have the same city to play [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/7cf98e80c47e233c3b5d0f39a2e45c93f5ea3100) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b6480c879713a36a4a580dee4757118136b9a358) [Commit link 3](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5ebffa855b0ea901199c5099e466d4a7ded50585) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60422940)
   Thursday, 18-04-2024
       - Leave match option [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5a34baa45f48fddab17f7cd5519695ab22d993d7) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/15aeb32872597cd00c525b6845645ff2512af062) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60422897)
+  Saturday, 20-04-2024
+      - Work on Delay Joker with Nikola. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
 ## Nikola
 
 - **Week 1**
@@ -84,3 +86,11 @@ This document serves to track the contributions of each team member as part of t
 - **Week 2**
     - Task 1: Frontend Issue 17: User-Friendly Game Screen (placement of containers, sizeing, created timer). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784177)
     - Task 2: Frontend Issue 23: Make the hints and leaderboard (created the hints and placed it above the map, the leaderboard is on the left side and the chat field placed on the right side). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784173)
+
+- **Week 3**
+  - Wednesday, 17-04-2024
+      - Adjust Design of Global Leaderboard (name, rank, wins). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/81204ea505f5c42f84bfb92a52810b7b679bd615) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784161)
+  - Friday, 19-04-2024
+      - Search by username on Global Leaderboard. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f48ad99b12dd343bc00c14125fe8b2fa3baefe9a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784158) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784157)
+  - Saturday, 20-04-2024
+      - Work on Delay Joker with Arber. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
