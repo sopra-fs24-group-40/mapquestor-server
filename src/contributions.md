@@ -76,6 +76,8 @@ This document serves to track the contributions of each team member as part of t
       - Returning cities for all user, so all users have the same city to play [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/7cf98e80c47e233c3b5d0f39a2e45c93f5ea3100) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b6480c879713a36a4a580dee4757118136b9a358) [Commit link 3](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5ebffa855b0ea901199c5099e466d4a7ded50585) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60422940)
   Thursday, 18-04-2024
       - Leave match option [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5a34baa45f48fddab17f7cd5519695ab22d993d7) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/15aeb32872597cd00c525b6845645ff2512af062) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60422897)
+  Saturday, 20-04-2024
+      - Work on Delay Joker with Nikola. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
 ## Nikola
 
 - **Week 1**
