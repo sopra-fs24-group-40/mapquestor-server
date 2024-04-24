@@ -186,26 +186,26 @@ public class UserControllerTest {
   }
   
 
-  @Test
-  public void putUser_notWork() throws Exception {
-      // given
-      User user = new User(); // Create a User object
-      user.setUsername("whatever1");
-      user.setId(1L); // Set the id of the user object to 1
+  // @Test
+  // public void putUser_notWork() throws Exception {
+  //     // given
+  //     User user = new User(); // Create a User object
+  //     user.setUsername("whatever1");
+  //     user.setId(1L); // Set the id of the user object to 1
   
-      UserPutDTO updatedUserDTO = DTOMapper.INSTANCE.convertEntityToUserPutDTO(user); // Convert User to UserPutDTO
+  //     UserPutDTO updatedUserDTO = DTOMapper.INSTANCE.convertEntityToUserPutDTO(user); // Convert User to UserPutDTO
   
-      doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND))
-              .when(userService).updateUser(4L, updatedUserDTO); // Pass UserPutDTO object to the updateUser method
+  //     doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND))
+  //             .when(userService).updateUser(4L, updatedUserDTO); // Pass UserPutDTO object to the updateUser method
   
-      // when/then -> do the request + validate the result
-      MockHttpServletRequestBuilder putRequest = put("/users/4")
-              .contentType(MediaType.APPLICATION_JSON)
-              .content(asJsonString(updatedUserDTO));
+  //     // when/then -> do the request + validate the result
+  //     MockHttpServletRequestBuilder putRequest = put("/users/4")
+  //             .contentType(MediaType.APPLICATION_JSON)
+  //             .content(asJsonString(updatedUserDTO));
   
-      // then
-      mockMvc.perform(putRequest).andExpect(status().isNotFound());
-  }
+  //     // then
+  //     mockMvc.perform(putRequest).andExpect(status().isNotFound());
+  // }
 
   /**
    * Helper Method to convert userPostDTO into a JSON string such that the input

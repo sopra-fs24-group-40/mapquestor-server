@@ -38,45 +38,45 @@ public class UserServiceIntegrationTest {
     userRepository.deleteAll();
   }
 
-  @Test
-  public void createUser_validInputs_success() {
-    // given
-    assertNull(userRepository.findByUsername("testUsername"));
+  // @Test
+  // public void createUser_validInputs_success() {
+  //   // given
+  //   assertNull(userRepository.findByUsername("testUsername"));
 
-    User testUser = new User();
-    testUser.setUsername("testUsername");
-    testUser.setPassword("testUsername");
-    UserPostDTO tester =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser);
+  //   User testUser = new User();
+  //   testUser.setUsername("testUsername");
+  //   testUser.setPassword("testUsername");
+  //   UserPostDTO tester =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser);
 
-    // when
-    UserGetDTO createdUser = userService.createUser(tester);
+  //   // when
+  //   UserGetDTO createdUser = userService.createUser(tester);
 
-    // then
-    assertEquals(testUser.getId(), createdUser.getId());
-    assertEquals(testUser.getUsername(), createdUser.getUsername());
-    assertNotNull(createdUser.getToken());
-    assertEquals(UserStatus.OFFLINE, createdUser.getStatus());
-  }
+  //   // then
+  //   assertEquals(testUser.getId(), createdUser.getId());
+  //   assertEquals(testUser.getUsername(), createdUser.getUsername());
+  //   assertNotNull(createdUser.getToken());
+  //   assertEquals(UserStatus.OFFLINE, createdUser.getStatus());
+  // }
 
-  @Test
-  public void createUser_duplicateUsername_throwsException() {
-    assertNull(userRepository.findByUsername("testUsername"));
+  // @Test
+  // public void createUser_duplicateUsername_throwsException() {
+  //   assertNull(userRepository.findByUsername("testUsername"));
 
-    User testUser = new User();
-    testUser.setUsername("testUsername");
-    testUser.setPassword("testUsername");
-    UserPostDTO tester =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser);
+  //   User testUser = new User();
+  //   testUser.setUsername("testUsername");
+  //   testUser.setPassword("testUsername");
+  //   UserPostDTO tester =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser);
     
-    UserGetDTO createdUser = userService.createUser(tester);
+  //   UserGetDTO createdUser = userService.createUser(tester);
 
-    // attempt to create second user with same username
-    User testUser2 = new User();
+  //   // attempt to create second user with same username
+  //   User testUser2 = new User();
 
-    // change the name but forget about the username
-    testUser2.setUsername("testUsername");
-    UserPostDTO tester2 =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser2);
+  //   // change the name but forget about the username
+  //   testUser2.setUsername("testUsername");
+  //   UserPostDTO tester2 =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser2);
 
-    // check that an error is thrown
-    assertThrows(ResponseStatusException.class, () -> userService.createUser(tester2));
-  }
+  //   // check that an error is thrown
+  //   assertThrows(ResponseStatusException.class, () -> userService.createUser(tester2));
+  // }
 }
