@@ -65,8 +65,6 @@ jacocoTestReport {
     }
 }
 
-sonarqube.dependsOn jacocoTestReport // Making sonarqube task depend on jacocoTestReport task
-
 sonarqube {
     properties {
         property "sonar.projectKey", "sopra-fs24-group-40_mapquestor-server"
