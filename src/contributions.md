@@ -46,6 +46,10 @@ This document serves to track the contributions of each team member as part of t
     Friday, 19-04-2024
         Added spinners to the all users page and profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a8938534cfbe0a5d6c13a6e3c1a2a2a9628353cc) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=60228743)
 
+- **Week 4**
+    Wednesday, 24-04-2024
+        Added a test in UserControllerTest. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/0423ed4873bb278365f831009ed31a569891c787) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=60858580)
+
 ## Shanthos
 
 - **Week 1**
