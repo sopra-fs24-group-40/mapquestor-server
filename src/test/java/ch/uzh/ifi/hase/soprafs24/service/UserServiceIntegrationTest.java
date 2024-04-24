@@ -3,6 +3,10 @@ package ch.uzh.ifi.hase.soprafs24.service;
 import ch.uzh.ifi.hase.soprafs24.constant.UserStatus;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
+import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPostDTO;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,15 +44,15 @@ public class UserServiceIntegrationTest {
     assertNull(userRepository.findByUsername("testUsername"));
 
     User testUser = new User();
-    testUser.setName("testName");
     testUser.setUsername("testUsername");
+    testUser.setPassword("testUsername");
+    UserPostDTO tester =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser);
 
     // when
-    User createdUser = userService.createUser(testUser);
+    UserGetDTO createdUser = userService.createUser(tester);
 
     // then
     assertEquals(testUser.getId(), createdUser.getId());
-    assertEquals(testUser.getName(), createdUser.getName());
     assertEquals(testUser.getUsername(), createdUser.getUsername());
     assertNotNull(createdUser.getToken());
     assertEquals(UserStatus.OFFLINE, createdUser.getStatus());
@@ -59,18 +63,20 @@ public class UserServiceIntegrationTest {
     assertNull(userRepository.findByUsername("testUsername"));
 
     User testUser = new User();
-    testUser.setName("testName");
     testUser.setUsername("testUsername");
-    User createdUser = userService.createUser(testUser);
+    testUser.setPassword("testUsername");
+    UserPostDTO tester =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser);
+    
+    UserGetDTO createdUser = userService.createUser(tester);
 
     // attempt to create second user with same username
     User testUser2 = new User();
 
     // change the name but forget about the username
-    testUser2.setName("testName2");
     testUser2.setUsername("testUsername");
+    UserPostDTO tester2 =  DTOMapper.INSTANCE.convertEntityToUserPostDTO(testUser2);
 
     // check that an error is thrown
-    assertThrows(ResponseStatusException.class, () -> userService.createUser(testUser2));
+    assertThrows(ResponseStatusException.class, () -> userService.createUser(tester2));
   }
 }
