@@ -59,12 +59,13 @@ bootJar {
     archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
 }
 
-
 jacocoTestReport {
     reports {
         xml.enabled true
     }
 }
+
+sonarqube.dependsOn jacocoTestReport // Making sonarqube task depend on jacocoTestReport task
 
 sonarqube {
     properties {
@@ -73,8 +74,6 @@ sonarqube {
         property "sonar.host.url", "https://sonarcloud.io"
     }
 }
-
-
 
 test {
     useJUnitPlatform()
