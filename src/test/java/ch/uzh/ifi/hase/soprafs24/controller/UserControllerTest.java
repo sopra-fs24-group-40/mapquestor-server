@@ -153,6 +153,39 @@ public class UserControllerTest {
   }
 
   @Test
+  public void login_success() throws Exception {
+      // given
+      User user = new User();
+      user.setId(1L);
+      user.setUsername("firstname@lastname");
+      user.setToken("1");
+      user.setStatus(UserStatus.OFFLINE);
+
+      UserPostDTO userPostDTO = new UserPostDTO();
+      userPostDTO.setUsername("firstname@lastname");
+      userPostDTO.setPassword("password");
+
+      UserGetDTO userGetDTO = new UserGetDTO();
+      userGetDTO.setId(user.getId());
+      userGetDTO.setUsername(user.getUsername());
+      userGetDTO.setStatus(user.getStatus());
+
+      given(userService.login(Mockito.any())).willReturn(userGetDTO);
+
+      // when/then -> do the request + validate the result
+      MockHttpServletRequestBuilder postRequest = post("/login")
+              .contentType(MediaType.APPLICATION_JSON)
+              .content(asJsonString(userPostDTO));
+
+      // then
+      mockMvc.perform(postRequest)
+              .andExpect(status().isOk())
+              .andExpect(jsonPath("$.id", is(user.getId().intValue())))
+              .andExpect(jsonPath("$.username", is(user.getUsername())))
+              .andExpect(jsonPath("$.status", is(user.getStatus().toString())));
+  }
+
+  @Test
   public void putUser_Works() throws Exception {
       // given
       User user = new User();
