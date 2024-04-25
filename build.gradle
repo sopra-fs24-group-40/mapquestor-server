@@ -18,7 +18,7 @@ java {
 
 configurations {
     developmentOnly
-    runtimeClasspath {
+    compileClasspath {
         extendsFrom developmentOnly
     }
 }
@@ -28,7 +28,7 @@ repositories {
 }
 
 springBoot {
-    mainClass.set('ch.uzh.ifi.hase.soprafs24.Application')
+    mainClass = 'ch.uzh.ifi.hase.soprafs24.Application'
 }
 
 dependencies {
@@ -40,7 +40,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
-
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -56,26 +55,26 @@ dependencies {
 }
 
 bootJar {
-    archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
+    archiveFileName.set("${archiveBaseName}.${archiveExtension}")
 }
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "sopra-fs24-group-40_mapquestor-server"
-        property "sonar.organization", "sopra-fs24-group-40"
-        property "sonar.host.url", "https://sonarcloud.io"
+        property 'sonar.projectKey', 'sopra-fs24-group-40_mapquestor-server'
+        property 'sonar.organization', 'sopra-fs24-group-40'
+        property 'sonar.host.url', 'https://sonarcloud.io'
     }
 }
 
 jacocoTestReport {
-    reports {
-        xml.enabled true
-    }
+    reports.xml.enabled = true
 }
 
-test {
+tasks.test {
     useJUnitPlatform()
-    testLogging.showStandardStreams = true
+    testLogging {
+        showStandardStreams = true
+    }
     maxParallelForks = 1
 }
 
@@ -84,8 +83,10 @@ if (secretPropsFile.exists()) {
     Properties p = new Properties()
     p.load(new FileInputStream(secretPropsFile))
     p.each { name, value ->
-        ext[name] = value
+        ext.set(name, value)
     }
 }
 
-defaultTasks 'bootJar', 'build'
+tasks.default {
+    dependsOn 'bootJar', 'build'
+}
