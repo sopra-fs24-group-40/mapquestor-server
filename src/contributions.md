@@ -50,6 +50,11 @@ This document serves to track the contributions of each team member as part of t
     Wednesday, 24-04-2024
         Added a test in UserControllerTest. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/0423ed4873bb278365f831009ed31a569891c787) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=60858580)
 
+    Thursday, 25-04-2024
+        Worked on fixing Sonar settings with @domeniku7.
+        Added UserRepositoryIntegration test. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/175094f700e4c5b3996819fc7e360b17537b1725) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=60960948)
+        Worked on the report.
+
 ## Shanthos
 
 - **Week 1**
