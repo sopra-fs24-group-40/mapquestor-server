@@ -111,3 +111,10 @@ This document serves to track the contributions of each team member as part of t
       - Search by username on Global Leaderboard. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f48ad99b12dd343bc00c14125fe8b2fa3baefe9a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784158) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784157)
   - Saturday, 20-04-2024
       - Work on Delay Joker with Arber. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
+
+- **Week 4**
+  - Monday, 22-04-2024
+      - Jokers with Arber: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/18)
+
+  - Thursday, 24-05-2024
+      - UserService Tests: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/29bedfa45db6344b7632fd2faed732f23e98bc21) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
