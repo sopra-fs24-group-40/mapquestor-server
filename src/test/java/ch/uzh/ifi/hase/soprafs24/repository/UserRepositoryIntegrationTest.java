@@ -42,4 +42,28 @@ public class UserRepositoryIntegrationTest {
     assertEquals(found.getToken(), user.getToken());
     assertEquals(found.getStatus(), user.getStatus());
   }
+
+    @Test
+    public void updateUserStatus_success() {
+        // given
+        User user = new User();
+        user.setUsername("testuser");
+        user.setPassword("testpassword");
+        user.setStatus(UserStatus.ONLINE);
+        user.setToken("1");
+        user.setCreation_date(LocalDateTime.now());
+        entityManager.persist(user);
+        entityManager.flush();
+
+        // when
+        User found = userRepository.findByUsername(user.getUsername()).orElse(null);
+        found.setStatus(UserStatus.OFFLINE);
+        userRepository.save(found);
+        entityManager.flush();
+
+        // then
+        User updated = userRepository.findByUsername(user.getUsername()).orElse(null);
+        assertNotNull(updated.getId());
+        assertEquals(UserStatus.OFFLINE, updated.getStatus());
+    }
 }
