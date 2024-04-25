@@ -118,3 +118,4 @@ This document serves to track the contributions of each team member as part of t
 
   - Thursday, 24-05-2024
       - UserService Tests: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/29bedfa45db6344b7632fd2faed732f23e98bc21) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
+      - Worked on the report and presentation slides.
