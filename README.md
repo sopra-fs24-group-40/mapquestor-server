@@ -84,5 +84,4 @@ To configure a debugger for SpringBoot's Tomcat servlet (i.e. the process you st
 6. Step through the process one step at a time
 
 ## Testing
-Have a look here: https://www.baeldung.com/spring-boot-testing
-Arber 
+Have a look here: https://www.baeldung.com/spring-boot-testing 
