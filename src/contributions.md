@@ -84,7 +84,12 @@ This document serves to track the contributions of each team member as part of t
   Thursday, 18-04-2024
       - Leave match option [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5a34baa45f48fddab17f7cd5519695ab22d993d7) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/15aeb32872597cd00c525b6845645ff2512af062) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60422897)
   Saturday, 20-04-2024
-      - Work on Delay Joker with Nikola. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
+      - Work on Delay Joker with Nikola. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/8822d30becc9a9c223d5f533376115d8fa29844a) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/74) [Issue Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/73) [Issue Link 3](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/76)
+- **Week 4**
+  Monday, 22-04-2024
+  - Jokers. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1086b82da0dd3ab8f039730cb31f32b1975de9a9) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/46) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/18)
+  Thursday, 25-04-2024
+  - Testing. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/fdbcc8ad31f685e9cb7f0228b96d75ce8dc9eccf) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/37d79336b38ce85190e5a0caeb534f7370457ae8) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
 ## Nikola
 
 - **Week 1**
