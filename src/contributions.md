@@ -61,6 +61,13 @@ This document serves to track the contributions of each team member as part of t
         Added UserRepositoryIntegration test. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/175094f700e4c5b3996819fc7e360b17537b1725) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=60960948)
         Worked on the report.
 
+- **Week 5**
+    Monday, 29-04-2024
+        Helped with the live demo during the presentation.
+
+    Tuesday, 30-04-2024
+        Changed the font for a more readable one except for the MapQuestor text next to the logo. Improved the login layout. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/7b31db5242d68e2da80671d5496b3eacb479a028) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
+
 ## Shanthos
 
 - **Week 1**
