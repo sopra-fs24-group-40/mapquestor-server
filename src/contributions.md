@@ -33,7 +33,6 @@ This document serves to track the contributions of each team member as part of t
 
     Sunday, 14-04-2024
         Completed the user's Profile Page by making some fixes. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a17f1fe4aecb6b81d581692cc6b1e1d94d3e9a40) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
-
         Worked on the Lobby Page. Creator can update the settings of the game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/dc4da74dba46c5127928abccca4684708189f69d) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785115)
 
 - **Week 3**
@@ -67,6 +66,7 @@ This document serves to track the contributions of each team member as part of t
 
     Tuesday, 30-04-2024
         Changed the font for a more readable one except for the MapQuestor text next to the logo. Improved the login layout. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/7b31db5242d68e2da80671d5496b3eacb479a028) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
+        Fixed My Profile button on game layout. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/664596e3fa6d232e72cd95ef0bc085eeb231d25e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
 
 ## Shanthos
 
