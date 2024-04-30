@@ -4,7 +4,7 @@
     "width": 2000,
     "height": 2000,
     "scrollTop": 0,
-    "scrollLeft": 0,
+    "scrollLeft": -18.68333333333303,
     "zoomLevel": 1,
     "show": {
       "tableComment": false,
@@ -256,10 +256,10 @@
           }
         ],
         "ui": {
-          "active": false,
-          "left": 77,
-          "top": 107,
-          "zIndex": 1,
+          "active": true,
+          "left": 90,
+          "top": 448,
+          "zIndex": 7,
           "widthName": 60,
           "widthComment": 60
         },
@@ -503,9 +503,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 598,
-          "top": 242,
-          "zIndex": 2,
+          "left": 544,
+          "top": 643,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -633,10 +633,10 @@
           }
         ],
         "ui": {
-          "active": true,
-          "left": 79,
-          "top": 382,
-          "zIndex": 3,
+          "active": false,
+          "left": 94,
+          "top": 735,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 60
         },
@@ -660,8 +660,8 @@
           "columnIds": [
             "b77bc968-ed9a-4d3c-9555-75ac5bd2220d"
           ],
-          "x": 598,
-          "y": 310.5,
+          "x": 544,
+          "y": 711.5,
           "direction": "left"
         },
         "end": {
@@ -669,8 +669,8 @@
           "columnIds": [
             "be7a0a65-f2b5-4c0c-b2c4-d92b4909fb43"
           ],
-          "x": 418.64453125,
-          "y": 233.75,
+          "x": 431.64453125,
+          "y": 574.75,
           "direction": "right"
         },
         "constraintName": "fk_game_to_user",
@@ -686,8 +686,8 @@
           "columnIds": [
             "b77bc968-ed9a-4d3c-9555-75ac5bd2220d"
           ],
-          "x": 598,
-          "y": 447.5,
+          "x": 544,
+          "y": 848.5,
           "direction": "left"
         },
         "end": {
@@ -695,8 +695,8 @@
           "columnIds": [
             "570f7a71-4ee2-4b49-949d-11cb747d3d22"
           ],
-          "x": 370.48046875,
-          "y": 467.75,
+          "x": 385.48046875,
+          "y": 820.75,
           "direction": "right"
         },
         "constraintName": "fk_game_to_city",

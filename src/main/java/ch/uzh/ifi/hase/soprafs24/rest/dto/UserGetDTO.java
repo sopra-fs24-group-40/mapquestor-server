@@ -13,6 +13,7 @@ public class UserGetDTO {
     private UserStatus status;
 
     private String creation_date;
+    private String avatar;
 
     public Long getId() {
         return id;
@@ -68,5 +69,13 @@ public class UserGetDTO {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getAvatar() {
+        return avatar;
     }
 }

@@ -71,8 +71,11 @@ public class UserService {
         newUser.setCreation_date(LocalDateTime.now());
         newUser.setPlayedGames(0);
         newUser.setWonGames(0);
+        newUser.setAvatar("AVATAR");
+
 
         newUser = userRepository.save(newUser);
+        System.out.println("-------------------------"+newUser.getAvatar());
 
         return DTOMapper.INSTANCE.convertEntityToUserGetDTO(newUser);
     }
@@ -80,7 +83,8 @@ public class UserService {
     public void updateUser(long id, UserPutDTO userPutDTO) {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id: " + id));
-
+        
+        System.out.println(userPutDTO.getAvatar());
         if (!existingUser.getUsername().equals(userPutDTO.getUsername())) {
             if (userRepository.existsByUsername(userPutDTO.getUsername())) {
                 throw new ResponseStatusException(HttpStatus.CONFLICT, "Username already exists!");
@@ -88,9 +92,13 @@ public class UserService {
             existingUser.setUsername(userPutDTO.getUsername());
         }
 
-        if (userPutDTO.getPassword() != null && !userPutDTO.getPassword().isEmpty()) {
-            existingUser.setPassword(userPutDTO.getPassword());
+        if (!existingUser.getUsername().equals(userPutDTO.getUsername())) {
+            existingUser.setAvatar(userPutDTO.getAvatar());
         }
+        // if (userPutDTO.getPassword() != null && !userPutDTO.getPassword().isEmpty()) {
+        //     existingUser.setPassword(userPutDTO.getPassword());
+        // }
+
 
         userRepository.save(existingUser);
     }

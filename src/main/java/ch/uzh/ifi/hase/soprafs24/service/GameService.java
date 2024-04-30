@@ -63,6 +63,7 @@ public class GameService {
         User creator = userRepository.findByToken(newGame.getCreator())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
+        creator.setStatus(UserStatus.INGAME);
         // Check if the creator is already in a game
         if (creator.getGame() != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is already in a game");
@@ -157,6 +158,7 @@ public class GameService {
         }
 
         if (game.getPlayerCount() < game.getMaxPlayers()) {
+            user.setStatus(UserStatus.INGAME);
             game.addPlayer(user);
             return gameRepository.save(game);
         }
@@ -196,8 +198,8 @@ public class GameService {
     }
 
     public void dumpUserAndDeleteGameIfEmpty(String token, String gameCode) {
-        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Spiel nicht gefunden"));
-        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("Benutzer nicht gefunden"));
+        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Game not found"));
+        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("User not found"));
 
         // Remove the user from the game
         game.removePlayer(user);
@@ -208,9 +210,18 @@ public class GameService {
         userRepository.save(user);
         
         // Check if the game is empty and delete if needed
-        // if (game.getPlayerCount() == 0) {
-        //     gameRepository.delete(game);
-        // }
+        if (game.getPlayerCount() == 0) {
+            gameRepository.delete(game);
+        }
+        else if (game.getCreator() == user.getToken()) {
+            for (User player : game.getPlayers()) {
+                player.setGame(null);
+                player.setStatus(UserStatus.ONLINE);
+                userRepository.save(player);
+            }
+            gameRepository.delete(game);
+            System.out.println("-------------------------------------- Creator left the game --------------------------------------");
+        }
     }
     
 }

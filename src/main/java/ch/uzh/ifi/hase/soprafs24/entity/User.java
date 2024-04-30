@@ -51,11 +51,13 @@ public class User implements Serializable {
     @Column(nullable = false)
     private LocalDateTime creation_date;
 
+    @Column(nullable = false)
+    private String avatar;
+
     @ManyToOne
     @JoinColumn(name = "game_id")
     @JsonBackReference
     private Game game;
-
 
     public Game getGame() {
         return game;
@@ -128,5 +130,12 @@ public class User implements Serializable {
 
     public void setCreation_date(LocalDateTime creation_date) {
         this.creation_date = creation_date;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+    public String getAvatar() {
+        return avatar;
     }
 }
