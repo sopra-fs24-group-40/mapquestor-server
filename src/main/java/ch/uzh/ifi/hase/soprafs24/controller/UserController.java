@@ -4,7 +4,9 @@ import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPostDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPutDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
+import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +25,11 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final GameService gameService;
 
-    UserController(UserService userService) {
+    UserController(UserService userService, GameService gameService) {
         this.userService = userService;
+        this.gameService = gameService;
     }
 
     @GetMapping("/users")
@@ -61,8 +65,10 @@ public class UserController {
 
 
     @PostMapping("/logout")
-    public ResponseEntity<String> logout(@RequestBody UserPostDTO userPostDTO) {
-        boolean loggedOut = userService.logout(userPostDTO);
+    public ResponseEntity<String> logout(@RequestBody UserTokenDTO userTokenDTO) {
+        boolean loggedOut = userService.logout(userTokenDTO);
+
+
         if (loggedOut) {
             return ResponseEntity.ok("Logged out successfully");
         }

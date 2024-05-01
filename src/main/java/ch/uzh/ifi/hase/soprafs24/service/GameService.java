@@ -6,27 +6,20 @@ import ch.uzh.ifi.hase.soprafs24.constant.UserStatus;
 import ch.uzh.ifi.hase.soprafs24.entity.City;
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
+import ch.uzh.ifi.hase.soprafs24.repository.CityRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
-import ch.uzh.ifi.hase.soprafs24.repository.CityRepository;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
-import javax.validation.constraints.Null;
-
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -208,20 +201,26 @@ public class GameService {
         // Save the user's status and the updated game
         gameRepository.save(game);
         userRepository.save(user);
-        
-        // Check if the game is empty and delete if needed
+
         if (game.getPlayerCount() == 0) {
             gameRepository.delete(game);
         }
-        else if (game.getCreator() == user.getToken()) {
-            for (User player : game.getPlayers()) {
-                player.setGame(null);
-                player.setStatus(UserStatus.ONLINE);
-                userRepository.save(player);
-            }
-            gameRepository.delete(game);
-            System.out.println("-------------------------------------- Creator left the game --------------------------------------");
-        }
     }
-    
+
+    public void deleteGame(String token, String gameCode) {
+        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Game not found"));
+        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("User not found"));
+
+
+        List<User> playersCopy = new ArrayList<>(game.getPlayers());
+        for (User player : playersCopy) {
+            game.removePlayer(player);
+            player.setStatus(UserStatus.ONLINE);
+            player.setGame(null);
+            userRepository.save(player);
+        }
+
+        gameRepository.delete(game);
+    }
+
 }

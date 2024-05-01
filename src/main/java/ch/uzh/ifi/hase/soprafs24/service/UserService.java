@@ -1,11 +1,16 @@
 package ch.uzh.ifi.hase.soprafs24.service;
 
+import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
 import ch.uzh.ifi.hase.soprafs24.constant.UserStatus;
+import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
+import ch.uzh.ifi.hase.soprafs24.messages.Message;
+import ch.uzh.ifi.hase.soprafs24.messages.MessageHandler;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPostDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPutDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -24,9 +29,14 @@ import java.util.UUID;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final GameService gameService;
 
-    public UserService(UserRepository userRepository) {
+    private final MessageHandler messageHandler;
+
+    public UserService(UserRepository userRepository, GameService gameService, MessageHandler messageHandler) {
         this.userRepository = userRepository;
+        this.gameService = gameService;
+        this.messageHandler = messageHandler;
     }
 
     public List<UserGetDTO> getUsers() {
@@ -75,7 +85,7 @@ public class UserService {
 
 
         newUser = userRepository.save(newUser);
-        System.out.println("-------------------------"+newUser.getAvatar());
+        System.out.println("-------------------------" + newUser.getAvatar());
 
         return DTOMapper.INSTANCE.convertEntityToUserGetDTO(newUser);
     }
@@ -83,7 +93,7 @@ public class UserService {
     public void updateUser(long id, UserPutDTO userPutDTO) {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id: " + id));
-        
+
         System.out.println(userPutDTO.getAvatar());
         if (!existingUser.getUsername().equals(userPutDTO.getUsername())) {
             if (userRepository.existsByUsername(userPutDTO.getUsername())) {
@@ -119,14 +129,31 @@ public class UserService {
         }
     }
 
-    public boolean logout(UserPostDTO userPostDTO) {
-        Optional<User> userOptional = userRepository.findByUsername(userPostDTO.getUsername());
+    public boolean logout(UserTokenDTO userTokenDTO) {
+        Optional<User> userOptional = userRepository.findByToken(userTokenDTO.getToken());
+
         if (userOptional.isPresent()) {
             User user = userOptional.get();
+
+            if (user.getGame() != null) {
+                Game game = user.getGame();
+
+                if (game.getCreator().equals(user.getToken())) {
+                    Message<String> message = new Message<>(user.getToken(), "Creator", MessageType.LEAVE_CREATOR);
+                    messageHandler.handleMessage(message, game.getGameCode());
+                }
+                else {
+                    System.out.println("User left the game");
+                    Message<String> message = new Message<>(user.getToken(), "Left the game", MessageType.LEAVE);
+                    messageHandler.handleMessage(message, game.getGameCode());
+                }
+            }
+
             user.setStatus(UserStatus.OFFLINE);
             user.setToken("");
             userRepository.save(user);
             return true;
+
         }
         return false;
     }

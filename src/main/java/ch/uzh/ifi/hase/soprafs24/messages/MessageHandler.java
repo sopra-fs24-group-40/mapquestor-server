@@ -55,6 +55,12 @@ public class MessageHandler {
             return processLeaveMessage(leaveMessage, gameCode);
         }
 
+        else if (message.getType() == MessageType.LEAVE_CREATOR) {
+            @SuppressWarnings("unchecked")
+            Message<String> leaveMessage = (Message<String>) message;
+            return processCreatorLeaveMessage(leaveMessage, gameCode);
+        }
+
         else if (message.getType() == MessageType.JOKER) {
             @SuppressWarnings("unchecked")
             Message<String> jokerMessage = (Message<String>) message;
@@ -83,6 +89,11 @@ public class MessageHandler {
 
     public Message<String> processLeaveMessage(Message<String> message, String gameCode) {
         gameService.dumpUserAndDeleteGameIfEmpty(message.getFrom(), gameCode);
+        return message;
+    }
+
+    public Message<String> processCreatorLeaveMessage(Message<String> message, String gameCode) {
+        gameService.deleteGame(message.getFrom(), gameCode);
         return message;
     }
 }
