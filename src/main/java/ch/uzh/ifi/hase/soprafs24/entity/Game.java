@@ -40,7 +40,7 @@ public class Game {
     private GameStatus gameStatus;
 
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, orphanRemoval = true)
     @JoinColumn(name = "game_id")
     private List<City> cities = new ArrayList<>();
 
