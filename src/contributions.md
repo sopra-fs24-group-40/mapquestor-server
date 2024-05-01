@@ -68,6 +68,10 @@ This document serves to track the contributions of each team member as part of t
         Changed the font for a more readable one except for the MapQuestor text next to the logo. Improved the login layout. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/7b31db5242d68e2da80671d5496b3eacb479a028) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
         Fixed My Profile button on game layout. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/664596e3fa6d232e72cd95ef0bc085eeb231d25e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
 
+    Wednesday, 01-05-2024
+        Beta-testing with the group and working on the feedback.
+        Improved editing functions on profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/eff3523a03045800068badf283d65e744094789a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
+
 ## Shanthos
 
 - **Week 1**
