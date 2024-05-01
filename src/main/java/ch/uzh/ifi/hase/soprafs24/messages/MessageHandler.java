@@ -3,7 +3,9 @@ package ch.uzh.ifi.hase.soprafs24.messages;
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
+import ch.uzh.ifi.hase.soprafs24.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +16,12 @@ public class MessageHandler {
     private final UserRepository userRepository;
     private final GameService gameService;
 
-    public MessageHandler(UserRepository userRepository, GameService gameService) {
+    private final UserService userService;
+
+    public MessageHandler(UserRepository userRepository, GameService gameService, UserService userService) {
         this.userRepository = userRepository;
         this.gameService = gameService;
+        this.userService = userService;
     }
 
     public Message<?> handleMessage(Message<?> message, String gameCode) {
@@ -61,6 +66,18 @@ public class MessageHandler {
             return processCreatorLeaveMessage(leaveMessage, gameCode);
         }
 
+        else if (message.getType() == MessageType.LOGOUT) {
+            @SuppressWarnings("unchecked")
+            Message<String> logoutMessage = (Message<String>) message;
+            return processLogout(logoutMessage);
+        }
+
+        else if (message.getType() == MessageType.LOGOUT_CREATOR) {
+            @SuppressWarnings("unchecked")
+            Message<String> leaveMessage = (Message<String>) message;
+            return processCreatorLeaveMessage(leaveMessage, gameCode);
+        }
+
         else if (message.getType() == MessageType.JOKER) {
             @SuppressWarnings("unchecked")
             Message<String> jokerMessage = (Message<String>) message;
@@ -94,6 +111,15 @@ public class MessageHandler {
 
     public Message<String> processCreatorLeaveMessage(Message<String> message, String gameCode) {
         gameService.deleteGame(message.getFrom(), gameCode);
+        return message;
+    }
+
+    public Message<String> processLogout(Message<String> message) {
+        UserTokenDTO token = new UserTokenDTO();
+        token.setToken(message.getFrom());
+        System.out.println("Process logout");
+        System.out.println(token.getToken());
+        userService.logout(token);
         return message;
     }
 }

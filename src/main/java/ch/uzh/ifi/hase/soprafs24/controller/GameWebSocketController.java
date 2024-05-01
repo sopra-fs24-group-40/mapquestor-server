@@ -6,6 +6,7 @@ import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CityDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -16,13 +17,12 @@ import ch.uzh.ifi.hase.soprafs24.entity.City;
 public class GameWebSocketController {
 
     private final GameService gameService;
-    private final UserService userService;
+
 
     private final MessageHandler messageHandler;
 
-    GameWebSocketController(GameService gameService, UserService userService, MessageHandler messageHandler) {
+    GameWebSocketController(GameService gameService, MessageHandler messageHandler) {
         this.gameService = gameService;
-        this.userService = userService;
         this.messageHandler = messageHandler;
     }
 
@@ -30,6 +30,12 @@ public class GameWebSocketController {
     @SendTo("/topic/{gameId}/chat")
     public Message<?> sendChatMessage(@DestinationVariable String gameId, Message<?> message) {
         return messageHandler.handleMessage(message, gameId);
+    }
+
+    @MessageMapping("/logout")
+    @SendTo("/topic/logout")
+    public Message<?> sendLogoutMessage(Message<?> message) {
+        return messageHandler.handleMessage(message, null);
     }
 
     @MessageMapping("/{gameId}/gameState")

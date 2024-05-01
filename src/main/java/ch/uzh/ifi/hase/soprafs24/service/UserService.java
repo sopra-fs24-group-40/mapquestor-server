@@ -29,14 +29,10 @@ import java.util.UUID;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final GameService gameService;
 
-    private final MessageHandler messageHandler;
 
-    public UserService(UserRepository userRepository, GameService gameService, MessageHandler messageHandler) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.gameService = gameService;
-        this.messageHandler = messageHandler;
     }
 
     public List<UserGetDTO> getUsers() {
@@ -134,26 +130,10 @@ public class UserService {
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-
-            if (user.getGame() != null) {
-                Game game = user.getGame();
-
-                if (game.getCreator().equals(user.getToken())) {
-                    Message<String> message = new Message<>(user.getToken(), "Creator", MessageType.LEAVE_CREATOR);
-                    messageHandler.handleMessage(message, game.getGameCode());
-                }
-                else {
-                    System.out.println("User left the game");
-                    Message<String> message = new Message<>(user.getToken(), "Left the game", MessageType.LEAVE);
-                    messageHandler.handleMessage(message, game.getGameCode());
-                }
-            }
-
             user.setStatus(UserStatus.OFFLINE);
-            user.setToken("");
+            user.setToken("0");
             userRepository.save(user);
             return true;
-
         }
         return false;
     }
