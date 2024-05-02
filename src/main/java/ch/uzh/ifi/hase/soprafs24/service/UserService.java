@@ -81,7 +81,6 @@ public class UserService {
 
 
         newUser = userRepository.save(newUser);
-        System.out.println("-------------------------" + newUser.getAvatar());
 
         return DTOMapper.INSTANCE.convertEntityToUserGetDTO(newUser);
     }
@@ -90,7 +89,6 @@ public class UserService {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id: " + id));
 
-        System.out.println(userPutDTO.getAvatar());
         if (!existingUser.getUsername().equals(userPutDTO.getUsername())) {
             if (userRepository.existsByUsername(userPutDTO.getUsername())) {
                 throw new ResponseStatusException(HttpStatus.CONFLICT, "Username already exists!");

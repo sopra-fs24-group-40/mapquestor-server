@@ -47,7 +47,6 @@ public class MessageHandler {
         }
 
         else if (message.getType() == MessageType.POINTS) {
-            System.out.println("debug:" + message);
             @SuppressWarnings("unchecked")
 
             Message<List<PlayerInfoDTO>> pointsMessage = (Message<List<PlayerInfoDTO>>) message;
@@ -81,7 +80,6 @@ public class MessageHandler {
         else if (message.getType() == MessageType.JOKER) {
             @SuppressWarnings("unchecked")
             Message<String> jokerMessage = (Message<String>) message;
-            System.out.println("Joker message received: ");
             return jokerMessage;
         }
 
@@ -117,8 +115,6 @@ public class MessageHandler {
     public Message<String> processLogout(Message<String> message) {
         UserTokenDTO token = new UserTokenDTO();
         token.setToken(message.getFrom());
-        System.out.println("Process logout");
-        System.out.println(token.getToken());
         userService.logout(token);
         return message;
     }

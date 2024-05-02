@@ -92,7 +92,6 @@ public class GameService {
     public List<GameInfoDTO> getGames() {
         List<Game> games = gameRepository.findAll();
         List<GameInfoDTO> gameInfoDTOS = new ArrayList<>();
-        // System.out.println(games);
 
         games.forEach(game -> gameInfoDTOS.add(DTOMapper.INSTANCE.convertEntityToGameInfoDTO(game)));
 
@@ -191,13 +190,15 @@ public class GameService {
     }
 
     public void dumpUserAndDeleteGameIfEmpty(String token, String gameCode) {
+        System.out.println("User " + token + " left game " + gameCode);
         Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Game not found"));
         User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("User not found"));
 
         // Remove the user from the game
         game.removePlayer(user);
         game.setPlayerCount(game.getPlayerCount() - 1);
-        user.setStatus(UserStatus.ONLINE);
+        user.setStatus(UserStatus.OFFLINE);
+        user.setGame(null);
         // Save the user's status and the updated game
         gameRepository.save(game);
         userRepository.save(user);
