@@ -72,6 +72,10 @@ This document serves to track the contributions of each team member as part of t
         Beta-testing with the group and working on the feedback.
         Improved editing functions on profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/eff3523a03045800068badf283d65e744094789a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
 
+    Thursday, 02-05-2024
+        Added placeholders inside input fields. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/59ef9c87f56fd301c46d1c57c14f0099b2bf4f68) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
+        Made the login container semi-transparent, so it looks like the other containers. Changed buttons in GameLayout and edited the search bar alignment, so it fits better. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0bc60d6730c079c28245936d1382bd22a1ce4a2d) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
+
 ## Shanthos
 
 - **Week 1**
