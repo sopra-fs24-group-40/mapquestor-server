@@ -9,10 +9,7 @@ import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.CityRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.*;
 import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -223,5 +220,18 @@ public class GameService {
 
         gameRepository.delete(game);
     }
+
+    public CitiesGetDTO returnCities(CitiesPostDTO citiesPostDTO) {
+        List<City> selectedCities = new ArrayList<>();
+        CitiesGetDTO citiesGetDTO = new CitiesGetDTO();
+        for (int i = 0; i < citiesPostDTO.getRoundCount(); i++) {
+            selectedCities.add(getRandomCity());
+        }
+
+        citiesGetDTO.setCities(selectedCities);
+
+        return citiesGetDTO;
+    }
+
 
 }

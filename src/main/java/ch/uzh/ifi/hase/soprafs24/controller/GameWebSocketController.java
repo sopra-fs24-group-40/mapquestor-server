@@ -2,6 +2,8 @@ package ch.uzh.ifi.hase.soprafs24.controller;
 
 import ch.uzh.ifi.hase.soprafs24.messages.Message;
 import ch.uzh.ifi.hase.soprafs24.messages.MessageHandler;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CitiesGetDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CitiesPostDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CityDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
@@ -43,5 +45,12 @@ public class GameWebSocketController {
     public GameStatusDTO startGame(@DestinationVariable String gameId, GameStatusDTO gameStatus) {
         return gameService.updateGameStatus(gameId, gameStatus);
     }
+
+    @MessageMapping("/cities")
+    @SendTo("/topic/cities")
+    public CitiesGetDTO sendCities(CitiesPostDTO citiesPostDTO) {
+        return gameService.returnCities(citiesPostDTO);
+    }
+
 
 }
