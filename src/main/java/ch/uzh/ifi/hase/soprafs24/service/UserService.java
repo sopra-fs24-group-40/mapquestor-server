@@ -159,6 +159,17 @@ public class UserService {
         }
     }
 
+    public void processGameData(String content, String from) {
+        User user = userRepository.findByToken(from).orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (content.equalsIgnoreCase("WON")) {
+            user.setWonGames(user.getWonGames() + 1);
+        }
+
+        user.setPlayedGames(user.getPlayedGames() + 1);
+        userRepository.save(user);
+    }
+
 
 }
 

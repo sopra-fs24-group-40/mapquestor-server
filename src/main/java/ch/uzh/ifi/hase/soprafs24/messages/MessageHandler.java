@@ -95,11 +95,6 @@ public class MessageHandler {
         else if (message.getType() == MessageType.PLAYED) {
             @SuppressWarnings("unchecked")
             Message<String> chatMessage = (Message<String>) message;
-            if (chatMessage.getContent().equals("WON!")){
-                User user = userRepository.findByToken(chatMessage.getFrom()).orElseThrow(() -> new RuntimeException("User not found"));
-                user.setWonGames(user.getWonGames() + 1);
-                userRepository.save(user);
-            }
             return processPlay(chatMessage);
         }
 
@@ -143,10 +138,9 @@ public class MessageHandler {
         userService.logout(token);
         return message;
     }
+
     public Message<String> processPlay(Message<String> message) {
-        User user = userRepository.findByToken(message.getFrom()).orElseThrow(() -> new RuntimeException("User not found"));
-        user.setPlayedGames(user.getPlayedGames() + 1);
-        userRepository.save(user);
+        userService.processGameData(message.getContent(), message.getFrom());
         return message;
     }
 }
