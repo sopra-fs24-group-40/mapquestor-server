@@ -37,6 +37,14 @@ public class MessageHandler {
 
             return processChatMessage(chatMessage);
         }
+
+        else if (message.getType() == MessageType.CHAT_INGAME_CORRECT) {
+            @SuppressWarnings("unchecked")
+            Message<String> chatMessage = (Message<String>) message;
+
+            return processChatMessage(chatMessage);
+        }
+
         else if (message.getType() == MessageType.JOIN) {
             @SuppressWarnings("unchecked")
             Message<String> joinMessage = (Message<String>) message;
