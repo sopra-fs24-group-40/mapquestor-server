@@ -1,6 +1,7 @@
 package ch.uzh.ifi.hase.soprafs24.messages;
 
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
+import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
@@ -91,6 +92,18 @@ public class MessageHandler {
             return jokerMessage;
         }
 
+        else if (message.getType() == MessageType.PLAYED) {
+            @SuppressWarnings("unchecked")
+            Message<String> chatMessage = (Message<String>) message;
+            if (chatMessage.getContent().equals("WON!")){
+                User user = userRepository.findByToken(chatMessage.getFrom()).orElseThrow(() -> new RuntimeException("User not found"));
+                user.setWonGames(user.getWonGames() + 1);
+                userRepository.save(user);
+            }
+
+            return processPlay(chatMessage);
+        }
+
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
         }
@@ -126,4 +139,11 @@ public class MessageHandler {
         userService.logout(token);
         return message;
     }
+    public Message<String> processPlay(Message<String> message) {
+        User user = userRepository.findByToken(message.getFrom()).orElseThrow(() -> new RuntimeException("User not found"));
+        user.setPlayedGames(user.getPlayedGames() + 1);
+        userRepository.save(user);
+        return message;
+    }
 }
+
