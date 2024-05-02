@@ -100,10 +100,14 @@ public class MessageHandler {
                 user.setWonGames(user.getWonGames() + 1);
                 userRepository.save(user);
             }
-
             return processPlay(chatMessage);
         }
 
+        else if (message.getType() == MessageType.PLAY_AGAIN) {
+            @SuppressWarnings("unchecked")
+            Message<String> chatMessage = (Message<String>) message;
+            return processChatMessage(chatMessage);
+        }
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
         }
