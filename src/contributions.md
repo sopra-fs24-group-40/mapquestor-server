@@ -76,6 +76,10 @@ This document serves to track the contributions of each team member as part of t
         Added placeholders inside input fields. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/59ef9c87f56fd301c46d1c57c14f0099b2bf4f68) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
         Made the login container semi-transparent, so it looks like the other containers. Changed buttons in GameLayout and edited the search bar alignment, so it fits better. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0bc60d6730c079c28245936d1382bd22a1ce4a2d) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
 
+    Friday, 03-05-2024
+        Fixed scroll function in Users. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b22a6eb6182e06c445234ce951baae7e51c8db3e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        Removed Host from Lobby. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b22a6eb6182e06c445234ce951baae7e51c8db3e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+
 ## Shanthos
 
 - **Week 1**
