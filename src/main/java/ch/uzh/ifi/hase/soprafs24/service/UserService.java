@@ -88,17 +88,17 @@ public class UserService {
     public void updateUser(long id, UserPutDTO userPutDTO) {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id: " + id));
-
+        if (userPutDTO.getUsername() != null){
         if (!existingUser.getUsername().equals(userPutDTO.getUsername())) {
             if (userRepository.existsByUsername(userPutDTO.getUsername())) {
                 throw new ResponseStatusException(HttpStatus.CONFLICT, "Username already exists!");
             }
             existingUser.setUsername(userPutDTO.getUsername());
-        }
-
+        }}
+        if (userPutDTO.getAvatar() != null){
         if (!existingUser.getUsername().equals(userPutDTO.getUsername())) {
             existingUser.setAvatar(userPutDTO.getAvatar());
-        }
+        }}
         // if (userPutDTO.getPassword() != null && !userPutDTO.getPassword().isEmpty()) {
         //     existingUser.setPassword(userPutDTO.getPassword());
         // }
