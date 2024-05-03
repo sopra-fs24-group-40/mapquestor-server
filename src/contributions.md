@@ -79,6 +79,7 @@ This document serves to track the contributions of each team member as part of t
     Friday, 03-05-2024
         Fixed scroll function in Users. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b22a6eb6182e06c445234ce951baae7e51c8db3e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
         Removed Host from Lobby. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b22a6eb6182e06c445234ce951baae7e51c8db3e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+        Fixed changing and displaying of avatars. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5eea1d2a86fb3836c98c71aa658ab11005d93b7c) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
 
 ## Shanthos
 
