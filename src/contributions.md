@@ -145,3 +145,15 @@ This document serves to track the contributions of each team member as part of t
   - Thursday, 24-05-2024
       - UserService Tests: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/29bedfa45db6344b7632fd2faed732f23e98bc21) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
       - Worked on the report and presentation slides.
+
+- **Week 5**
+  - Wednesday, 01-05-2024
+      - Beta-testing with the group and working on the feedback.
+  - Thursday, 02-05-2024
+      - Added scrolling function. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ea5def639f5942bb3c08c6bfa5346684c1810c81) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a7e4bd288c1182792123f3192e5f2f83bc86048b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61709419)
+      - Fixed search by username in global leaderboard. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/502d846c3a7c0ca1f1ba93809c644caf0d1b38ad) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784158)
+  - Friday, 03-05-2024
+      - Improved scrolling function. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fb82e7f14fb20404ad88d2e6afbb31c5db9e69ec) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+      - first implement of start countdown when lobby full. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b5436f1bd2ee72cbb35eed87b01299c64f74ab57)
+  - Sunday, 05-05-2024
+      - tried fixing start countdown when lobby full. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/049618f7d0b92183d3f20a17d6127395c8b9779e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
