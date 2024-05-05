@@ -124,7 +124,7 @@ This document serves to track the contributions of each team member as part of t
 - **Week 5**
   Monday, 30-04-2024
   - Avatar and conclude game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4792948eed55d1a6d02df46b4e3d1c8a8a7c7ddd) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784167)
-  Thursday, 25-04-2024
+  Thursday, 31-04-2024
   - Play again. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/61268f3adc34e8dcd9024f5d6e0285b0e49a1df3)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784166) 
 ## Nikola
 
