@@ -121,6 +121,11 @@ This document serves to track the contributions of each team member as part of t
   - Jokers. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1086b82da0dd3ab8f039730cb31f32b1975de9a9) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/46) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/18)
   Thursday, 25-04-2024
   - Testing. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/fdbcc8ad31f685e9cb7f0228b96d75ce8dc9eccf) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/37d79336b38ce85190e5a0caeb534f7370457ae8) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
+- **Week 5**
+  Monday, 30-04-2024
+  - Avatar and conclude game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4792948eed55d1a6d02df46b4e3d1c8a8a7c7ddd) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784167)
+  Thursday, 25-04-2024
+  - Play again. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/61268f3adc34e8dcd9024f5d6e0285b0e49a1df3)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784166) 
 ## Nikola
 
 - **Week 1**
