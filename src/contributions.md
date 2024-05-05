@@ -94,7 +94,10 @@ This document serves to track the contributions of each team member as part of t
     - Task 2: functionalities given in "open lobbies screen", UI also finished [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9a0434bca4e6610e1d7faca7f126d9af22903732) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60085103)
 - **Week 4**
     - Task 1: Added functionallity to "Search a User" it now leads to the User if the input is vaild and rasises warrning if not + prepared presention slides [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/005e02c65b9182d86a9efbdc98c7718dcb512389) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121340)
-    - Task 2: created Tests for DTOMapper and UserServiceIntegration [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e7e57515e5232a6f64caa93fa13a1ae99b61a591) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60867714)     
+    - Task 2: created Tests for DTOMapper and UserServiceIntegration [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e7e57515e5232a6f64caa93fa13a1ae99b61a591) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60867714)
+- **Week 5**
+    - Task 1:  City mode and Country mode now work proparly [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/cadd1222cab74f8b5709eebffab6a230f16a4cc6)[Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/7)
+    - Task 2: updated design and tried to add functionality [Commit Link1](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/569466a47a191aa6d83602835ed7a49bcaacc6a9) [Commit Link2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c3e07f697d04865fa357bbfd57d20a57f5206ae6) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/41)         
   
 ## Arber
 
