@@ -81,6 +81,10 @@ This document serves to track the contributions of each team member as part of t
         Removed Host from Lobby. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b22a6eb6182e06c445234ce951baae7e51c8db3e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
         Fixed changing and displaying of avatars. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5eea1d2a86fb3836c98c71aa658ab11005d93b7c) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
 
+- **Week 6**
+    Monday, 06-05-2024
+        Finished with changing avatar feature in profile page. Editet login page by enabling the opportunity to proceed after clicking "Enter". Lobby is showing its game code. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f87101c9f0ac20fcd08f63d907b9a72ae8e4e078) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+
 ## Shanthos
 
 - **Week 1**
