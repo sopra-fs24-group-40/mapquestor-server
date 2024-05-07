@@ -85,6 +85,10 @@ This document serves to track the contributions of each team member as part of t
     Monday, 06-05-2024
         Finished with changing avatar feature in profile page. Editet login page by enabling the opportunity to proceed after clicking "Enter". Lobby is showing its game code. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f87101c9f0ac20fcd08f63d907b9a72ae8e4e078) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
 
+    Tuesday, 07-05-2024
+        Removed the filter function from the global leaderboard, as well as in the profile page. Leaderboard and Active Games will update all 5 seconds now. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e5af4f2dc5b35a49b0347d2c5c055aad4aebaec9) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+        Improved the design of Active Games, changed the button. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a5d263d3a376eddaa2d2d6332801e9e83381f39c) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+
 ## Shanthos
 
 - **Week 1**
