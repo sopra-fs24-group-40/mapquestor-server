@@ -89,6 +89,11 @@ This document serves to track the contributions of each team member as part of t
         Removed the filter function from the global leaderboard, as well as in the profile page. Leaderboard and Active Games will update all 5 seconds now. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e5af4f2dc5b35a49b0347d2c5c055aad4aebaec9) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
         Improved the design of Active Games, changed the button. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a5d263d3a376eddaa2d2d6332801e9e83381f39c) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
 
+    Thursday, 09-05-2024
+        Added placeholders in ingame to indicate, where input should be typed in. [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/38053e35f6ae91edf0994da35f10363bcdaca37b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+        Improved location of leave game button. [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/04714a36f9795cf59663e1acea0ea364670583bb) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+        Fixed game layout, so search bar and my profile button disappear, when user is in a lobby or game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0fca2e49439163a51b069ecdcd36b7ae45711c08) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362751)
+
 ## Shanthos
 
 - **Week 1**
