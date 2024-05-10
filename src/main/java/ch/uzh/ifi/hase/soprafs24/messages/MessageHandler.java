@@ -109,6 +109,13 @@ public class MessageHandler {
             Message<String> chatMessage = (Message<String>) message;
             return processChatMessage(chatMessage);
         }
+
+        else if (message.getType() == MessageType.TIMER) {
+            @SuppressWarnings("unchecked")
+            Message<String> chatMessage = (Message<String>) message;
+            return processChatMessage(chatMessage);
+        }
+
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
         }
