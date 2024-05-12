@@ -144,7 +144,7 @@ This document serves to track the contributions of each team member as part of t
   - Play again. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/61268f3adc34e8dcd9024f5d6e0285b0e49a1df3)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784166)
 - **Week 6**
   Monday, 07-05-2024
-  - Bug fixes. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/24d0845d2fd2c6a05bcd35c84360deb345ae6885) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
+  - Bug fixes. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/24d0845d2fd2c6a05bcd35c84360deb345ae6885) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4ea9a78dcca468af1de19a042ceca56cd67c257a) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
   Thursday, 09-05-2024
   - Logout if closing tab. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e697a0c87360051e4de2105a2f4f2e00d4861c1f)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62619373) 
 ## Nikola
