@@ -110,8 +110,25 @@ This document serves to track the contributions of each team member as part of t
     - Task 2: created Tests for DTOMapper and UserServiceIntegration [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e7e57515e5232a6f64caa93fa13a1ae99b61a591) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60867714)
 - **Week 5**
     - Task 1:  City mode and Country mode now work proparly [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/cadd1222cab74f8b5709eebffab6a230f16a4cc6)[Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/7)
-    - Task 2: updated design and tried to add functionality [Commit Link1](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/569466a47a191aa6d83602835ed7a49bcaacc6a9) [Commit Link2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c3e07f697d04865fa357bbfd57d20a57f5206ae6) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/41)         
-  
+    - Task 2: updated design and tried to add functionality [Commit Link1](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/569466a47a191aa6d83602835ed7a49bcaacc6a9) [Commit Link2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c3e07f697d04865fa357bbfd57d20a57f5206ae6) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/41)
+- **Week 6**
+    - Task 1: Bugs fixing Frontend [#44](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62362751) and UI/UX bettering:
+               
+        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/553938035eddc813ad2be2a74723e7c0d064bc0f (player cant start game when he's alone bug fix)
+
+        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/060296bd4fe7e5cd6edfa7547fb0ce24ee17116c (Join button in dashboard is now not clickable and grey)
+
+        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f166fd4a40b847a7912e5befca748141f855f216 (disableing unnessasary code)
+
+        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/074e85e534b0c249f0b36da0e91bf9d4d4922787 (visual bettering of the joker buttin UX)
+
+        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/741583d3c6a322df87a0eba5375cb478ad8d3d1c (visual bettering of the joker button UX fix and play again button endscreen
+
+        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/05136dddc63fc23b4ee9762bd81f7ba2b39459ca(display informationl text when play again button is pushed in endscreen)
+    - Task 2: writting Tests in Backend [#84](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/84) [#85](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/85) [#78](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/78) [#77](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/77)
+      
+        https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2604d13dbd736a9158da8c4f4b40128f2f130327 ( written Testcases for CityServiceTest DTOMapperTest UserSocketService Test and UserServiceTest)    
+
 ## Arber
 
 - **Week 1**
