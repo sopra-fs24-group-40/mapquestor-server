@@ -178,3 +178,15 @@ This document serves to track the contributions of each team member as part of t
       - first implement of start countdown when lobby full. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b5436f1bd2ee72cbb35eed87b01299c64f74ab57)
   - Sunday, 05-05-2024
       - tried fixing start countdown when lobby full. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/049618f7d0b92183d3f20a17d6127395c8b9779e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+
+- **Week 6**
+  - Tuesday, 07-05-2024
+      - Update Location Coordinates: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1d89a6e823ee539c6a7e608ce0e03288d81d6365) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62244787)
+        
+  - Wednesday, 08-05-2024
+      - Set Round length when creating a game: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/d9fbf3bbcc008fc2b09f4ac861c39a8c1cc3b04f) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62273383)
+      - Update Location Coordinates: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e80fb4ea90095f2b2855f9ed427a2d152f56fd45) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62244787)
+
+  - Friday, 10-05-2024
+      - Set Round length when creating a game: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/3d3b030fea376311b8689f846ee1caca4944d520) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/cb46a2b8c3a02afc23ff55388ff681257b4c0e61)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62273383)
+      - Start Countdown when lobby is full: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/d570f61429d839b87d94d6319981aa5ea8f339ae) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
