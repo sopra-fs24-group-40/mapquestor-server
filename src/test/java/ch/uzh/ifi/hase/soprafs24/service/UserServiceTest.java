@@ -6,6 +6,7 @@ import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPostDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPutDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -62,30 +63,30 @@ public class UserServiceTest {
         assertEquals(user.getStatus(), userDTO.getStatus());
     }
 
-    // @Test
-    // public void testCreateUser_WhenUsernameDoesNotExist() {
-    //     // Given
-    //     UserPostDTO userPostDTO = new UserPostDTO();
-    //     userPostDTO.setUsername("newUser");
-    //     userPostDTO.setPassword("password");
+     @Test
+     public void testCreateUser_WhenUsernameDoesNotExist() {
+         // Given
+         UserPostDTO userPostDTO = new UserPostDTO();
+         userPostDTO.setUsername("newUser");
+         userPostDTO.setPassword("password");
 
-    //     // When createUser is called
-    //     UserGetDTO createdUser = userService.createUser(userPostDTO);
+         // When createUser is called
+         UserGetDTO createdUser = userService.createUser(userPostDTO);
 
-    //     // Debug log
-    //     System.out.println("Created user: " + createdUser);
+         // Debug log
+         System.out.println("Created user: " + createdUser);
 
-    //     // Then verify repository interaction
-    //     verify(userRepository, times(1)).existsByUsername(userPostDTO.getUsername());
-    //     verify(userRepository, times(1)).save(any(User.class));
+         // Then verify repository interaction
+         verify(userRepository, times(1)).existsByUsername(userPostDTO.getUsername());
+         verify(userRepository, times(1)).save(any(User.class));
 
-    //     // Then assert created user details
-    //     assertNotNull(createdUser, "Created user should not be null");
-    //     assertEquals(userPostDTO.getUsername(), createdUser.getUsername());
-    //     assertEquals(0, createdUser.getPlayedGames());
-    //     assertEquals(0, createdUser.getWonGames());
-    //     assertEquals(UserStatus.ONLINE, createdUser.getStatus());
-    // }
+         // Then assert created user details
+         assertNotNull(createdUser, "Created user should not be null");
+         assertEquals(userPostDTO.getUsername(), createdUser.getUsername());
+         assertEquals(0, createdUser.getPlayedGames());
+         assertEquals(0, createdUser.getWonGames());
+         assertEquals(UserStatus.ONLINE, createdUser.getStatus());
+     }
 
     @Test
     public void testCreateUser_WhenUsernameExists() {
@@ -153,24 +154,37 @@ public class UserServiceTest {
 
     @Test
     public void testLogout() {
-        // Setup
+        // Given
         String username = "testUser";
-        User user = new User();
-        user.setUsername(username);
-        user.setStatus(UserStatus.ONLINE);
-
-        when(userRepository.findByUsername(username)).thenReturn(Optional.of(user));
-
         UserPostDTO userPostDTO = new UserPostDTO();
         userPostDTO.setUsername(username);
+        UserTokenDTO userTokenDTO = new UserTokenDTO();
+        userTokenDTO.setToken(UUID.randomUUID().toString());
 
-        // Execute
-        boolean loggedOut = userService.logout(userPostDTO);
+        User newUser = DTOMapper.INSTANCE.convertUserPostDTOtoEntity(userPostDTO);
 
-        // Verify
+        newUser.setToken(userTokenDTO.getToken());
+        newUser.setStatus(UserStatus.ONLINE);
+        newUser.setCreation_date(LocalDateTime.now());
+        newUser.setPlayedGames(0);
+        newUser.setWonGames(0);
+        newUser.setAvatar("AVATAR");
+
+
+        // Mock UserRepository and its behavior
+        UserRepository userRepositoryMock = mock(UserRepository.class);
+        when(userRepositoryMock.findByUsername(username)).thenReturn(Optional.of(newUser));
+
+        // Create an instance of your UserService, injecting the mocked UserRepository
+        UserService userService = new UserService(userRepositoryMock);
+
+        // When
+        boolean loggedOut = userService.logout(userTokenDTO);
+
+        // Then
         assertTrue(loggedOut);
-        assertEquals(UserStatus.OFFLINE, user.getStatus());
-        assertEquals("", user.getToken());
+        assertEquals(UserStatus.OFFLINE, newUser.getStatus());
+        assertEquals("", newUser.getToken());
     }
 
     @Test
@@ -187,5 +201,64 @@ public class UserServiceTest {
 
         // Verify
         verify(userRepository, times(1)).deleteById(userId);
+    }
+
+    @Test
+    public void testGetUserByToken_UserExists() {
+        // Given
+        String token = "testToken";
+        User user = createUser("testUser", token);
+        when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
+
+        // When
+        UserGetDTO userDTO = userService.getUserByToken(token);
+
+        // Then
+        assertNotNull(userDTO);
+        assertEquals(user.getUsername(), userDTO.getUsername());
+    }
+
+    @Test
+    public void testGetUserByToken_UserNotExists() {
+        // Given
+        String token = "nonExistingToken";
+        when(userRepository.findByToken(token)).thenReturn(Optional.empty());
+
+        // When & Then
+        assertThrows(ResponseStatusException.class, () -> userService.getUserByToken(token));
+    }
+
+    @Test
+    public void testGetUsernameByToken_UserExists() {
+        // Given
+        String token = "testToken";
+        User user = createUser("testUser", token);
+        when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
+
+        // When
+        String username = userService.getUsernameByToken(token);
+
+        // Then
+        assertEquals(user.getUsername(), username);
+    }
+
+    @Test
+    public void testGetUsernameByToken_UserNotExists() {
+        // Given
+        String token = "nonExistingToken";
+        when(userRepository.findByToken(token)).thenReturn(Optional.empty());
+
+        // When & Then
+        assertThrows(ResponseStatusException.class, () -> userService.getUsernameByToken(token));
+    }
+
+    // Helper method to create a User object
+    private User createUser(String username, String token) {
+        User user = new User();
+        user.setId(1L); // Set an arbitrary ID for testing
+        user.setUsername(username);
+        user.setStatus(UserStatus.OFFLINE); // Initially set to OFFLINE
+        user.setToken(token);
+        return user;
     }
 }
