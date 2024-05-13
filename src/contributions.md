@@ -174,7 +174,7 @@ This document serves to track the contributions of each team member as part of t
 - **Week 1**
     - I took the "No continuous progress work done" Joker for this week.
 - **Week 2**
-    - Task 1: Frontend Issue 17: User-Friendly Game Screen (placement of containers, sizeing, created timer). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784177)
+    - Task 1: Frontend Issue 17: User-Friendly Game Screen (placement of containers, sizeing, created timer). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b71fc2b8bff6ca33c5f24ddb882a58d057f3cc90) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/25003d452e36a1eb974afd269821ba0a4de041b7) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784177)
     - Task 2: Frontend Issue 23: Make the hints and leaderboard (created the hints and placed it above the map, the leaderboard is on the left side and the chat field placed on the right side). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784173)
 - **Week 3**
   - Wednesday, 17-04-2024
@@ -186,9 +186,9 @@ This document serves to track the contributions of each team member as part of t
 
 - **Week 4**
   - Monday, 22-04-2024
-      - Jokers with Arber: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/18)
+      - Jokers with Arber: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/1770ea9bca85672e897103b901afeef399cc51a4) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/18)
 
-  - Thursday, 24-05-2024
+  - Thursday, 25-04-2024
       - UserService Tests: [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/29bedfa45db6344b7632fd2faed732f23e98bc21) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
       - Worked on the report and presentation slides.
 
@@ -200,7 +200,7 @@ This document serves to track the contributions of each team member as part of t
       - Fixed search by username in global leaderboard. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/502d846c3a7c0ca1f1ba93809c644caf0d1b38ad) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784158)
   - Friday, 03-05-2024
       - Improved scrolling function. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fb82e7f14fb20404ad88d2e6afbb31c5db9e69ec) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
-      - first implement of start countdown when lobby full. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b5436f1bd2ee72cbb35eed87b01299c64f74ab57)
+      - first implement of start countdown when lobby full. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b5436f1bd2ee72cbb35eed87b01299c64f74ab57) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
   - Sunday, 05-05-2024
       - tried fixing start countdown when lobby full. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/049618f7d0b92183d3f20a17d6127395c8b9779e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
 
