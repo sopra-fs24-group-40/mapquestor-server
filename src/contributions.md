@@ -159,10 +159,10 @@ This document serves to track the contributions of each team member as part of t
   - Thursday, 25-04-2024
       - Testing. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/fdbcc8ad31f685e9cb7f0228b96d75ce8dc9eccf) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/37d79336b38ce85190e5a0caeb534f7370457ae8) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
 - **Week 5**
-  - Monday, 30-04-2024
-      - Avatar and conclude game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4792948eed55d1a6d02df46b4e3d1c8a8a7c7ddd) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784167)
+  - Monday, 30-04-2024, 02-05-2024
+      - Avatar and conclude game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4792948eed55d1a6d02df46b4e3d1c8a8a7c7ddd) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/61268f3adc34e8dcd9024f5d6e0285b0e49a1df3) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784167)
   - Thursday, 31-04-2024
-      - Play again. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/61268f3adc34e8dcd9024f5d6e0285b0e49a1df3)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784166)
+      - Play again. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/06c42d7aa300fc32346b0b80eb8f9b89a25cc0a8)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784166)
 - **Week 6**
   - Monday, 07-05-2024
       - Bug fixes. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/24d0845d2fd2c6a05bcd35c84360deb345ae6885) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4ea9a78dcca468af1de19a042ceca56cd67c257a) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
