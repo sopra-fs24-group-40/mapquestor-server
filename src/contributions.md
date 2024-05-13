@@ -43,7 +43,7 @@ This document serves to track the contributions of each team member as part of t
     - Monday, 08-04-2024
         - Added "Login" and "Register" buttons and fixed some minor errors. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e2b4ef512311ecf69582761dcf5753638c32419a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=57179279)
         - Fixed the position of the error message in the login page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ff0f8fe9a671a92a56d12791a24d0cae4b15f094) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=57179279)
-        - Added "Back" buttons to different files and fixed some minor errors. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4a53706e3075d9eeef4530488b7a00441c60f7ed) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+        - Added "Back" buttons to different files and fixed some minor errors. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4a53706e3075d9eeef4530488b7a00441c60f7ed) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
     - Tuesday, 09-04-2024
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2cbccb1ca1fea68d5923b87246b35788a89f0bba)
     - Thursday, 11-04-2024
@@ -124,8 +124,8 @@ This document serves to track the contributions of each team member as part of t
         - Improved design of game file and removed unused code. Game file renders all 5 seconds, since 10 seconds is too long. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a5d263d3a376eddaa2d2d6332801e9e83381f39c) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/bf987a13313a54bbbff42e1348530badadd8d36c)
     - Thursday, 09-05-2024
-        - Added placeholders in ingame to indicate, where input should be typed in. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/38053e35f6ae91edf0994da35f10363bcdaca37b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
-        - Changed location of leave game button. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/04714a36f9795cf59663e1acea0ea364670583bb) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61709419)
+        - Added placeholders in ingame to indicate, where input should be typed in. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/38053e35f6ae91edf0994da35f10363bcdaca37b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Changed location of leave game button. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/04714a36f9795cf59663e1acea0ea364670583bb) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
         - Fixed game layout, so search bar and my profile button disappear, when user is in a lobby or game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0fca2e49439163a51b069ecdcd36b7ae45711c08) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362751)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b246035352ae259a483527f861a33df51c49572f)
     - Friday, 10-05-2024
@@ -134,37 +134,138 @@ This document serves to track the contributions of each team member as part of t
 ## Shanthos
 
 - **Week 1**
-    - Task 1: Front-end user story 1. creating the Login and Register View [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/90be600c8b40ad22a79af4c6cff8fa50b1dbedc0) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179279)
-    - Task 2: create Leaderboard and Buttons in Dashboard View [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e12537cf4b7775f6a40a0d1668f6d294fde6c456) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121339)
+    - Task 1: Front-end user story 1. creating the Login and Register View [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179279)
+ 
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/90be600c8b40ad22a79af4c6cff8fa50b1dbedc0) (2 pics added and first draft of login page) 
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/2eb693a03fefac44dfe3f4badc2ef673a1532559) (rounded corners in the register page)
+
+    - Task 2: create Leaderboard and Buttons in Dashboard View [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121339)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f56c9d7a870f65ab96b3d5b2b0feabf03edbb29c) (minor changes in GameLayout.jsx started to split game dashboard into 2 parts)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/701a71c7278bd944651200a93c90bd6291bce32d) (2 parts on the dashboard extended)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/1f056e5c86d412ba91f8d6e4f5564f50ce8e3170) (both game scss files changed names)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e12537cf4b7775f6a40a0d1668f6d294fde6c456) (Dashboard looks wise finished)
+      
+    - Additional Work: Pair Programming with @bhalf: The Pair Programming was done through the account bhalf. In the initial phase of Sopra we set up the frontend with Benjamin because he has more experience with that. The pair programming took place over multiple days.
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/68386ead0a505c632d936e073f246f65298d174d) (Added Files, made basic layout)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/482dfb5ad4bd37dc8a2e4a2aa6aefb2f1824a054) (Added functionalities)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/781aa066135a8e1fa25a47c99723700b4b54f46b) (Fixed indentations, added files )
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ee96ae130ed2a6f3c137b7279d9108c9bbef2972) (Fixed indentations, added files, websocket)
+
+      
+
+      
 - **Week 2**
-    - Task 1: Leaderboard of the Endscreen [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e25bece91020c84de23af92edf91cf8965cac320) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56786647)
-    - Task 2: Connecting Buttons with API and styling [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e25bece91020c84de23af92edf91cf8965cac320) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56786646)    
+    - Task 1: Leaderboard of the Endscreen [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56786647)
+ 
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/33219481e939c6ac04671092d0cad8d6c3ff72b1) (first draft of final leaderboard and tried to implement main menu and play again button)
+
+    - Task 2: Connecting Buttons with API and styling [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56786646)
+ 
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e25bece91020c84de23af92edf91cf8965cac320) (implementation of the leaderboard o the end screen and api-call to navigate from play again button to lobby)
+
+    - Additional Work:
+    
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a79918f73e39eb5baa7aca2d68cc872c907ad88f) (added navigation to button All users, create game, logout)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/1350d47510d41c8a112cb26903ab6bb558575782) (delay fixes)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/410cf6b0ffd198c1dfb34006e263d8972f6cc100) (design changes in lobby)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b3fbefe77b9212daf9062e487b530d7d99eeb7c6) (design changes in lobby & "enter"-key functionality added)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ac4b02640313281a7fa584b1681637dc324ab2a2) (fixed deployment issue)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b6cfe7593964a77ebd8a6e033c56183685844978) (clean code)
+
+     - Additional Work: Pair Programming with @bhalf. The Pair Programming was done through the account bhalf.
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/2ddae4f3819bb73219ed06f1f88e575bdcda1548) (Added basic game functionality)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e436338232119d58c99ea45c0d4eeb961db64845) (Added basic game functionality, fixed Bugs regarding websockets)
+
+        
 - **Week 3**
-    - Task 1: Reworked the Create Game File, has now proper functionality and proper UI Design [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/05412db436f34632129a1b2a18c12f5f6f4d893f) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785116)
-    - Task 2: functionalities given in "open lobbies screen", UI also finished [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9a0434bca4e6610e1d7faca7f126d9af22903732) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60085103)
+    - Task 1: Reworked the Create Game File, has now proper functionality and proper UI Design [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785116)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/05412db436f34632129a1b2a18c12f5f6f4d893f) (CreateGame.jsx has now proper functionality with the game modes & proper UI to work with + minor bug fixes in endgame and game)
+
+    - Task 2: functionalities given in "open lobbies screen", UI also finished [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60085103)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9a0434bca4e6610e1d7faca7f126d9af22903732) (functionalities given in "open lobbies screen", UI also finished)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/cb0b8f93dfe1266da0ed08187ffa3ab607376d56) ("open lobbies" now fully functional)
+
+    - Additional Work:
+    
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4b5c1363492b7cb339c47bc0005267af47e9986b) (Final Leaderboard has conection to API object and displays accordingly)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/54e03f04bc403ffe001112ae149ce7edfc1d703c) (joining error partiallay fixed)
+
+    
 - **Week 4**
-    - Task 1: Added functionallity to "Search a User" it now leads to the User if the input is vaild and rasises warrning if not + prepared presention slides [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/005e02c65b9182d86a9efbdc98c7718dcb512389) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121340)
-    - Task 2: created Tests for DTOMapper and UserServiceIntegration [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e7e57515e5232a6f64caa93fa13a1ae99b61a591) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60867714)
+    - Task 1: Added functionallity to "Search a User" it now leads to the User if the input is vaild and rasises warrning if not + prepared presention slides [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121340)
+ 
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/005e02c65b9182d86a9efbdc98c7718dcb512389) (proper functionality for "search other users" with proper error message and search funtion)
+
+    - Task 2: created Tests for DTOMapper and UserServiceIntegration [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60867714)
+ 
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e7e57515e5232a6f64caa93fa13a1ae99b61a591) (Tests written for DTOMapper test and UserServiceIntegrationTest)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/611d1dbbbae363ae1219fbfffebd9f7ee5630edb) (additional Tests)
+
+    - Additional Work:
+  
+        Prepared presentation and Report (4.5h)  
+
 - **Week 5**
-    - Task 1:  City mode and Country mode now work proparly [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/cadd1222cab74f8b5709eebffab6a230f16a4cc6)[Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/7)
-    - Task 2: updated design and tried to add functionality [Commit Link1](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/569466a47a191aa6d83602835ed7a49bcaacc6a9) [Commit Link2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c3e07f697d04865fa357bbfd57d20a57f5206ae6) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/41)
+    - Task 1:  City mode and Country mode now work proparly [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/7)
+ 
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/cadd1222cab74f8b5709eebffab6a230f16a4cc6) (City mode and Country mode now work properly)
+
+    - Task 2: updated design and tried to add functionality [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/41)
+ 
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/569466a47a191aa6d83602835ed7a49bcaacc6a9) (updated design in gamelayout)
+
+    - Additional Work:
+  
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/bbd718f62b66798ffb8aba9964b8e98902da2f98) (GameLayout fixes)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c3e07f697d04865fa357bbfd57d20a57f5206ae6) (tried to implement that it goes automatically to next round when all players guessed right DIDNT WORK)
+
+     - Additional Work: Pair Programming with @bhalf. The Pair Programming was done through the account bhalf.
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/1d60c511fa1e49ea69d5003dc30a8f8f0f8c1625) (implemented automatically to next round for the game)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/498f172a45ba16fdeef6713e3ac56a1367c60450) (Fixed bugs with logout and game chat and sockets and conducting the game correctly)
+
+    
 - **Week 6**
     - Task 1: Bugs fixing Frontend [#44](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62362751) and UI/UX bettering:
                
-        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/553938035eddc813ad2be2a74723e7c0d064bc0f (player cant start game when he's alone bug fix)
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/553938035eddc813ad2be2a74723e7c0d064bc0f) (player cant start game when he's alone bug fix)
 
-        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/060296bd4fe7e5cd6edfa7547fb0ce24ee17116c (Join button in dashboard is now not clickable and grey)
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/060296bd4fe7e5cd6edfa7547fb0ce24ee17116c) (Join button in dashboard is now not clickable and grey)
 
-        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f166fd4a40b847a7912e5befca748141f855f216 (disableing unnessasary code)
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f166fd4a40b847a7912e5befca748141f855f216) (disableing unnessasary code)
 
-        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/074e85e534b0c249f0b36da0e91bf9d4d4922787 (visual bettering of the joker buttin UX)
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/074e85e534b0c249f0b36da0e91bf9d4d4922787) (visual bettering of the joker buttin UX)
 
-        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/741583d3c6a322df87a0eba5375cb478ad8d3d1c (visual bettering of the joker button UX fix and play again button endscreen
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/741583d3c6a322df87a0eba5375cb478ad8d3d1c) (visual bettering of the joker button UX fix and play again button endscreen
 
-        https://github.com/sopra-fs24-group-40/mapquestor-client/commit/05136dddc63fc23b4ee9762bd81f7ba2b39459ca(display informationl text when play again button is pushed in endscreen)
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/05136dddc63fc23b4ee9762bd81f7ba2b39459ca) (display informationl text when play again button is pushed in endscreen)
+      
     - Task 2: writting Tests in Backend [#84](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/84) [#85](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/85) [#78](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/78) [#77](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/77)
       
-        https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2604d13dbd736a9158da8c4f4b40128f2f130327 ( written Testcases for CityServiceTest DTOMapperTest UserSocketService Test and UserServiceTest)    
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2604d13dbd736a9158da8c4f4b40128f2f130327) ( written Testcases for CityServiceTest DTOMapperTest UserSocketService Test and UserServiceTest)    
 
 ## Arber
 
