@@ -7,18 +7,22 @@ This document serves to track the contributions of each team member as part of t
 - **Week 1**
     - Created controllers, DTOs and the necessary entities for the game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/293195330daf9954a50d76465f38867c1c25e5c1)
     - Implemented basic WebSocket-Support [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/13a0eb854599018dddea12d025606a0df714d190)
-
 - **Week 2**
     - Added join game support [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d)
     - Add users to a game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d)
-
 - **Week 3**
     - Added the game features and forwarded all users to game screen [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4a98f5da5c908f2c12140097a01211a87e3985c4) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/37)
     - Backend functionality, to store players etc in game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/35)
-
 - **Week 4**
     - A lot of bug fixes regarding sonarcloud and code quality [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/30304783c480839c862f21d2c0432f3fab9fec31)
     - Implement leave game if someone closes the window [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/304aee0b478611c109371751c914cd236a171809) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/36)
+- **Week 5**
+    - Added the play again functionality in the backend [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1a57c0cc4adf1c603102b9611102b5f8e8d63afe) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/11)
+    - Added web socket functionality for logout [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4189b092913afb9f63e9a4fe7f5c8e27ac6306b0) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=logout&pane=issue&itemId=62619373)
+- **Week 6**
+    - Fixed bugs and added functionality that users get redirected in a game when refreshing [Commit Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=logout&pane=issue&itemId=62619373) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=bug&pane=issue&itemId=62362751)
+    - Bugfixes backend [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ecc52d03cc7a41fafba45a0d99f9b300e3375071) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=bug&pane=issue&itemId=62362662)
+
 
 
 ## Branislav
@@ -163,16 +167,15 @@ This document serves to track the contributions of each team member as part of t
   Monday, 07-05-2024
   - Bug fixes. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/24d0845d2fd2c6a05bcd35c84360deb345ae6885) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4ea9a78dcca468af1de19a042ceca56cd67c257a) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
   Thursday, 09-05-2024
-  - Logout if closing tab. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e697a0c87360051e4de2105a2f4f2e00d4861c1f)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62619373) 
-## Nikola
+  -Logout if closing tab. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e697a0c87360051e4de2105a2f4f2e00d4861c1f)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62619373) 
 
+
+## Nikola
 - **Week 1**
     - I took the "No continuous progress work done" Joker for this week.
-
 - **Week 2**
     - Task 1: Frontend Issue 17: User-Friendly Game Screen (placement of containers, sizeing, created timer). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784177)
     - Task 2: Frontend Issue 23: Make the hints and leaderboard (created the hints and placed it above the map, the leaderboard is on the left side and the chat field placed on the right side). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784173)
-
 - **Week 3**
   - Wednesday, 17-04-2024
       - Adjust Design of Global Leaderboard (name, rank, wins). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/81204ea505f5c42f84bfb92a52810b7b679bd615) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784161)
