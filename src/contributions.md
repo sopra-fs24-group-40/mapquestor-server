@@ -139,14 +139,14 @@ This document serves to track the contributions of each team member as part of t
     - Task 1: Back-end user story 1, storing the user data [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179570)
     - Task 2: Ability to edit profile in the back-end [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56785118)
 - **Week 2**
-  Thursday, 11-04-2024
+  - Thursday, 11-04-2024
       - Return the map from the API, connecting to API [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0ec6be1613bee310ac3af9739d0136b379d1287e) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56784172)
-  Friday, 12-04-2024
+  - Friday, 12-04-2024
     -  Task 2: edit page constructed, data gests changed in the server, further changes in the edit profile [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/65e9ac05818c3fa048b04baf596ca4a139700b80) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785117)
 - **Week 3**
   - Monday, 15-04-2024
       - Update leaderboard in Ingame component, addpoints Assign points correctly [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f08cb49753029ded66844cb7642c67a9ba7cf77a) [Issue link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/30)
-      - Disable street names and Google Maps links in Ingame compnenet [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e134ed038591a996c66004ffbdb31c4dd3410147)
+      - Disable street names in Ingame compnenet [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e134ed038591a996c66004ffbdb31c4dd3410147)
   - Tuesday, 16-04-2024
       - Returning cities for all user, so all users have the same city to play [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/7cf98e80c47e233c3b5d0f39a2e45c93f5ea3100) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b6480c879713a36a4a580dee4757118136b9a358) [Commit link 3](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5ebffa855b0ea901199c5099e466d4a7ded50585) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60422940)
   - Thursday, 18-04-2024
