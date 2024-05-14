@@ -111,7 +111,9 @@ public class UserService {
     public UserGetDTO login(UserPostDTO userPostDTO) {
         User user = userRepository.findByUsername(userPostDTO.getUsername())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid username or password!"));
-
+        if (user.getStatus() != UserStatus.OFFLINE) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User already logged in or in a game!");
+        }
         if (user != null && checkPassword(userPostDTO.getPassword(), user.getPassword())) {
             user.setStatus(UserStatus.ONLINE);
             user.setToken(UUID.randomUUID().toString());
