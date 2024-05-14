@@ -1,7 +1,6 @@
 package ch.uzh.ifi.hase.soprafs24.messages;
 
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
-import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;

@@ -22,6 +22,8 @@ This document serves to track the contributions of each team member as part of t
 - **Week 6**
     - Fixed bugs and added functionality that users get redirected in a game when refreshing [Commit Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=logout&pane=issue&itemId=62619373) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=bug&pane=issue&itemId=62362751)
     - Bugfixes backend [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ecc52d03cc7a41fafba45a0d99f9b300e3375071) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=bug&pane=issue&itemId=62362662)
+- **Week 7**
+    - I took the "No continuous progress work done" Joker for this week.
 
 
 
