@@ -1,6 +1,5 @@
 package ch.uzh.ifi.hase.soprafs24.service;
 
-
 import ch.uzh.ifi.hase.soprafs24.constant.GameStatus;
 import ch.uzh.ifi.hase.soprafs24.constant.UserStatus;
 import ch.uzh.ifi.hase.soprafs24.entity.City;
@@ -28,13 +27,11 @@ public class GameService {
     private final UserRepository userRepository;
     private final CityRepository cityRepository;
 
-
     public GameService(GameRepository gameRepository, UserRepository userRepository, CityRepository cityRepository) {
         this.gameRepository = gameRepository;
         this.userRepository = userRepository;
         this.cityRepository = cityRepository;
     }
-
 
     public City getRandomCity() {
         List<City> cities = cityRepository.findAll();
@@ -47,18 +44,17 @@ public class GameService {
         return randomCity;
     }
 
-
     public Game createGame(CreateGameDTO newGame) {
         // Find the creator user
         User creator = userRepository.findByToken(newGame.getCreator())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
-
+     
         creator.setStatus(UserStatus.INGAME);
         // Check if the creator is already in a game
         if (creator.getGame() != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is already in a game");
         }
-
+     
         Game game = new Game();
         game.setGameCode(UUID.randomUUID().toString().substring(0, 5));
         game.setCreator(newGame.getCreator());
@@ -66,25 +62,29 @@ public class GameService {
         game.setRoundCount(newGame.getRoundCount());
         game.setGameType(newGame.getGameType());
         game.setGameStatus(GameStatus.LOBBY);
-
+     
         List<City> selectedCities = new ArrayList<>();
-        for (int i = 0; i < newGame.getRoundCount(); i++) {
-            selectedCities.add(getRandomCity());
+        Random random = new Random();
+        while (selectedCities.size() < newGame.getRoundCount()) {
+            City randomCity = getRandomCity();
+            // Check if the city is already in the list
+            if (!selectedCities.contains(randomCity)) {
+                selectedCities.add(randomCity);
+            }
         }
         game.setCities(selectedCities);
-
+     
         game = gameRepository.save(game);
-
+     
         // Add the creator user to the game
         game.addPlayer(creator);
-
+     
         // Update the user's game reference
         creator.setGame(game);
         userRepository.save(creator);
-
+     
         return game;
     }
-
 
     public List<GameInfoDTO> getGames() {
         List<Game> games = gameRepository.findAll();
@@ -94,7 +94,6 @@ public class GameService {
 
         return gameInfoDTOS;
     }
-
 
     public GameInfoDTO getGame(String gameCode) {
         Game game = gameRepository.findByGameCode(gameCode)
@@ -120,7 +119,6 @@ public class GameService {
         gameDTO.setGameStatus(game.getGameStatus());
         gameDTO.setPlayers(playerInfoDTOs);
         gameDTO.setCities(game.getCities());
-
 
         return gameDTO;
     }
@@ -155,7 +153,6 @@ public class GameService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Game is already full");
         }
     }
-
 
     public void addUserToGame(String token, String gameCode) {
         Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Spiel nicht gefunden"));
@@ -209,7 +206,6 @@ public class GameService {
         Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Game not found"));
         User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("User not found"));
 
-
         List<User> playersCopy = new ArrayList<>(game.getPlayers());
         for (User player : playersCopy) {
             game.removePlayer(player);
@@ -224,14 +220,16 @@ public class GameService {
     public CitiesGetDTO returnCities(CitiesPostDTO citiesPostDTO) {
         List<City> selectedCities = new ArrayList<>();
         CitiesGetDTO citiesGetDTO = new CitiesGetDTO();
-        for (int i = 0; i < citiesPostDTO.getRoundCount(); i++) {
-            selectedCities.add(getRandomCity());
+        while (selectedCities.size() < citiesPostDTO.getRoundCount()){
+            City randomCity = getRandomCity();
+            if (!selectedCities.contains(randomCity)) {
+                selectedCities.add(randomCity);
+            }
         }
 
         citiesGetDTO.setCities(selectedCities);
 
         return citiesGetDTO;
     }
-
 
 }
