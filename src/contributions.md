@@ -130,6 +130,12 @@ This document serves to track the contributions of each team member as part of t
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b246035352ae259a483527f861a33df51c49572f)
     - Friday, 10-05-2024
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2a0a43766e930a18cfa72a8cbc9457d5c26d27e8)
+    
+- **Week 7**
+    - Monday, 13-04-2024
+        - Game layout and all users page re-render all 5, profile page all 10 seconds. For game layout, new registered users can be reached, when searching for them. All users page and profile page will update the status of the user, if user logs in, out, or is inside a game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/edeb16081c4bb8cc5adcefc81a6fdf72667a035e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Added color yellow for users with status "INGAME" in all users page. It was already added to the profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f06a6c67df73fd82afa121cf682c4f265bf95311) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Added a little welcome message, so it feels more personal, when logged-in. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5210ab486784d4b7f23f0f03d588c7ac29f9ebd0) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
 
 ## Shanthos
 
