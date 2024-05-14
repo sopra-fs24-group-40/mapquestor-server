@@ -17,8 +17,8 @@ public class CityServiceTest {
         CityService cityService = new CityService(cityRepositoryMock);
 
         List<City> citiesToSave = new ArrayList<>();
-        citiesToSave.add(createCity("Zurich", "Switzerland", 47.3769, 8.5417, "no"));
-        citiesToSave.add(createCity("Berlin", "Germany", 52.5200, 13.4050, "yes"));
+        citiesToSave.add(createCity("Bern", "Switzerland", 46.94824798153324, 7.447493709652632, "yes"));
+        citiesToSave.add(createCity("Berlin", "Germany", 52.5040109865205, 13.337379751410454, "yes"));
 
         // When
         cityService.saveCities(citiesToSave);
