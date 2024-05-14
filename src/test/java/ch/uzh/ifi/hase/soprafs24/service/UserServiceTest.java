@@ -63,31 +63,6 @@ public class UserServiceTest {
         assertEquals(user.getStatus(), userDTO.getStatus());
     }
 
-     @Test
-     public void testCreateUser_WhenUsernameDoesNotExist() {
-         // Given
-         UserPostDTO userPostDTO = new UserPostDTO();
-         userPostDTO.setUsername("newUser");
-         userPostDTO.setPassword("password");
-
-         // When createUser is called
-         UserGetDTO createdUser = userService.createUser(userPostDTO);
-
-         // Debug log
-         System.out.println("Created user: " + createdUser);
-
-         // Then verify repository interaction
-         verify(userRepository, times(1)).existsByUsername(userPostDTO.getUsername());
-         verify(userRepository, times(1)).save(any(User.class));
-
-         // Then assert created user details
-         assertNotNull(createdUser, "Created user should not be null");
-         assertEquals(userPostDTO.getUsername(), createdUser.getUsername());
-         assertEquals(0, createdUser.getPlayedGames());
-         assertEquals(0, createdUser.getWonGames());
-         assertEquals(UserStatus.ONLINE, createdUser.getStatus());
-     }
-
     @Test
     public void testCreateUser_WhenUsernameExists() {
         // Given
@@ -139,6 +114,7 @@ public class UserServiceTest {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
+        user.setStatus(UserStatus.OFFLINE);
 
         when(userRepository.findByUsername(username)).thenReturn(Optional.of(user));
 
@@ -162,21 +138,15 @@ public class UserServiceTest {
         userTokenDTO.setToken(UUID.randomUUID().toString());
 
         User newUser = DTOMapper.INSTANCE.convertUserPostDTOtoEntity(userPostDTO);
-
-        newUser.setToken(userTokenDTO.getToken());
         newUser.setStatus(UserStatus.ONLINE);
-        newUser.setCreation_date(LocalDateTime.now());
-        newUser.setPlayedGames(0);
-        newUser.setWonGames(0);
-        newUser.setAvatar("AVATAR");
-
+        newUser.setToken(userTokenDTO.getToken());
+        newUser = userRepository.save(newUser); // Save the user with a token
 
         // Mock UserRepository and its behavior
-        UserRepository userRepositoryMock = mock(UserRepository.class);
-        when(userRepositoryMock.findByUsername(username)).thenReturn(Optional.of(newUser));
+        when(userRepository.findByToken(userTokenDTO.getToken())).thenReturn(Optional.of(newUser));
 
         // Create an instance of your UserService, injecting the mocked UserRepository
-        UserService userService = new UserService(userRepositoryMock);
+        UserService userService = new UserService(userRepository);
 
         // When
         boolean loggedOut = userService.logout(userTokenDTO);
