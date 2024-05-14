@@ -30,6 +30,7 @@ public class UserRepositoryIntegrationTest {
     user.setStatus(UserStatus.ONLINE);
     user.setToken("1");
     user.setCreation_date(LocalDateTime.now());
+    user.setAvatar("AVATAR");
     entityManager.persist(user);
     entityManager.flush();
 
@@ -52,6 +53,7 @@ public class UserRepositoryIntegrationTest {
         user.setStatus(UserStatus.ONLINE);
         user.setToken("1");
         user.setCreation_date(LocalDateTime.now());
+        user.setAvatar("AVATAR");
         entityManager.persist(user);
         entityManager.flush();
 
