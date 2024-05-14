@@ -10,7 +10,9 @@ import ch.uzh.ifi.hase.soprafs24.repository.CityRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,7 +20,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,6 +42,35 @@ public class GameServiceTest {
 
     @InjectMocks
     private GameService gameService;
+
+    @Test
+    public void testGetRandomCity() {
+        // Given
+        City city1 = new City();
+        city1.setId(1L);
+        city1.setName("City1");
+        City city2 = new City();
+        city2.setId(2L);
+        city2.setName("City2");
+        List<City> cities = Arrays.asList(city1, city2);
+
+        when(cityRepository.findAll()).thenReturn(cities);
+
+        // When
+        City randomCity = gameService.getRandomCity();
+
+        // Then
+        assertTrue(cities.contains(randomCity));
+    }
+
+    @Test
+    public void testGetRandomCity_ThrowsExceptionWhenNoCitiesFound() {
+        // Given
+        when(cityRepository.findAll()).thenReturn(Collections.emptyList());
+
+        // When & Then
+        assertThrows(IllegalStateException.class, () -> gameService.getRandomCity());
+    }
 
 //    @Test
 //    public void testCreateGame_validInput() {
@@ -85,7 +118,73 @@ public class GameServiceTest {
         // When / Then
         assertThrows(ResponseStatusException.class, () -> gameService.createGame(newGameDTO));
     }
-  
+
+    @Test
+    public void testCreateGame_userAlreadyInGame() {
+        // Given
+        CreateGameDTO newGameDTO = new CreateGameDTO();
+        newGameDTO.setCreator("userToken");
+
+        User creator = new User();
+        creator.setToken("userToken");
+        creator.setGame(new Game());
+
+        when(userRepository.findByToken("userToken")).thenReturn(Optional.of(creator));
+
+        // Then
+        assertThrows(ResponseStatusException.class, () -> {
+            gameService.createGame(newGameDTO);
+        });
+    }
+
+    @Test
+    public void testGetGames() {
+        // Given
+        Game game1 = new Game();
+        game1.setGameCode("ABC123");
+        game1.setMaxPlayers(4);
+        game1.setPlayerCount(1);
+        game1.setGameStatus(GameStatus.LOBBY);
+
+        Game game2 = new Game();
+        game2.setGameCode("DEF456");
+        game2.setMaxPlayers(4);
+        game2.setPlayerCount(2);
+        game2.setGameStatus(GameStatus.LOBBY);
+
+        List<Game> games = Arrays.asList(game1, game2);
+        when(gameRepository.findAll()).thenReturn(games);
+
+        // When
+        List<GameInfoDTO> gameInfoDTOs = gameService.getGames();
+
+        // Then
+        assertEquals(2, gameInfoDTOs.size(), "The number of games should match the number of games in the repository");
+        verify(gameRepository, times(1)).findAll();
+    }
+
+    @Test
+    public void testGetGame_validGameCode() {
+        // Given
+        String gameCode = "ABC123";
+        Game game = new Game();
+        game.setGameCode(gameCode);
+        game.setMaxPlayers(4);
+        game.setPlayerCount(2);
+        game.setGameStatus(GameStatus.LOBBY);
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+
+        // When
+        GameInfoDTO gameInfoDTO = gameService.getGame(gameCode);
+
+        // Then
+        assertNotNull(gameInfoDTO);
+        assertEquals(gameCode, gameInfoDTO.getGameCode());
+        assertEquals(4, gameInfoDTO.getMaxPlayers());
+        assertEquals(2, gameInfoDTO.getPlayerCount());
+        assertEquals(GameStatus.LOBBY, gameInfoDTO.getGameStatus());
+    }
 
     @Test
     public void testJoinGame_validInput() {
