@@ -128,34 +128,128 @@ public class UserServiceTest {
         assertEquals(username, loggedInUser.getUsername());
     }
 
-//    @Test
-//    public void testLogout() {
-//        // Given
-//        String username = "testUser";
-//        UserPostDTO userPostDTO = new UserPostDTO();
-//        userPostDTO.setUsername(username);
-//        UserTokenDTO userTokenDTO = new UserTokenDTO();
-//        userTokenDTO.setToken(UUID.randomUUID().toString());
-//
-//        User newUser = DTOMapper.INSTANCE.convertUserPostDTOtoEntity(userPostDTO);
-//        newUser.setStatus(UserStatus.ONLINE);
-//        newUser.setToken(userTokenDTO.getToken());
-//        newUser = userRepository.save(newUser); // Save the user with a token
-//
-//        // Mock UserRepository and its behavior
-//        when(userRepository.findByToken(userTokenDTO.getToken())).thenReturn(Optional.of(newUser));
-//
-//        // Create an instance of your UserService, injecting the mocked UserRepository
-//        UserService userService = new UserService(userRepository);
-//
-//        // When
-//        boolean loggedOut = userService.logout(userTokenDTO);
-//
-//        // Then
-//        assertTrue(loggedOut);
-//        assertEquals(UserStatus.OFFLINE, newUser.getStatus());
-//        assertEquals("", newUser.getToken());
-//    }
+    @Test
+    public void testLogin_InvalidCredentials() {
+        // Setup
+        String username = "testUser";
+        String correctPassword = "correctPassword";
+        String incorrectPassword = "incorrectPassword";
+        
+        // Create a user with the correct password
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(correctPassword);
+        user.setStatus(UserStatus.OFFLINE);
+        
+        when(userRepository.findByUsername(username)).thenReturn(Optional.of(user));
+        
+        // Create a userPostDTO with correct username and incorrect password
+        UserPostDTO userPostDTOIncorrect = new UserPostDTO();
+        userPostDTOIncorrect.setUsername(username);
+        userPostDTOIncorrect.setPassword(incorrectPassword);
+        
+        // Execute & Verify
+        assertThrows(ResponseStatusException.class, () -> userService.login(userPostDTOIncorrect));
+        
+        // Verify that status remains offline
+        assertEquals(UserStatus.OFFLINE, user.getStatus());
+        
+        // Create a userPostDTO with incorrect username
+        UserPostDTO userPostDTOIncorrectUsername = new UserPostDTO();
+        userPostDTOIncorrectUsername.setUsername("incorrectUsername");
+        userPostDTOIncorrectUsername.setPassword(correctPassword);
+        
+        // Execute & Verify
+        assertThrows(ResponseStatusException.class, () -> userService.login(userPostDTOIncorrectUsername));
+        
+        // Verify that status remains offline
+        assertEquals(UserStatus.OFFLINE, user.getStatus());
+    }
+
+    @Test
+    public void testProcessGameData_Won() {
+        // Setup
+        String token = "testToken";
+        User user = new User();
+        user.setToken(token);
+        user.setPlayedGames(5);
+        user.setWonGames(3);
+        
+        when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
+        
+        // Execute
+        userService.processGameData("WON", token);
+        
+        // Verify
+        assertEquals(6, user.getPlayedGames()); // Verify played games incremented by 1
+        assertEquals(4, user.getWonGames()); // Verify won games incremented by 1
+        verify(userRepository, times(1)).save(user); // Verify userRepository.save called once
+    }
+
+    @Test
+    public void testProcessGameData_NotWon() {
+        // Setup
+        String token = "testToken";
+        User user = new User();
+        user.setToken(token);
+        user.setPlayedGames(5);
+        user.setWonGames(3);
+        
+        when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
+        
+        // Execute
+        userService.processGameData("NOT_WON", token);
+        
+        // Verify
+        assertEquals(6, user.getPlayedGames()); // Verify played games incremented by 1
+        assertEquals(3, user.getWonGames()); // Verify won games remain unchanged
+        verify(userRepository, times(1)).save(user); // Verify userRepository.save called once
+    }
+
+    @Test
+    public void testProcessGameData_UserNotFound() {
+        // Setup
+        String token = "nonExistingToken";
+        when(userRepository.findByToken(token)).thenReturn(Optional.empty());
+        
+        // Execute & Verify
+        assertThrows(RuntimeException.class, () -> userService.processGameData("WON", token));
+    }
+
+    // @Test
+    // public void testLogout_UserExists() {
+    //     // Setup
+    //     String token = "testToken";
+    //     User user = new User();
+    //     user.setToken(token);
+    //     user.setStatus(UserStatus.ONLINE);
+    
+    //     when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
+    
+    //     // Execute
+    //     boolean loggedOut = userService.logout(new UserTokenDTO(token));
+    
+    //     // Verify
+    //     assertTrue(loggedOut); // Verify that logout was successful
+    //     assertEquals(UserStatus.OFFLINE, user.getStatus()); // Verify user status updated to offline
+    //     assertEquals("", user.getToken()); // Verify user token is cleared
+    //     verify(userRepository, times(1)).save(user); // Verify userRepository.save called once
+    // }
+    
+    // @Test
+    // public void testLogout_UserNotExists() {
+    //     // Setup
+    //     String token = "nonExistingToken";
+    //     when(userRepository.findByToken(token)).thenReturn(Optional.empty());
+    
+    //     // Execute
+    //     boolean loggedOut = userService.logout(new UserTokenDTO(token));
+    
+    //     // Verify
+    //     assertFalse(loggedOut); // Verify that logout was unsuccessful
+    //     // Verify that userRepository.save is not called as the user does not exist
+    //     verify(userRepository, never()).save(any(User.class));
+    // }
 
     @Test
     public void testDeleteUser() {
