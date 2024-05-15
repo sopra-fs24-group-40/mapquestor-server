@@ -129,7 +129,7 @@ public class GameService {
             return new ArrayList<>(game.get().getPlayers());
         }
         else {
-            throw new EntityNotFoundException("Spiel mit ID " + gameCode + " nicht gefunden.");
+            throw new EntityNotFoundException("Game with code " + gameCode + " not found.");
         }
     }
 
@@ -155,11 +155,11 @@ public class GameService {
     }
 
     public void addUserToGame(String token, String gameCode) {
-        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Spiel nicht gefunden"));
-        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("Benutzer nicht gefunden"));
+        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Game not found"));
+        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("User not found"));
 
         if (user.getGame() != null) {
-            throw new RuntimeException("Benutzer ist bereits in einem Spiel");
+            throw new RuntimeException("User is already in a game");
         }
 
         if (game.getPlayers().size() < game.getMaxPlayers()) {
@@ -169,7 +169,7 @@ public class GameService {
             userRepository.save(user);
         }
         else {
-            throw new RuntimeException("Das Spiel ist bereits voll");
+            throw new RuntimeException("Lobby is full");
         }
     }
 
