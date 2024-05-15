@@ -21,6 +21,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -229,6 +230,44 @@ public class GameServiceTest {
         assertEquals(2, playerInfoDTOs.size());
         assertEquals(userToken1, playerInfoDTOs.get(0).getToken());
         assertEquals(userToken2, playerInfoDTOs.get(1).getToken());
+    }
+
+    @Test
+    public void testGetUsersByGameId_GameExistsWithUsers() {
+        // Given
+        String gameCode = "ABC123";
+        User user1 = new User();
+        user1.setToken("token1");
+        user1.setUsername("User1");
+        User user2 = new User();
+        user2.setToken("token2");
+        user2.setUsername("User2");
+
+        Game game = new Game();
+        game.setGameCode(gameCode);
+        game.setMaxPlayers(4);
+        game.setPlayerCount(2);
+        game.setGameStatus(GameStatus.LOBBY);
+        game.addPlayer(user1);
+        game.addPlayer(user2);
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+
+        // When
+        List<User> users = gameService.getUsersByGameId(gameCode);
+
+        // Then
+        assertEquals(2, users.size());
+        assertTrue(users.contains(user1));
+        assertTrue(users.contains(user2));
+    }
+
+    @Test
+    public void testGetUsersByGameId_GameDoesNotExist() {
+        // Given
+        String gameCode = "XYZ789";
+
+        assertThrows(EntityNotFoundException.class, () -> gameService.getUsersByGameId(gameCode));
     }
 
     @Test
