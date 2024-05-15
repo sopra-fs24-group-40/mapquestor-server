@@ -117,6 +117,12 @@ public class MessageHandler {
             return processChatMessage(chatMessage);
         }
 
+        else if (message.getType() == MessageType.PLAYERS) {
+            @SuppressWarnings("unchecked")
+            Message<String> chatMessage = (Message<String>) message;
+            return processChatMessage(chatMessage);
+        }
+
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
         }
