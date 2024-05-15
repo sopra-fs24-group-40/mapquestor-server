@@ -12,6 +12,7 @@ import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -184,6 +185,50 @@ public class GameServiceTest {
         assertEquals(4, gameInfoDTO.getMaxPlayers());
         assertEquals(2, gameInfoDTO.getPlayerCount());
         assertEquals(GameStatus.LOBBY, gameInfoDTO.getGameStatus());
+    }
+
+    @Test
+    public void testGetGame_PlayerMapping() {
+        // Given
+        String gameCode = "ABC123";
+        String userToken1 = "token1";
+        String userToken2 = "token2";
+
+        User user1 = new User();
+        user1.setToken(userToken1);
+        user1.setUsername("User1");
+
+        User user2 = new User();
+        user2.setToken(userToken2);
+        user2.setUsername("User2");
+
+        Game game = new Game();
+        game.setGameCode(gameCode);
+        game.setMaxPlayers(4);
+        game.setPlayerCount(2);
+        game.setGameStatus(GameStatus.LOBBY);
+
+        game.addPlayer(user1);
+        game.addPlayer(user2);
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+//        when(userRepository.findByToken(userToken1)).thenReturn(Optional.of(user1));
+//        when(userRepository.findByToken(userToken2)).thenReturn(Optional.of(user2));
+
+        // When
+        GameInfoDTO gameInfoDTO = gameService.getGame(gameCode);
+
+        // Then
+        assertNotNull(gameInfoDTO);
+        assertEquals(gameCode, gameInfoDTO.getGameCode());
+        assertEquals(4, gameInfoDTO.getMaxPlayers());
+        assertEquals(4, gameInfoDTO.getPlayerCount());
+        assertEquals(2, gameInfoDTO.getPlayers().size());
+
+        List<PlayerInfoDTO> playerInfoDTOs = gameInfoDTO.getPlayers();
+        assertEquals(2, playerInfoDTOs.size());
+        assertEquals(userToken1, playerInfoDTOs.get(0).getToken());
+        assertEquals(userToken2, playerInfoDTOs.get(1).getToken());
     }
 
     @Test
