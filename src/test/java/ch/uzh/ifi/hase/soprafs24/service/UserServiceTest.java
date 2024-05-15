@@ -367,6 +367,54 @@ public class UserServiceTest {
         verify(userRepository, never()).save(any(User.class));
     }
 
+    @Test
+    public void testVerifyToken_ValidToken() {
+        // Setup
+        String token = "validToken";
+        when(userRepository.findByToken(token.trim())).thenReturn(Optional.of(new User()));
+
+        // Execute
+        boolean tokenValid = userService.verifyToken(token);
+
+        // Verify
+        assertTrue(tokenValid); // Verify that token is considered valid
+        verify(userRepository, times(1)).findByToken(token.trim()); // Verify userRepository.findByToken called once with trimmed token
+    }
+
+    @Test
+    public void testVerifyToken_NullToken() {
+        // Execute
+        boolean tokenValid = userService.verifyToken(null);
+
+        // Verify
+        assertFalse(tokenValid); // Verify that null token is considered invalid
+        verify(userRepository, never()).findByToken(any()); // Verify userRepository.findByToken never called
+    }
+
+    @Test
+    public void testVerifyToken_EmptyToken() {
+        // Execute
+        boolean tokenValid = userService.verifyToken("");
+
+        // Verify
+        assertFalse(tokenValid); // Verify that empty token is considered invalid
+        verify(userRepository, never()).findByToken(any()); // Verify userRepository.findByToken never called
+    }
+
+    @Test
+    public void testVerifyToken_TokenNotFound() {
+        // Setup
+        String token = "nonExistingToken";
+        when(userRepository.findByToken(token.trim())).thenReturn(Optional.empty());
+
+        // Execute
+        boolean tokenValid = userService.verifyToken(token);
+
+        // Verify
+        assertFalse(tokenValid); // Verify that token is considered invalid
+        verify(userRepository, times(1)).findByToken(token.trim()); // Verify userRepository.findByToken called once with trimmed token
+    }
+
     // Helper method to create a User object
     private User createUser(String username, String token) {
         User user = new User();
