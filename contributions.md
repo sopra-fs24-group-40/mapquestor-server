@@ -153,6 +153,14 @@ This document serves to track the contributions of each team member as part of t
         - Added testGetRandomCity and testGetRandomCity_ThrowsExceptionWhenNoCitiesFound in game service test, to test getRandomCity in game service. Added testCreateGame_userAlreadyInGame in game service test, to test createGame in game service. Added testGetGames in game service test, to test getGames in game service. Added testGetGame_validGameCode in game service test, to test getGame in game service. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/41642217306c58768abb32adc75c45cf3763376a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ee3294061a287ba330d1f038867a38dd172e0a8b)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/43f2c059571baf3a936b010c17370877b50d6f8a)
+    - Wednesday, 15-05-2024
+        - First try to fix the play again function inside main game. All users should be visible, when playing again, but points don't reset how they should. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/008413b129f323ba571a3ef25c1eb5149593c4e2) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62362751)
+        - Added message type PLAYERS, to try fixing the play again function with web sockets. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/d97c213f5b456e166039149af5524af47a5756c4) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
+        - Added testGetGame_PlayerMapping in game service test, to test getGame in game service. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2ef8cd3c36f8098a234ceec47abda4dc2a519fb6) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240)
+        - Changed german error message to english, since everything should be in english. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e38fc944e866cced27988343e43ce0871b9f448f) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
+        - Added testGetUsersByGameId_GameExistsWithUsers and testGetUsersByGameId_GameDoesNotExist tests, to test getUsersByGameId in game service. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b33d5fbd77e893225c66bc66e94394457d5b46d6) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240)
+        - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/fecd26dfc15e6ee38324266837b110f5153e396b)
+
 
 ## Shanthos
 
