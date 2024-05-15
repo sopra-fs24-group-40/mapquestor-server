@@ -20,6 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -216,40 +217,51 @@ public class UserServiceTest {
         assertThrows(RuntimeException.class, () -> userService.processGameData("WON", token));
     }
 
-    // @Test
-    // public void testLogout_UserExists() {
-    //     // Setup
-    //     String token = "testToken";
-    //     User user = new User();
-    //     user.setToken(token);
-    //     user.setStatus(UserStatus.ONLINE);
+    @Test
+    public void testLogout_UserExists() {
+        // Setup
+        String token = "testToken";
+        User user = new User();
+        user.setToken(token);
+        user.setStatus(UserStatus.ONLINE);
+
+        UserPostDTO userPostDTO = new UserPostDTO();
+        userPostDTO.setUsername("testUser");
+        userPostDTO.setPassword("password");
+        userService.createUser(userPostDTO); // Create a user to set the token (login)
+        UserTokenDTO userTokenDTO = new UserTokenDTO();
+        userTokenDTO.setToken(token);
+
+        when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
+
+        // Execute
+        boolean loggedOut = userService.logout(userTokenDTO);
+
+        // Verify
+        assertTrue(loggedOut); // Verify that logout was successful
+        assertEquals(UserStatus.OFFLINE, user.getStatus()); // Verify user status updated to offline
+        assertEquals("0", user.getToken()); // Verify user token is cleared
+        verify(userRepository, times(1)).save(user); // Verify userRepository.save called once
+    }
+
+    @Test
+    public void testLogout_UserDoesNotExist() {
+        // Setup
+        String token = "nonExistingToken";
+        UserTokenDTO userTokenDTO = new UserTokenDTO();
+        userTokenDTO.setToken(token);
+
+        when(userRepository.findByToken(token)).thenReturn(Optional.empty());
+
+        // Execute
+        boolean loggedOut = userService.logout(userTokenDTO);
+
+        // Verify
+        assertFalse(loggedOut); // Verify that logout was unsuccessful
+        // Verify that userRepository.save is not called as the user does not exist
+        verify(userRepository, never()).save(any(User.class));
+    }
     
-    //     when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
-    
-    //     // Execute
-    //     boolean loggedOut = userService.logout(new UserTokenDTO(token));
-    
-    //     // Verify
-    //     assertTrue(loggedOut); // Verify that logout was successful
-    //     assertEquals(UserStatus.OFFLINE, user.getStatus()); // Verify user status updated to offline
-    //     assertEquals("", user.getToken()); // Verify user token is cleared
-    //     verify(userRepository, times(1)).save(user); // Verify userRepository.save called once
-    // }
-    
-    // @Test
-    // public void testLogout_UserNotExists() {
-    //     // Setup
-    //     String token = "nonExistingToken";
-    //     when(userRepository.findByToken(token)).thenReturn(Optional.empty());
-    
-    //     // Execute
-    //     boolean loggedOut = userService.logout(new UserTokenDTO(token));
-    
-    //     // Verify
-    //     assertFalse(loggedOut); // Verify that logout was unsuccessful
-    //     // Verify that userRepository.save is not called as the user does not exist
-    //     verify(userRepository, never()).save(any(User.class));
-    // }
 
     @Test
     public void testDeleteUser() {
@@ -316,6 +328,45 @@ public class UserServiceTest {
         assertThrows(ResponseStatusException.class, () -> userService.getUsernameByToken(token));
     }
 
+    @Test
+    public void testGetUsers() {
+        // Setup
+        User user1 = createUser("user1", "token1");
+        User user2 = createUser("user2", "token2");
+        when(userRepository.findAll()).thenReturn(List.of(user1, user2));
+
+        // Execute
+        List<UserGetDTO> userDTOs = userService.getUsers();
+
+        // Verify
+        assertEquals(2, userDTOs.size()); // Verify correct number of users returned
+        assertEquals(user1.getUsername(), userDTOs.get(0).getUsername()); // Verify first user details
+        assertEquals(user2.getUsername(), userDTOs.get(1).getUsername()); // Verify second user details
+    }
+
+    @Test
+    public void testUpdateUser_UsernameAlreadyExists() {
+        // Setup
+        Long userId = 1L;
+        User existingUser = new User();
+        existingUser.setId(userId);
+        existingUser.setUsername("existingUser");
+        existingUser.setPassword("oldPassword");
+
+        UserPutDTO userPutDTO = new UserPutDTO();
+        userPutDTO.setUsername("newUsername");
+
+        when(userRepository.findById(userId)).thenReturn(Optional.of(existingUser));
+        when(userRepository.existsByUsername(userPutDTO.getUsername())).thenReturn(true);
+
+        // When updateUser is called with username that already exists
+        // Then it should throw ResponseStatusException
+        assertThrows(ResponseStatusException.class, () -> userService.updateUser(userId, userPutDTO));
+
+        // Verify that save method is not called
+        verify(userRepository, never()).save(any(User.class));
+    }
+
     // Helper method to create a User object
     private User createUser(String username, String token) {
         User user = new User();
@@ -326,3 +377,4 @@ public class UserServiceTest {
         return user;
     }
 }
+
