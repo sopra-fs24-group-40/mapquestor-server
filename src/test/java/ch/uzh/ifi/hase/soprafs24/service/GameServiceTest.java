@@ -9,16 +9,15 @@ import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.CityRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CreateGameDTO;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameInfoDTO;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
-import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
@@ -310,7 +309,25 @@ public class GameServiceTest {
         assertThrows(ResponseStatusException.class, () -> gameService.joinGame(gameCode, userToken));
     }
 
-    // Add more test cases for other methods as needed...
+    @Test
+    public void testJoinGame_gameIsFull() {
+        // Given
+        String gameCode = "ABC123";
+        String userToken = "userToken";
+
+        Game game = new Game();
+        game.setGameCode(gameCode);
+        game.setMaxPlayers(4);
+        game.setPlayerCount(4);
+
+        User user = new User();
+        user.setToken(userToken);
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+        when(userRepository.findByToken(userToken)).thenReturn(Optional.of(user));
+
+        assertThrows(ResponseStatusException.class, () -> gameService.joinGame(gameCode, userToken), "A ResponseStatusException should be thrown because the game is already full");
+    }
 
     @Test
     public void testUpdateGameStatus_validInput() {
@@ -416,4 +433,25 @@ public class GameServiceTest {
         assertEquals(UserStatus.OFFLINE, user.getStatus());
     }
 
+    @Test
+    public void testReturnCities() {
+        // Given
+        CitiesPostDTO citiesPostDTO = new CitiesPostDTO();
+        citiesPostDTO.setRoundCount(3);
+
+        City city1 = new City("City1", "Capital1", 48.8566, 2.3522);
+        City city2 = new City("City2", "Capital2", 51.5074, -0.1278);
+        City city3 = new City("City3", "Capital3", 34.0522, -118.2437);
+
+        when(cityRepository.findAll()).thenReturn(Arrays.asList(city1, city2, city3));
+
+        // When
+        CitiesGetDTO citiesGetDTO = gameService.returnCities(citiesPostDTO);
+
+        // Then
+        assertEquals(3, citiesGetDTO.getCities().size());
+        assertTrue(citiesGetDTO.getCities().contains(city1));
+        assertTrue(citiesGetDTO.getCities().contains(city2));
+        assertTrue(citiesGetDTO.getCities().contains(city3));
+    }
 }
