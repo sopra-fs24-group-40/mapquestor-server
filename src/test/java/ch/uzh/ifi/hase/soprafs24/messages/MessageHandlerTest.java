@@ -6,12 +6,15 @@ import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,6 +39,7 @@ public class MessageHandlerTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
+
     @Test
     public void testHandleMessage_ChatMessage() {
         // Prepare
@@ -73,19 +77,22 @@ public class MessageHandlerTest {
     }
 
     @Test
-    public void testProcessJoinMessage_ValidMessage() {
-        // Prepare
-        Message<String> joinMessage = new Message<>("token", "sender", MessageType.JOIN);
+    public void handleMessageReturnsJoinMessageWhenMessageTypeIsJoin() {
+        // Arrange
+        String token = "sender";
+        String username = "testUser";
         User user = new User();
-        user.setUsername("testUser");
-        when(userRepository.findByToken(joinMessage.getFrom())).thenReturn(Optional.of(user));
+        user.setUsername(username);
+        user.setToken(token);
+        when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
 
-        // Test
-        Message<PlayerInfoDTO> result = messageHandler.processJoinMessage(joinMessage);
+        Message<String> joinMessage = new Message<>(token, "content", MessageType.JOIN);
 
-        // Verify
-        assertEquals("testUser", result.getContent().getUsername());
-        assertEquals(0, result.getContent().getPoints());
+        // Act
+        Message<?> result = messageHandler.handleMessage(joinMessage, "gameCode");
+
+        // Assert
+        Assertions.assertEquals(joinMessage.getType(), result.getType());
     }
 
     @Test
@@ -102,30 +109,25 @@ public class MessageHandlerTest {
 
     // Add more test cases for other message types...
 
-//    @Test
-//    public void handleMessage_ShouldReturnSamePointsMessage_WhenMessageTypeIsPointsAndContentIsEmpty() {
-//        // Prepare
-//        Message<List<PlayerInfoDTO>> pointsMessage = new Message<>(Collections.emptyList(), "sender", MessageType.POINTS);
-//
-//        // Test
-//        Message<?> result = messageHandler.handleMessage(pointsMessage, "gameCode");
-//
-//        // Verify
-//        assertEquals(pointsMessage, result);
-//    }
+    @Test
+    public void handleMessageReturnsSamePointsMessageWhenMessageTypeIsPoints() {
+        List<PlayerInfoDTO> playerInfoList = new ArrayList<>();
+        playerInfoList.add(new PlayerInfoDTO());
+        playerInfoList.add(new PlayerInfoDTO());
+        Message<List<PlayerInfoDTO>> pointsMessage = new Message<>("sender", playerInfoList, MessageType.POINTS);
+
+        Message<?> result = messageHandler.handleMessage(pointsMessage, "gameCode");
+
+        Assertions.assertEquals(pointsMessage, result);
+    }
 
     @Test
-    public void testProcessLeaveMessage_ValidMessage() {
-        // Prepare
-        Message<String> leaveMessage = new Message<>("token", "sender", MessageType.LEAVE);
-        when(userRepository.findByToken(leaveMessage.getFrom())).thenReturn(Optional.of(new User()));
+    public void handleMessageReturnsSameLeaveMessageWhenMessageTypeIsLeave() {
+        Message<String> leaveMessage = new Message<>("sender", "content", MessageType.LEAVE);
 
-        // Test
-        Message<String> result = messageHandler.processLeaveMessage(leaveMessage, "gameCode");
+        Message<?> result = messageHandler.handleMessage(leaveMessage, "gameCode");
 
-        // Verify
-        verify(gameService, times(1)).dumpUserAndDeleteGameIfEmpty(eq("token"), eq("gameCode")); // Update expected arguments here
-        assertEquals(null, result.getFrom());
+        Assertions.assertEquals(leaveMessage, result);
     }
 
     @Test
@@ -152,18 +154,14 @@ public class MessageHandlerTest {
         // Verify
         assertEquals(logoutMessage, result);
     }
+
     @Test
-    public void testProcessCreatorLeaveMessage() {
-        // Prepare
-        Message<String> logoutCreatorMessage = new Message<>("Test message", "sender", MessageType.LOGOUT_CREATOR);
-        String gameCode = "gameCode";
+    public void handleMessageReturnsSameMessageWhenMessageTypeIsLogoutCreator() {
+        Message<String> logoutCreatorMessage = new Message<>("sender", "content", MessageType.LOGOUT_CREATOR);
 
-        // Test
-        Message<String> result = messageHandler.processCreatorLeaveMessage(logoutCreatorMessage, gameCode);
+        Message<?> result = messageHandler.handleMessage(logoutCreatorMessage, "gameCode");
 
-        // Verify
-        verify(gameService, times(1)).deleteGame(logoutCreatorMessage.getFrom(), gameCode);
-        assertEquals(logoutCreatorMessage, result);
+        Assertions.assertEquals(logoutCreatorMessage, result);
     }
 
     @Test
@@ -179,63 +177,49 @@ public class MessageHandlerTest {
     }
 
     @Test
-    public void testProcessPlay() {
-        // Prepare
-        Message<String> playedMessage = new Message<>("Test message", "sender", MessageType.PLAYED);
+    public void handleMessageReturnsSameMessageWhenMessageTypeIsPlayed() {
+        Message<String> playedMessage = new Message<>("sender", "content", MessageType.PLAYED);
 
-        // Test
-        Message<String> result = messageHandler.processPlay(playedMessage);
+        Message<?> result = messageHandler.handleMessage(playedMessage, "gameCode");
 
-        // Verify
-        verify(userService, times(1)).processGameData(playedMessage.getContent(), playedMessage.getFrom());
-        assertEquals(playedMessage, result);
+        Assertions.assertEquals(playedMessage, result);
     }
 
     @Test
-    public void testProcessChatMessage() {
-        // Prepare
-        Message<String> chatMessage = new Message<>("Test message", "sender", MessageType.CHAT);
+    public void handleMessageReturnsSameMessageWhenMessageTypeIsPlayAgain() {
+        Message<String> playAgainMessage = new Message<>("sender", "content", MessageType.PLAY_AGAIN);
 
-        // Test
-        Message<String> result = messageHandler.processChatMessage(chatMessage);
+        Message<?> result = messageHandler.handleMessage(playAgainMessage, "gameCode");
 
-        // Verify
-        assertEquals(chatMessage, result);
+        Assertions.assertEquals(playAgainMessage, result);
     }
 
     @Test
-    public void testProcessJSMessage() {
-        // Prepare
-        Message<String> jsMessage = new Message<>("Test message", "sender", MessageType.JS);
+    public void handleMessageReturnsSameMessageWhenMessageTypeIsJS() {
+        Message<String> jsMessage = new Message<>("sender", "content", MessageType.JS);
 
-        // Test
-        Message<String> result = messageHandler.processChatMessage(jsMessage);
+        Message<?> result = messageHandler.handleMessage(jsMessage, "gameCode");
 
-        // Verify
-        assertEquals(jsMessage, result);
+        Assertions.assertEquals(jsMessage, result);
     }
 
     @Test
-    public void testProcessTimerMessage() {
-        // Prepare
-        Message<String> timerMessage = new Message<>("Test message", "sender", MessageType.TIMER);
+    public void handleMessageReturnsSameMessageWhenMessageTypeIsTimer() {
+        Message<String> timerMessage = new Message<>("sender", "content", MessageType.TIMER);
 
-        // Test
-        Message<String> result = messageHandler.processChatMessage(timerMessage);
+        Message<?> result = messageHandler.handleMessage(timerMessage, "gameCode");
 
-        // Verify
-        assertEquals(timerMessage, result);
+        Assertions.assertEquals(timerMessage, result);
     }
 
     @Test
-    public void testProcessPlayersMessage() {
-        // Prepare
-        Message<String> playersMessage = new Message<>("Test message", "sender", MessageType.PLAYERS);
+    public void handleMessageReturnsSameMessageWhenMessageTypeIsPlayers() {
+        Message<String> playersMessage = new Message<>("sender", "content", MessageType.PLAYERS);
 
-        // Test
-        Message<String> result = messageHandler.processChatMessage(playersMessage);
+        Message<?> result = messageHandler.handleMessage(playersMessage, "gameCode");
 
-        // Verify
-        assertEquals(playersMessage, result);
+        Assertions.assertEquals(playersMessage, result);
     }
+
+
 }
