@@ -86,6 +86,27 @@ public class UserControllerTest {
   }
 
   @Test
+  public void getUser_UserFound() throws Exception {
+        long userId = 1L;
+        UserGetDTO userGetDTO = new UserGetDTO();
+        userGetDTO.setId(userId);
+        userGetDTO.setUsername("testUser");
+
+        // Mock userService.getUser() to return the user DTO
+        Mockito.when(userService.getUser(Mockito.anyLong())).thenReturn(userGetDTO);
+
+        // when/then -> perform the request and validate the result
+        MockHttpServletRequestBuilder getRequest = get("/users/" + userId)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        // then
+        mockMvc.perform(getRequest)
+                .andExpect(status().isOk()) // Expect HTTP status 200 - OK
+                .andExpect(jsonPath("$.id", is((int) userId))) // Verify user ID in response
+                .andExpect(jsonPath("$.username", is(userGetDTO.getUsername()))); // Verify username in response
+        }
+
+  @Test
   public void get_throw_error() throws Exception {
     // given
     User user = new User();
