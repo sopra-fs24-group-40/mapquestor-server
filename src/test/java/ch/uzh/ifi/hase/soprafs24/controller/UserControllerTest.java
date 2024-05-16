@@ -244,6 +244,54 @@ public class UserControllerTest {
   //     mockMvc.perform(putRequest).andExpect(status().isNotFound());
   // }
 
+  @Test
+  public void putUser_Fails() throws Exception {
+      // given
+      User user = new User();
+      user.setId(1L);
+      user.setPassword("Firstname Lastname");
+      user.setUsername("firstname@lastname");
+      user.setToken("1");
+      user.setStatus(UserStatus.OFFLINE);
+
+      UserPutDTO updatedUserDTO = new UserPutDTO();
+      updatedUserDTO.setUsername("testUsername1"); // Updated username
+
+      // Mock userService.updateUser() to throw an exception
+      Mockito.doThrow(new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR))
+            .when(userService).updateUser(Mockito.anyLong(), Mockito.any());
+
+      // when/then -> perform the request and validate the result
+      MockHttpServletRequestBuilder putRequest = put("/users/" + user.getId())
+              .contentType(MediaType.APPLICATION_JSON)
+              .content(asJsonString(updatedUserDTO));
+
+      // then
+      mockMvc.perform(putRequest)
+              .andExpect(status().isInternalServerError()); // Expect HTTP status 500 - Internal Server Error
+  }
+
+  @Test
+  public void putUser_UserNotFound() throws Exception {
+      // given
+      // Create a UserPutDTO representing the updated user information
+      UserPutDTO updatedUserDTO = new UserPutDTO();
+      updatedUserDTO.setUsername("testUsername1"); // Updated username
+
+      // Mock userService.updateUser() to throw a ResponseStatusException with status NOT_FOUND
+      Mockito.doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND))
+            .when(userService).updateUser(Mockito.anyLong(), Mockito.any());
+
+      // when/then -> perform the request and validate the result
+      MockHttpServletRequestBuilder putRequest = put("/users/1") // Assume user with ID 1 doesn't exist
+              .contentType(MediaType.APPLICATION_JSON)
+              .content(asJsonString(updatedUserDTO));
+
+      // then
+      mockMvc.perform(putRequest)
+              .andExpect(status().isNotFound()); // Expect HTTP status 404 - Not Found
+  }
+
   /**
    * Helper Method to convert userPostDTO into a JSON string such that the input
    * can be processed
