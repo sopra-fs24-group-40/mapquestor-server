@@ -31,10 +31,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.mockito.BDDMockito.doThrow;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPutDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 /**
  * UserControllerTest
  * This is a WebMvcTest which allows to test the UserController i.e. GET/POST
@@ -290,6 +293,43 @@ public class UserControllerTest {
       // then
       mockMvc.perform(putRequest)
               .andExpect(status().isNotFound()); // Expect HTTP status 404 - Not Found
+  }
+
+  @Test
+  public void logout_UserNotFound() throws Exception {
+      // given
+      UserTokenDTO userTokenDTO = new UserTokenDTO();
+      userTokenDTO.setToken("invalidToken");
+
+      // Mock userService.logout() to return false, indicating user not found or already logged out
+      Mockito.when(userService.logout(Mockito.any(UserTokenDTO.class))).thenReturn(false);
+
+      // when/then -> perform the request and validate the result
+      MockHttpServletRequestBuilder postRequest = post("/logout")
+              .contentType(MediaType.APPLICATION_JSON)
+              .content(asJsonString(userTokenDTO));
+
+      // then
+      mockMvc.perform(postRequest)
+              .andExpect(status().isNotFound()) // Expect HTTP status 404 - Not Found
+              .andExpect(content().string("User not found or already logged out")); // Verify response body
+  }
+
+  @Test
+  public void deleteUser_UserFound() throws Exception {
+      // given
+      Long userId = 1L;
+
+      // Mock userService.deleteTheUser() to do nothing
+      Mockito.doNothing().when(userService).deleteTheUser(Mockito.anyLong());
+
+      // when/then -> perform the request and validate the result
+      MockHttpServletRequestBuilder deleteRequest = delete("/users/" + userId)
+              .contentType(MediaType.APPLICATION_JSON);
+
+      // then
+      mockMvc.perform(deleteRequest)
+              .andExpect(status().isOk()); // Expect HTTP status 200 - OK
   }
 
   /**
