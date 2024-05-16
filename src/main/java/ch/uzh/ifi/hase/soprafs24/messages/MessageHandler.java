@@ -128,7 +128,7 @@ public class MessageHandler {
         }
     }
 
-    private Message<String> processChatMessage(Message<String> message) {
+    public Message<String> processChatMessage(Message<String> message) {
         return message;
     }
 
