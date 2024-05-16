@@ -406,3 +406,18 @@ This document serves to track the contributions of each team member as part of t
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/3d3b030fea376311b8689f846ee1caca4944d520) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/cb46a2b8c3a02afc23ff55388ff681257b4c0e61)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62273383) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
       - Start Countdown when lobby is full (final fix, now the countdown timer actually starts when the lobby is full).
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/d570f61429d839b87d94d6319981aa5ea8f339ae) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+
+- **Week 7**
+  - Tuesday, 14-05-2024
+      - Replaced the bar for the number of players, the number of rounds and the roundlength by dropdown menus.
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9fe64f0b8a91ff17621e08ce0dc9956a3e44aa5c) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
+      - Removed Pop Up after reloading the page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a4768b0f85130ee6e455ef4491bf59bea528d014) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362751)
+      - Fixed the random city selection (same city shouldn't appear more than once in the same game). [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/d159d87feaf499efa8d1620ca8f91b24bd7265f7) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
+      - Added more Tests for User Service. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f5afd14f356c505d4ca0469b597676921e6330e2) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
+        
+  - Wednesday, 15-05-2024
+      - Added more Tests for User Service. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2d1463811d7251854ca15f121ad095c350c3be8d) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4e18a9036f98e0d94abcffe1eaed2127d2b9fb5e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
+
+  - Thursday, 16-05-2024
+      - Tried fixing leave game bug in main game, doesn't work properly yet. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/77f1f51b46d09d5947ec86f51820eb996e6c06ef) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/663f3a6a5dd2445411967c831db875b7a64b13d9)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362751)
+      - Added more Tests for UserController. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/36be8f1bd4cfa18973e84162aaca01d1bd57dd3b) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e7d3f5f8088d2581337ef1d8ed9733cc36a4f4ce) [Commit Link 3](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/9a0a276fae8811d7d59d04f39b59115e95402b00) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60858580)
