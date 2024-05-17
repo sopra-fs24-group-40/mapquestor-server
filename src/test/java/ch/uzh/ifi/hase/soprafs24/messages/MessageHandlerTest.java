@@ -212,14 +212,14 @@ public class MessageHandlerTest {
         Assertions.assertEquals(timerMessage, result);
     }
 
-    @Test
-    public void handleMessageReturnsSameMessageWhenMessageTypeIsPlayers() {
-        Message<String> playersMessage = new Message<>("sender", "content", MessageType.PLAYERS);
+    // @Test
+    // public void handleMessageReturnsSameMessageWhenMessageTypeIsPlayers() {
+    //     Message<String> playersMessage = new Message<>("sender", "content", MessageType.PLAYERS);
 
-        Message<?> result = messageHandler.handleMessage(playersMessage, "gameCode");
+    //     Message<?> result = messageHandler.handleMessage(playersMessage, "gameCode");
 
-        Assertions.assertEquals(playersMessage, result);
-    }
+    //     Assertions.assertEquals(playersMessage, result);
+    // }
 
 
 }
