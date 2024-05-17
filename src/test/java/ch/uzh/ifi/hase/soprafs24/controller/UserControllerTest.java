@@ -317,6 +317,23 @@ public class UserControllerTest {
   }
 
   @Test
+  public void logout_SuccessfulLogout() throws Exception {
+      // Given
+      UserTokenDTO userTokenDTO = new UserTokenDTO();
+      userTokenDTO.setToken("validToken");
+
+      Mockito.when(userService.logout(Mockito.any(UserTokenDTO.class))).thenReturn(true);
+
+      MockHttpServletRequestBuilder postRequest = post("/logout")
+              .contentType(MediaType.APPLICATION_JSON)
+              .content(asJsonString(userTokenDTO));
+
+      mockMvc.perform(postRequest)
+              .andExpect(status().isOk())
+              .andExpect(content().string("Logged out successfully"));
+  }
+
+  @Test
   public void logout_UserNotFound() throws Exception {
       // given
       UserTokenDTO userTokenDTO = new UserTokenDTO();
