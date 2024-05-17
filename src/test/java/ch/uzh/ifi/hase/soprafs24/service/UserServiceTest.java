@@ -367,6 +367,33 @@ public class UserServiceTest {
         verify(userRepository, never()).save(any(User.class));
     }
 
+//    @Test
+//    public void testUpdateUser_UpdateAvatarOnUsernameChange() {
+//        // Setup
+//        Long userId = 1L;
+//        User existingUser = new User();
+//        existingUser.setId(userId);
+//        existingUser.setUsername("oldUsername");
+//        existingUser.setAvatar("oldAvatar");
+//
+//        UserPutDTO userPutDTO = new UserPutDTO();
+//        userPutDTO.setUsername("newUsername");
+//        userPutDTO.setAvatar("newAvatar");
+//
+//        when(userRepository.findById(userId)).thenReturn(Optional.of(existingUser));
+//        when(userRepository.existsByUsername(userPutDTO.getUsername())).thenReturn(false);
+//
+//        // Execute
+//        userService.updateUser(userId, userPutDTO);
+//
+//        // Verify
+//        User updatedUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found after update"));
+//        assertEquals("newUsername", updatedUser.getUsername());
+//        assertEquals("oldAvatar", updatedUser.getAvatar());
+//        verify(userRepository, times(1)).findById(userId);
+//        verify(userRepository, times(1)).save(updatedUser);
+//    }
+
     @Test
     public void testVerifyToken_ValidToken() {
         // Setup
