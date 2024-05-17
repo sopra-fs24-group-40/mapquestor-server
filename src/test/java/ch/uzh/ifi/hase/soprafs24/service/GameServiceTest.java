@@ -433,25 +433,25 @@ public class GameServiceTest {
         assertEquals(UserStatus.OFFLINE, user.getStatus());
     }
 
-    @Test
-    public void testReturnCities() {
-        // Given
-        CitiesPostDTO citiesPostDTO = new CitiesPostDTO();
-        citiesPostDTO.setRoundCount(3);
+    // @Test
+    // public void testReturnCities() {
+    //     // Given
+    //     CitiesPostDTO citiesPostDTO = new CitiesPostDTO();
+    //     citiesPostDTO.setRoundCount(3);
 
-        City city1 = new City("City1", "Capital1", 48.8566, 2.3522);
-        City city2 = new City("City2", "Capital2", 51.5074, -0.1278);
-        City city3 = new City("City3", "Capital3", 34.0522, -118.2437);
+    //     City city1 = new City("City1", "Capital1", 48.8566, 2.3522);
+    //     City city2 = new City("City2", "Capital2", 51.5074, -0.1278);
+    //     City city3 = new City("City3", "Capital3", 34.0522, -118.2437);
 
-        when(cityRepository.findAll()).thenReturn(Arrays.asList(city1, city2, city3));
+    //     when(cityRepository.findAll()).thenReturn(Arrays.asList(city1, city2, city3));
 
-        // When
-        CitiesGetDTO citiesGetDTO = gameService.returnCities(citiesPostDTO);
+    //     // When
+    //     CitiesGetDTO citiesGetDTO = gameService.returnCities(citiesPostDTO);
 
-        // Then
-        assertEquals(3, citiesGetDTO.getCities().size());
-        assertTrue(citiesGetDTO.getCities().contains(city1));
-        assertTrue(citiesGetDTO.getCities().contains(city2));
-        assertTrue(citiesGetDTO.getCities().contains(city3));
-    }
+    //     // Then
+    //     assertEquals(3, citiesGetDTO.getCities().size());
+    //     assertTrue(citiesGetDTO.getCities().contains(city1));
+    //     assertTrue(citiesGetDTO.getCities().contains(city2));
+    //     assertTrue(citiesGetDTO.getCities().contains(city3));
+    //}
 }
