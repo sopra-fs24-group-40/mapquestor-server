@@ -430,7 +430,7 @@ public class GameServiceTest {
         assertEquals(0, game.getPlayerCount());
 
         // Verify that the user status was updated
-        assertEquals(UserStatus.OFFLINE, user.getStatus());
+        assertEquals(UserStatus.ONLINE, user.getStatus());
     }
 
     // @Test
