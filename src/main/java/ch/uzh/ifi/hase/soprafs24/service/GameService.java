@@ -158,8 +158,11 @@ public class GameService {
  
  
     public void addUserToGame(String token, String gameCode) {
-        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Spiel nicht gefunden"));
-        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("Benutzer nicht gefunden"));
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
+ 
+        User user = userRepository.findByToken(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with token: " + token));
  
         if (user.getGame() != null) {
             throw new RuntimeException("Benutzer ist bereits in einem Spiel");
@@ -188,13 +191,16 @@ public class GameService {
  
     public void dumpUserAndDeleteGameIfEmpty(String token, String gameCode) {
         System.out.println("User " + token + " left game " + gameCode);
-        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Game not found"));
-        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("User not found"));
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
+ 
+        User user = userRepository.findByToken(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with token: " + token));
  
         // Remove the user from the game
         game.removePlayer(user);
         game.setPlayerCount(game.getPlayerCount() - 1);
-        user.setStatus(UserStatus.OFFLINE);
+        user.setStatus(UserStatus.ONLINE);
         user.setGame(null);
         // Save the user's status and the updated game
         gameRepository.save(game);
@@ -206,8 +212,11 @@ public class GameService {
     }
  
     public void deleteGame(String token, String gameCode) {
-        Game game = gameRepository.findByGameCode(gameCode).orElseThrow(() -> new RuntimeException("Game not found"));
-        User user = userRepository.findByToken(token).orElseThrow(() -> new RuntimeException("User not found"));
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
+ 
+        User user = userRepository.findByToken(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with token: " + token));
  
  
         List<User> playersCopy = new ArrayList<>(game.getPlayers());
