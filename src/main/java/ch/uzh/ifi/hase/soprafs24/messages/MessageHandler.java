@@ -148,6 +148,7 @@ public class MessageHandler {
     public Message<String> processLogout(Message<String> message) {
         UserTokenDTO token = new UserTokenDTO();
         token.setToken(message.getFrom());
+        System.out.println("-----------------LOGOUT: --------------" + message.getContent());
         gameService.dumpUserAndDeleteGameIfEmpty2(message.getFrom(), message.getContent());
         userService.logout(token);
         return message;

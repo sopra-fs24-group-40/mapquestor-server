@@ -249,7 +249,8 @@ public class GameService {
  
         User user = userRepository.findByToken(token)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with token: " + token));
- 
+       
+        System.out.println("------------------------" + user.getUsername() + "------------------------");
         // Remove the user from the game
         game.removePlayer(user);
         game.setPlayerCount(game.getPlayerCount() - 1);
