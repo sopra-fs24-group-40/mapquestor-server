@@ -242,6 +242,28 @@ public class GameService {
         return citiesGetDTO;
     }
  
+    public void dumpUserAndDeleteGameIfEmpty2(String token, String gameCode) {
+        System.out.println("User " + token + " left game " + gameCode);
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
+ 
+        User user = userRepository.findByToken(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with token: " + token));
+ 
+        // Remove the user from the game
+        game.removePlayer(user);
+        game.setPlayerCount(game.getPlayerCount() - 1);
+        user.setStatus(UserStatus.OFFLINE);
+        user.setGame(null);
+        // Save the user's status and the updated game
+        gameRepository.save(game);
+        userRepository.save(user);
+ 
+        if (game.getPlayerCount() == 0) {
+            gameRepository.delete(game);
+        }
+    }
+ 
  
 }
  
