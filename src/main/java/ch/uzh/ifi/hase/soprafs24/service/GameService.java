@@ -265,6 +265,27 @@ public class GameService {
         }
     }
  
+    public void deleteGame2(String token, String gameCode) {
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
+ 
+        User user = userRepository.findByToken(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with token: " + token));
+ 
+ 
+        List<User> playersCopy = new ArrayList<>(game.getPlayers());
+        for (User player : playersCopy) {
+            game.removePlayer(player);
+            player.setStatus(UserStatus.ONLINE);
+            player.setGame(null);
+            userRepository.save(player);
+        }
+        user.setStatus(UserStatus.OFFLINE);
+        userRepository.save(user);
+ 
+        gameRepository.delete(game);
+    }
+ 
  
 }
  

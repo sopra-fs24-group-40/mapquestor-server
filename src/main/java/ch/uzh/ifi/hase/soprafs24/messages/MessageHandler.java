@@ -2,12 +2,15 @@ package ch.uzh.ifi.hase.soprafs24.messages;
  
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
+import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
+import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
  
 import java.util.List;
  
@@ -15,12 +18,16 @@ import java.util.List;
 public class MessageHandler {
  
     private final UserRepository userRepository;
+ 
+    private final GameRepository gameRepository;
+ 
     private final GameService gameService;
  
     private final UserService userService;
  
-    public MessageHandler(UserRepository userRepository, GameService gameService, UserService userService) {
+    public MessageHandler(UserRepository userRepository, GameRepository gameRepository, GameService gameService, UserService userService) {
         this.userRepository = userRepository;
+        this.gameRepository = gameRepository;
         this.gameService = gameService;
         this.userService = userService;
     }
@@ -141,6 +148,7 @@ public class MessageHandler {
     }
  
     public Message<String> processCreatorLeaveMessage(Message<String> message, String gameCode) {
+        System.out.println("CREATOR LEAVE-------------------" + message.getFrom() + " " + gameCode);
         gameService.deleteGame(message.getFrom(), gameCode);
         return message;
     }
@@ -148,11 +156,27 @@ public class MessageHandler {
     public Message<String> processLogout(Message<String> message) {
         UserTokenDTO token = new UserTokenDTO();
         token.setToken(message.getFrom());
-        System.out.println("-----------------LOGOUT: --------------" + message.getContent());
-        gameService.dumpUserAndDeleteGameIfEmpty2(message.getFrom(), message.getContent());
-        userService.logout(token);
+        Optional<Game> optionalGame = gameRepository.findByGameCode(message.getContent());
+        if (optionalGame.isPresent()) {
+            Game game = optionalGame.get();
+            System.out.println("-----------------LOGOUT: --------------" + message.getContent());
+           
+            if (message.getFrom().equals(game.getCreator())) {
+                gameService.deleteGame2(message.getFrom(), message.getContent());
+                userService.logout(token);
+                return new Message<>(message.getFrom(), "", MessageType.LEAVE_CREATOR);
+            } else {
+                gameService.dumpUserAndDeleteGameIfEmpty2(message.getFrom(), message.getContent());
+                userService.logout(token);
+                return new Message<>(message.getFrom(), "", MessageType.LEAVE);
+            }
+           
+        } else {
+            System.out.println("Game not found for game code: " + message.getContent());
+        }
+       
         return message;
-    }
+}
  
     public Message<String> processPlay(Message<String> message) {
         userService.processGameData(message.getContent(), message.getFrom());
