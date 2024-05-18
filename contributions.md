@@ -160,7 +160,15 @@ This document serves to track the contributions of each team member as part of t
         - Changed german error message to english, since everything should be in english. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e38fc944e866cced27988343e43ce0871b9f448f) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
         - Added testGetUsersByGameId_GameExistsWithUsers and testGetUsersByGameId_GameDoesNotExist tests, to test getUsersByGameId in game service. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b33d5fbd77e893225c66bc66e94394457d5b46d6) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/fecd26dfc15e6ee38324266837b110f5153e396b)
-
+        - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/d79fa4114f4181d7128cfc60373f0545916864a9)
+    - Thrusday, 16-05-2024
+        - Second try to fix play again function inside main game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/20b027da8b6450b84c5ab200c3e23ddb3a1168b5) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62362751)
+        - Turned down volume of countdown in lobby, when game is about to start, since it was too loud. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/6caba8280311baed2a2d6af63172ee74ace3f20b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Added testJoinGame_gameIsFull in game service test, to test joinGame in game service. Added testReturnCities in game service test, to test returnCities in game service. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/9379c8fd8fb2e2fa646c0bd07c1e46770213bcc0) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240)
+        - Commented out addUserToGame in game service, since it's not used. Added ResponseStatusException in dumpUserAndDeleteGameIfEmpty and deleteGame in game service, so it returns http status. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/cfc645190e5fd824a598547008baab5dde3f6523) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
+    - Friday, 17-05-2024
+        - Added logout_SuccessfulLogout in game controller test, to test the post request post("/logout") in user controller. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/c38759c7318c48b4bb83210b28a3d7b4854650c3) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60858602)
+        - Added testUpdateUser_UpdateAvatarOnUsernameChange in user service test, to test updateUser in user service but commented it out, since it fails. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4a2d4f0f6a5035c4716f94be389b2130c33a3e12) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
 
 ## Shanthos
 
