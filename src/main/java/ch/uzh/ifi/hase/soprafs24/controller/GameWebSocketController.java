@@ -48,8 +48,8 @@ public class GameWebSocketController {
 
     @MessageMapping("/cities")
     @SendTo("/topic/cities")
-    public CitiesGetDTO sendCities(CitiesPostDTO citiesPostDTO) {
-        return gameService.returnCities(citiesPostDTO);
+    public Message<?> sendCities(Message<?> message) {
+        return messageHandler.handleMessage(message, null);
     }
 
 

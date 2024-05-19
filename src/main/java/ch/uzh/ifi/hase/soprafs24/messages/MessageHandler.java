@@ -2,11 +2,13 @@ package ch.uzh.ifi.hase.soprafs24.messages;
  
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
+import ch.uzh.ifi.hase.soprafs24.entity.City;
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CitiesGetDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
 import org.springframework.stereotype.Service;
@@ -122,6 +124,13 @@ public class MessageHandler {
             Message<String> chatMessage = (Message<String>) message;
             return processChatMessage(chatMessage);
         }
+
+        else if (message.getType() == MessageType.CITY) {
+            @SuppressWarnings("unchecked")
+            Message<String> chatMessage = (Message<String>) message;
+            return processCityMessage(chatMessage);
+        }
+ 
  
         else {
             throw new IllegalArgumentException("Unsupported message type: " + message.getType());
@@ -181,6 +190,11 @@ public class MessageHandler {
     public Message<String> processPlay(Message<String> message) {
         userService.processGameData(message.getContent(), message.getFrom());
         return message;
+    }
+
+    public Message<List<City>> processCityMessage(Message<String> message) {
+        List<City> city = gameService.returnCities(message.getContent());
+        return new Message<>(message.getFrom(), city, MessageType.CITY);
     }
 }
 

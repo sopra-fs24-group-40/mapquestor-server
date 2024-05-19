@@ -230,16 +230,23 @@ public class GameService {
         gameRepository.delete(game);
     }
  
-    public CitiesGetDTO returnCities(CitiesPostDTO citiesPostDTO) {
+    public List<City> returnCities(String gameCode) {
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
+
         List<City> selectedCities = new ArrayList<>();
-        CitiesGetDTO citiesGetDTO = new CitiesGetDTO();
-        for (int i = 0; i < citiesPostDTO.getRoundCount(); i++) {
+        // CitiesGetDTO citiesGetDTO = new CitiesGetDTO();
+        for (int i = 0; i < game.getRoundCount(); i++) {
             selectedCities.add(getRandomCity());
         }
- 
-        citiesGetDTO.setCities(selectedCities);
- 
-        return citiesGetDTO;
+        System.out.println("---------------" + game.getCities() + "---------------");
+        System.out.println("---------------" + selectedCities + "---------------");
+        game.setCities(selectedCities);
+        System.out.println("---------------" + game.getCities() + "---------------");
+        gameRepository.save(game);
+        // citiesGetDTO.setCities(selectedCities);
+        // System.out.println("---------------" + citiesGetDTO.getCities() + "---------------");
+        return selectedCities;
     }
  
     public void dumpUserAndDeleteGameIfEmpty2(String token, String gameCode) {
