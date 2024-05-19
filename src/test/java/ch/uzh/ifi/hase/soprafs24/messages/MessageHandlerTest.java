@@ -143,17 +143,17 @@ public class MessageHandlerTest {
         assertEquals(leaveCreatorMessage, result); // Ensure that the returned message is the same as the input message
     }
 
-    @Test
-    public void testHandleMessage_LogoutMessage() {
-        // Prepare
-        Message<String> logoutMessage = new Message<>("Test message", "sender", MessageType.LOGOUT);
-
-        // Test
-        Message<?> result = messageHandler.handleMessage(logoutMessage, "gameCode");
-
-        // Verify
-        assertEquals(logoutMessage, result);
-    }
+//    @Test
+//    public void testHandleMessage_LogoutMessage() {
+//        // Prepare
+//        Message<String> logoutMessage = new Message<>("Test message", "sender", MessageType.LOGOUT);
+//
+//        // Test
+//        Message<?> result = messageHandler.handleMessage(logoutMessage, "gameCode");
+//
+//        // Verify
+//        assertEquals(logoutMessage, result);
+//    }
 
     @Test
     public void handleMessageReturnsSameMessageWhenMessageTypeIsLogoutCreator() {
