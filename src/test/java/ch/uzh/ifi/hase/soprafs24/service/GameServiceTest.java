@@ -433,6 +433,121 @@ public class GameServiceTest {
         assertEquals(UserStatus.ONLINE, user.getStatus());
     }
 
+    @Test
+    void testDeleteGame_GameExists() {
+        // Given
+        String gameCode = "ABC123";
+        String userToken = "userToken";
+
+        Game game = new Game();
+        game.setGameCode(gameCode);
+        game.setMaxPlayers(4);
+        game.setPlayerCount(2);
+        game.setGameStatus(GameStatus.LOBBY);
+
+        User user = new User();
+        user.setToken(userToken);
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+        when(userRepository.findByToken(userToken)).thenReturn(Optional.of(user));
+
+        // When
+        gameService.deleteGame(userToken, gameCode);
+
+        // Then
+        // Verify that the game was deleted
+        verify(gameRepository, times(1)).delete(any(Game.class)); // Use any(Game.class) instead of specific game instance
+        // Additional assertions or verifications here to confirm the intended side effects of deleting the game
+    }
+
+    @Test
+    public void testDeleteGame_GameDoesNotExist() {
+        // Given
+        String gameCode = "XYZ789";
+        String userToken = "userToken";
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.empty());
+
+        assertThrows(ResponseStatusException.class, () -> gameService.deleteGame(userToken, gameCode), "A ResponseStatusException should be thrown because the game does not exist");
+    }
+
+    @Test
+    public void testDumpUserAndDeleteGameIfEmpty2() {
+        // Given
+        String token = "testToken";
+        String gameCode = "sampleGameCode";
+
+        Game game = new Game();
+        game.setGameCode(gameCode);
+        game.setPlayerCount(1);
+        User user = new User();
+        user.setToken(token);
+        user.setStatus(UserStatus.INGAME);
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+        when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
+
+        // When
+        gameService.dumpUserAndDeleteGameIfEmpty2(token, gameCode);
+
+        // Then
+        verify(gameRepository).save(argThat(savedGame -> savedGame.getPlayers().isEmpty()));
+
+        assertEquals(0, game.getPlayerCount());
+
+        assertEquals(UserStatus.OFFLINE, user.getStatus());
+
+        verify(gameRepository, times(1)).delete(any(Game.class));
+    }
+
+    @Test
+    public void testDeleteGame2_SuccessfulDeletion() {
+        // Given
+        String gameCode = "ABC123";
+        String userToken = "userToken";
+
+        Game game = new Game();
+        game.setGameCode(gameCode);
+        game.setMaxPlayers(4);
+        game.setPlayerCount(2);
+        game.setGameStatus(GameStatus.LOBBY);
+
+        User user = new User();
+        user.setToken(userToken);
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+        when(userRepository.findByToken(userToken)).thenReturn(Optional.of(user));
+
+        // When
+        gameService.deleteGame2(userToken, gameCode);
+
+        // Then
+        verify(gameRepository, times(1)).delete(any(Game.class));
+    }
+
+    @Test
+    public void testDeleteGame2_GameDoesNotExist() {
+        // Given
+        String gameCode = "XYZ789";
+        String userToken = "userToken";
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.empty());
+
+        assertThrows(ResponseStatusException.class, () -> gameService.deleteGame2(userToken, gameCode), "A ResponseStatusException should be thrown because the game does not exist");
+    }
+
+    @Test
+    public void testDeleteGame2_UserNotFound() {
+        // Given
+        String gameCode = "ABC123";
+        String userToken = "userToken";
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(new Game()));
+        when(userRepository.findByToken(userToken)).thenReturn(Optional.empty());
+
+        assertThrows(ResponseStatusException.class, () -> gameService.deleteGame2(userToken, gameCode), "A ResponseStatusException should be thrown because the user was not found");
+    }
+
     // @Test
     // public void testReturnCities() {
     //     // Given
