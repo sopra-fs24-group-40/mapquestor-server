@@ -21,10 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -72,42 +69,7 @@ public class GameServiceTest {
         // When & Then
         assertThrows(IllegalStateException.class, () -> gameService.getRandomCity());
     }
-
-//    @Test
-//    public void testCreateGame_validInput() {
-//        // Given
-//        CreateGameDTO newGameDTO = new CreateGameDTO();
-//        newGameDTO.setCreator("userToken");
-//        newGameDTO.setMaxPlayers(4);
-//        newGameDTO.setRoundCount(3);
-//        newGameDTO.setGameType(GameType.CITY);
-//
-//        User creator = new User();
-//        creator.setToken("userToken");
-//
-//        when(userRepository.findByToken("userToken")).thenReturn(Optional.of(creator));
-//        when(cityRepository.findAll()).thenReturn(Collections.singletonList(new City()));
-//        when(gameRepository.save(any(Game.class))).thenAnswer(invocation -> {
-//            Game game = invocation.getArgument(0);
-//            game.setGameId(1L);
-//            return game;
-//        });
-//
-//        // When
-//        Game createdGame = gameService.createGame(newGameDTO);
-//
-//        // Then
-//        assertNotNull(createdGame);
-//        assertEquals(newGameDTO.getMaxPlayers(), createdGame.getMaxPlayers());
-//        assertEquals(newGameDTO.getRoundCount(), createdGame.getRoundCount());
-//        assertEquals(newGameDTO.getGameType(), createdGame.getGameType());
-//        assertEquals(GameStatus.LOBBY, createdGame.getGameStatus());
-//        assertEquals(3, createdGame.getCities().size());
-//        assertEquals(creator.getToken(), createdGame.getCreator());
-//        assertEquals(1, createdGame.getPlayerCount());
-//        assertTrue(createdGame.getPlayers().contains(creator));
-//    }
-
+    
     @Test
     public void testCreateGame_userNotFound() {
         // Given
@@ -548,25 +510,23 @@ public class GameServiceTest {
         assertThrows(ResponseStatusException.class, () -> gameService.deleteGame2(userToken, gameCode), "A ResponseStatusException should be thrown because the user was not found");
     }
 
-    // @Test
-    // public void testReturnCities() {
-    //     // Given
-    //     CitiesPostDTO citiesPostDTO = new CitiesPostDTO();
-    //     citiesPostDTO.setRoundCount(3);
+    @Test
+    public void testReturnCities() {
+        // Given
+        String gameCode = "sampleGameCode";
+        int roundCount = 0;
+        List<City> expectedCities = new ArrayList<>(roundCount);
 
-    //     City city1 = new City("City1", "Capital1", 48.8566, 2.3522);
-    //     City city2 = new City("City2", "Capital2", 51.5074, -0.1278);
-    //     City city3 = new City("City3", "Capital3", 34.0522, -118.2437);
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(new Game()));
 
-    //     when(cityRepository.findAll()).thenReturn(Arrays.asList(city1, city2, city3));
+        List<City> actualCities = gameService.returnCities(gameCode);
 
-    //     // When
-    //     CitiesGetDTO citiesGetDTO = gameService.returnCities(citiesPostDTO);
+        assertEquals(roundCount, actualCities.size(), "The number of cities should match the round count.");
 
-    //     // Then
-    //     assertEquals(3, citiesGetDTO.getCities().size());
-    //     assertTrue(citiesGetDTO.getCities().contains(city1));
-    //     assertTrue(citiesGetDTO.getCities().contains(city2));
-    //     assertTrue(citiesGetDTO.getCities().contains(city3));
-    //}
+        Set<String> cityIds = new HashSet<>();
+        for (City city : actualCities) {
+            assertFalse(cityIds.contains(city.getId().toString()), "Each city should be unique.");
+            cityIds.add(city.getId().toString());
+        }
+    }
 }
