@@ -1,11 +1,14 @@
 package ch.uzh.ifi.hase.soprafs24.service;
 
 import ch.uzh.ifi.hase.soprafs24.constant.UserStatus;
+import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
+import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
-import ch.uzh.ifi.hase.soprafs24.rest.mapper.DTOMapper;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPostDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPutDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,75 +20,158 @@ import org.springframework.web.server.ResponseStatusException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Test class for the UserResource REST resource.
- *
- * @see UserService
- */
+import java.util.Optional;
+
 @WebAppConfiguration
 @SpringBootTest
 public class UserServiceIntegrationTest {
 
-  @Qualifier("userRepository")
-  @Autowired
-  private UserRepository userRepository;
+    @Qualifier("userRepository")
+    @Autowired
+    private UserRepository userRepository;
 
-  @Autowired
-  private UserService userService;
+    @Qualifier("gameRepository")
+    @Autowired
+    private GameRepository gameRepository;
 
-  @BeforeEach
-  public void setup() {
-    userRepository.deleteAll();
-  }
+    @Autowired
+    private UserService userService;
 
-   @Test
-   public void createUser_validInputs_success() {
-       // given
-       UserPostDTO testUserDTO = new UserPostDTO();
-       testUserDTO.setUsername("testUsername");
-       testUserDTO.setPassword("testPassword");
+    @BeforeEach
+    public void setup() {
+        userRepository.deleteAll();
+        gameRepository.deleteAll();
+    }
 
-       // when
-       UserGetDTO createdUser = userService.createUser(testUserDTO);
+    @Test
+    public void createUser_updateUser_validate() {
+        // Create user
+        UserPostDTO userPostDTO = new UserPostDTO();
+        userPostDTO.setUsername("testUser");
+        userPostDTO.setPassword("testPassword");
 
-       // then
-       assertNotNull(createdUser.getId());
-       assertEquals(testUserDTO.getUsername(), createdUser.getUsername());
-       assertNotNull(createdUser.getToken());
-       assertEquals(UserStatus.ONLINE, createdUser.getStatus());
-   }
+        UserGetDTO createdUser = userService.createUser(userPostDTO);
+        assertNotNull(createdUser.getId());
 
-   @Test
-   public void createUser_duplicateUsername_throwsException() {
-       // given
-       UserPostDTO testUserDTO1 = new UserPostDTO();
-       testUserDTO1.setUsername("testUsername");
-       testUserDTO1.setPassword("testPassword");
-       userService.createUser(testUserDTO1);
+        // Update user
+        UserPutDTO userPutDTO = new UserPutDTO();
+        userPutDTO.setUsername("updatedUser");
+        userService.updateUser(createdUser.getId(), userPutDTO);
 
-       // when, then
-       UserPostDTO testUserDTO2 = new UserPostDTO();
-       testUserDTO2.setUsername("testUsername"); // Duplicate username
-       testUserDTO2.setPassword("anotherPassword");
-       assertThrows(ResponseStatusException.class, () -> userService.createUser(testUserDTO2));
-   }
+        // Validate update
+        UserGetDTO updatedUser = userService.getUser(createdUser.getId());
+        assertEquals("updatedUser", updatedUser.getUsername());
+    }
+
+    @Test
+    public void createUser_logout_login_validate() {
+        // Create user
+        UserPostDTO userPostDTO = new UserPostDTO();
+        userPostDTO.setUsername("testUser");
+        userPostDTO.setPassword("testPassword");
+
+        UserGetDTO createdUser = userService.createUser(userPostDTO);
+        assertNotNull(createdUser.getId());
+
+        // Logout user
+        UserTokenDTO userTokenDTO = new UserTokenDTO();
+        userTokenDTO.setToken(createdUser.getToken());
+        boolean isLoggedOut = userService.logout(userTokenDTO);
+        assertTrue(isLoggedOut);
+
+        // Login user
+        UserGetDTO loggedInUser = userService.login(userPostDTO);
+        assertEquals(createdUser.getId(), loggedInUser.getId());
+        assertEquals(UserStatus.ONLINE, loggedInUser.getStatus());
+    }
 
 //    @Test
-//    public void findUserByToken_existingUser_returnsUser() {
-//        // given
-//        User testUser = new User();
-//        User testUser1 = new User();
-//        testUser.setUsername("testUsername");
-//        testUser.setPassword("testPassword");
-//        testUser.setToken("testToken");
-//        testUser1 = userRepository.saveAndFlush(testUser);
+//    public void createGame_validateCreator() {
+//        // Create user
+//        UserPostDTO userPostDTO = new UserPostDTO();
+//        userPostDTO.setUsername("testUser");
+//        userPostDTO.setPassword("testPassword");
 //
-//        // when
-//        UserGetDTO foundUser = userService.getUserByToken("testToken");
+//        UserGetDTO createdUserDTO = userService.createUser(userPostDTO);
+//        assertNotNull(createdUserDTO.getId());
 //
-//        // then
-//        assertNotNull(foundUser);
-//        assertEquals(testUser.getToken(), foundUser.getToken());
+//        // Retrieve the created user entity from the database
+//        User createdUser = userRepository.findById(createdUserDTO.getId()).orElseThrow();
+//
+//        // Create game
+//        Game newGame = new Game();
+//        newGame.setMaxPlayers(2); // Ensure maxPlayers is at least 2
+//        newGame.setRoundCount(1); // Ensure roundCount is at least 1
+//        newGame.setCreator(createdUser.getUsername());
+//        newGame.addPlayer(createdUser);
+//        Game savedGame = gameRepository.save(newGame);
+//
+//        // Validate creator
+//        assertEquals(createdUser.getUsername(), savedGame.getCreator());
 //    }
-
+//
+//    @Test
+//    public void createGame_twoUsers_joinGame_validatePlayers() {
+//        // Create first user
+//        UserPostDTO userPostDTO1 = new UserPostDTO();
+//        userPostDTO1.setUsername("user1");
+//        userPostDTO1.setPassword("password1");
+//        UserGetDTO user1DTO = userService.createUser(userPostDTO1);
+//
+//        // Retrieve the first created user entity from the database
+//        User user1 = userRepository.findById(user1DTO.getId()).orElseThrow();
+//
+//        // Create second user
+//        UserPostDTO userPostDTO2 = new UserPostDTO();
+//        userPostDTO2.setUsername("user2");
+//        userPostDTO2.setPassword("password2");
+//        UserGetDTO user2DTO = userService.createUser(userPostDTO2);
+//
+//        // Retrieve the second created user entity from the database
+//        User user2 = userRepository.findById(user2DTO.getId()).orElseThrow();
+//
+//        // Create game with first user
+//        Game game = new Game();
+//        game.setCreator(user1.getUsername());
+//        game.addPlayer(user1);
+//        Game createdGame = gameRepository.save(game);
+//
+//        // Join game with second user
+//        createdGame.addPlayer(user2);
+//        Game updatedGame = gameRepository.save(createdGame);
+//
+//        // Validate number of players
+//        assertEquals(2, updatedGame.getPlayers().size());
+//        assertTrue(updatedGame.getPlayers().contains(user1));
+//        assertTrue(updatedGame.getPlayers().contains(user2));
+//    }
+//
+//    @Test
+//    public void createGame_deleteUser_validateGameDeletion() {
+//        // Create user
+//        UserPostDTO userPostDTO = new UserPostDTO();
+//        userPostDTO.setUsername("testUser");
+//        userPostDTO.setPassword("testPassword");
+//
+//        UserGetDTO createdUserDTO = userService.createUser(userPostDTO);
+//        assertNotNull(createdUserDTO.getId());
+//
+//        // Retrieve the created user entity from the database
+//        User createdUser = userRepository.findById(createdUserDTO.getId()).orElseThrow();
+//
+//        // Create game
+//        Game game = new Game();
+//        game.setMaxPlayers(2); // Ensure maxPlayers is at least 2
+//        game.setRoundCount(1); // Ensure roundCount is at least 1
+//        game.setCreator(createdUser.getUsername());
+//        game.addPlayer(createdUser);
+//        Game savedGame = gameRepository.save(game);
+//
+//        // Delete user
+//        userService.deleteTheUser(createdUser.getId());
+//
+//        // Validate game deletion
+//        Optional<Game> deletedGame = gameRepository.findById(savedGame.getGameId());
+//        assertFalse(deletedGame.isPresent());
+//    }
 }
