@@ -161,29 +161,6 @@ public class GameService {
         }
     }
  
- 
-    public void addUserToGame(String token, String gameCode) {
-        Game game = gameRepository.findByGameCode(gameCode)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
- 
-        User user = userRepository.findByToken(token)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with token: " + token));
- 
-        if (user.getGame() != null) {
-            throw new RuntimeException("Benutzer ist bereits in einem Spiel");
-        }
- 
-        if (game.getPlayers().size() < game.getMaxPlayers()) {
-            game.addPlayer(user);
- 
-            gameRepository.save(game);
-            userRepository.save(user);
-        }
-        else {
-            throw new RuntimeException("Das Spiel ist bereits voll");
-        }
-    }
- 
     public GameStatusDTO updateGameStatus(String gameCode, GameStatusDTO gameStatus) {
         Game game = gameRepository.findByGameCode(gameCode)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
