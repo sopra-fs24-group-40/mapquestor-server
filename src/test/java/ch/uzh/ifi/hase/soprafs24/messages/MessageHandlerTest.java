@@ -1,6 +1,7 @@
 package ch.uzh.ifi.hase.soprafs24.messages;
 
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
+import ch.uzh.ifi.hase.soprafs24.entity.City;
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
@@ -256,5 +257,20 @@ public class MessageHandlerTest {
         verify(userService, times(0)).logout(any(UserTokenDTO.class));
     }
 
+    @Test
+    public void handleMessageReturnsCityMessageWhenMessageTypeIsCity() {
+        // Arrange
+        Message<String> cityMessage = new Message<>("sender", "content", MessageType.CITY);
+        List<City> cities = new ArrayList<>();
+        cities.add(new City());
+        cities.add(new City());
+        when(gameService.returnCities(cityMessage.getContent())).thenReturn(cities);
 
+        // Act
+        Message<?> result = messageHandler.handleMessage(cityMessage, "gameCode");
+
+        // Assert
+        assertEquals(cities, result.getContent());
+        assertEquals(MessageType.CITY, result.getType());
+    }
 }
