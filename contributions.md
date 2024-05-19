@@ -169,6 +169,12 @@ This document serves to track the contributions of each team member as part of t
     - Friday, 17-05-2024
         - Added logout_SuccessfulLogout in game controller test, to test the post request post("/logout") in user controller. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/c38759c7318c48b4bb83210b28a3d7b4854650c3) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60858602)
         - Added testUpdateUser_UpdateAvatarOnUsernameChange in user service test, to test updateUser in user service but commented it out, since it fails. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4a2d4f0f6a5035c4716f94be389b2130c33a3e12) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
+    - Saturday, 18-05-2024
+        - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/27cf77cb0bbfccc58cf696ea9f92e0232bbfb3b3)
+    - Sunday, 19-05-2024
+        - Added testDeletedGame_GameExists and testDeleteGame_GameDoesNotExist in game service test, to test deleteGame in game service. Added testDumpUserAndDeleteGameIfEmpty2 in game sevice test, to test dumpUserAndDeleteGameIfEmpty2 in game service. Added testDeleteGame2_SuccessfulDeletion, testDeleteGame2_GameDoesNotExist, and testDeleteGame2_UserNotFound in game service test, to test deleteGame2 in game service. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ce10f435ce08524363ef67fa41bf224ae29de122) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240)
+        - Added testReturnCities in game service test, to test returnCities in game service. Removed unused test. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5d7ec7a3d94a4ef694a861f2454ce3de257850f5) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240)
+        - Removed addUserToGame in game service, since it's never used. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/48a9955ff93ba48eaa48c20d367642611f5de54a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
 
 ## Shanthos
 
