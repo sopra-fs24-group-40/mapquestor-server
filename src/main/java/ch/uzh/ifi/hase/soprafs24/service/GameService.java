@@ -69,7 +69,12 @@ public class GameService {
  
         List<City> selectedCities = new ArrayList<>();
         for (int i = 0; i < newGame.getRoundCount(); i++) {
-            selectedCities.add(getRandomCity());
+            City city = getRandomCity();
+            if(selectedCities.contains(city)){
+                i--;
+            } else {
+                selectedCities.add(city);
+            }   
         }
         game.setCities(selectedCities);
  
@@ -237,8 +242,13 @@ public class GameService {
         List<City> selectedCities = new ArrayList<>();
         // CitiesGetDTO citiesGetDTO = new CitiesGetDTO();
         for (int i = 0; i < game.getRoundCount(); i++) {
-            selectedCities.add(getRandomCity());
-        }
+            City city = getRandomCity();
+            if(selectedCities.contains(city)){
+                i--;
+            } else {
+                selectedCities.add(city);
+            }
+        }   
         System.out.println("---------------" + game.getCities() + "---------------");
         System.out.println("---------------" + selectedCities + "---------------");
         game.setCities(selectedCities);
@@ -247,7 +257,7 @@ public class GameService {
         // citiesGetDTO.setCities(selectedCities);
         // System.out.println("---------------" + citiesGetDTO.getCities() + "---------------");
         return selectedCities;
-    }
+        }
  
     public void dumpUserAndDeleteGameIfEmpty2(String token, String gameCode) {
         System.out.println("User " + token + " left game " + gameCode);
