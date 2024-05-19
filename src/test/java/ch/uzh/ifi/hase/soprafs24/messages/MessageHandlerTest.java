@@ -1,9 +1,12 @@
 package ch.uzh.ifi.hase.soprafs24.messages;
 
 import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
+import ch.uzh.ifi.hase.soprafs24.entity.Game;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
+import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
 import org.junit.jupiter.api.Assertions;
@@ -31,6 +34,9 @@ public class MessageHandlerTest {
 
     @Mock
     private UserRepository userRepository;
+
+    @Mock
+    private GameRepository gameRepository;
 
     @InjectMocks
     private MessageHandler messageHandler;
@@ -143,21 +149,18 @@ public class MessageHandlerTest {
         assertEquals(leaveCreatorMessage, result); // Ensure that the returned message is the same as the input message
     }
 
-//    @Test
-//    public void testHandleMessage_LogoutMessage() {
-//        // Prepare
-//        Message<String> logoutMessage = new Message<>("Test message", "sender", MessageType.LOGOUT);
-//
-//        // Test
-//        Message<?> result = messageHandler.handleMessage(logoutMessage, "gameCode");
-//
-//        // Verify
-//        assertEquals(logoutMessage, result);
-//    }
-
     @Test
     public void handleMessageReturnsSameMessageWhenMessageTypeIsLogoutCreator() {
         Message<String> logoutCreatorMessage = new Message<>("sender", "content", MessageType.LOGOUT_CREATOR);
+
+        Message<?> result = messageHandler.handleMessage(logoutCreatorMessage, "gameCode");
+
+        Assertions.assertEquals(logoutCreatorMessage, result);
+    }
+
+    @Test
+    public void handleMessageReturnsSameMessageWhenMessageTypeIsLogout() {
+        Message<String> logoutCreatorMessage = new Message<>("sender", "content", MessageType.LOGOUT);
 
         Message<?> result = messageHandler.handleMessage(logoutCreatorMessage, "gameCode");
 
@@ -212,14 +215,46 @@ public class MessageHandlerTest {
         Assertions.assertEquals(timerMessage, result);
     }
 
-    // @Test
-    // public void handleMessageReturnsSameMessageWhenMessageTypeIsPlayers() {
-    //     Message<String> playersMessage = new Message<>("sender", "content", MessageType.PLAYERS);
+    @Test
+    public void processLogoutReturnsLeaveCreatorMessageWhenUserIsGameCreator() {
+        Message<String> logoutMessage = new Message<>("creator", "gameCode", MessageType.LOGOUT);
+        Game game = new Game();
+        game.setCreator("creator");
+        when(gameRepository.findByGameCode("gameCode")).thenReturn(Optional.of(game));
 
-    //     Message<?> result = messageHandler.handleMessage(playersMessage, "gameCode");
+        Message<?> result = messageHandler.processLogout(logoutMessage);
 
-    //     Assertions.assertEquals(playersMessage, result);
-    // }
+        Assertions.assertEquals(MessageType.LEAVE_CREATOR, result.getType());
+        verify(gameService, times(1)).deleteGame2("creator", "gameCode");
+        verify(userService, times(1)).logout(any(UserTokenDTO.class));
+    }
+
+    @Test
+    public void processLogoutReturnsLeaveMessageWhenUserIsNotGameCreator() {
+        Message<String> logoutMessage = new Message<>("player", "gameCode", MessageType.LOGOUT);
+        Game game = new Game();
+        game.setCreator("creator");
+        when(gameRepository.findByGameCode("gameCode")).thenReturn(Optional.of(game));
+
+        Message<?> result = messageHandler.processLogout(logoutMessage);
+
+        Assertions.assertEquals(MessageType.LEAVE, result.getType());
+        verify(gameService, times(1)).dumpUserAndDeleteGameIfEmpty2("player", "gameCode");
+        verify(userService, times(1)).logout(any(UserTokenDTO.class));
+    }
+
+    @Test
+    public void processLogoutReturnsOriginalMessageWhenGameIsNotFound() {
+        Message<String> logoutMessage = new Message<>("player", "gameCode", MessageType.LOGOUT);
+        when(gameRepository.findByGameCode("gameCode")).thenReturn(Optional.empty());
+
+        Message<?> result = messageHandler.processLogout(logoutMessage);
+
+        Assertions.assertEquals(logoutMessage, result);
+        verify(gameService, times(0)).deleteGame2(anyString(), anyString());
+        verify(gameService, times(0)).dumpUserAndDeleteGameIfEmpty2(anyString(), anyString());
+        verify(userService, times(0)).logout(any(UserTokenDTO.class));
+    }
 
 
 }
