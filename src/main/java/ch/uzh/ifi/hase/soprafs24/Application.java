@@ -23,6 +23,7 @@ public class Application {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedOrigins("http://localhost:3000", "https://sopra-fs24-group-40-server1.oa.r.appspot.com").allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+
             }
         };
 
