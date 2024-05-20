@@ -182,6 +182,7 @@ public class MessageHandler {
            
         } else {
             System.out.println("Game not found for game code: " + message.getContent());
+            userService.logout(token);
         }
        
         return message;
