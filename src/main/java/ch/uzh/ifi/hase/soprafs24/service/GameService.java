@@ -217,7 +217,9 @@ public class GameService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
 
         List<City> selectedCities = new ArrayList<>();
-        // CitiesGetDTO citiesGetDTO = new CitiesGetDTO();
+
+        game.setCities(new ArrayList<>());
+
         for (int i = 0; i < game.getRoundCount(); i++) {
             City city = getRandomCity();
             if(selectedCities.contains(city)){
