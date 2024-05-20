@@ -230,8 +230,6 @@ public class GameService {
         }
         game.setCities(selectedCities);
         gameRepository.save(game);
-        // citiesGetDTO.setCities(selectedCities);
-        // System.out.println("---------------" + citiesGetDTO.getCities() + "---------------");
         return selectedCities;
         }
  
