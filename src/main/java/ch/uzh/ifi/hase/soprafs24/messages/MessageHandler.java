@@ -171,13 +171,15 @@ public class MessageHandler {
             System.out.println("-----------------LOGOUT: --------------" + message.getContent());
            
             if (message.getFrom().equals(game.getCreator())) {
+                System.out.println("Creator left game: " + message.getContent());
                 gameService.deleteGame2(message.getFrom(), message.getContent());
                 userService.logout(token);
-                return new Message<>(message.getFrom(), "", MessageType.LEAVE_CREATOR);
+                return new Message<>(message.getFrom(), message.getContent(), MessageType.LEAVE_CREATOR);
             } else {
+                System.out.println("User left game: " + message.getContent());
                 gameService.dumpUserAndDeleteGameIfEmpty2(message.getFrom(), message.getContent());
                 userService.logout(token);
-                return new Message<>(message.getFrom(), "", MessageType.LEAVE);
+                return new Message<>(message.getFrom(), message.getContent(), MessageType.LEAVE);
             }
            
         } else {
