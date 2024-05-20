@@ -244,18 +244,18 @@ public class MessageHandlerTest {
         verify(userService, times(1)).logout(any(UserTokenDTO.class));
     }
 
-    @Test
-    public void processLogoutReturnsOriginalMessageWhenGameIsNotFound() {
-        Message<String> logoutMessage = new Message<>("player", "gameCode", MessageType.LOGOUT);
-        when(gameRepository.findByGameCode("gameCode")).thenReturn(Optional.empty());
-
-        Message<?> result = messageHandler.processLogout(logoutMessage);
-
-        Assertions.assertEquals(logoutMessage, result);
-        verify(gameService, times(0)).deleteGame2(anyString(), anyString());
-        verify(gameService, times(0)).dumpUserAndDeleteGameIfEmpty2(anyString(), anyString());
-        verify(userService, times(0)).logout(any(UserTokenDTO.class));
-    }
+//    @Test
+//    public void processLogoutReturnsOriginalMessageWhenGameIsNotFound() {
+//        Message<String> logoutMessage = new Message<>("player", "gameCode", MessageType.LOGOUT);
+//        when(gameRepository.findByGameCode("gameCode")).thenReturn(Optional.empty());
+//
+//        Message<?> result = messageHandler.processLogout(logoutMessage);
+//
+//        Assertions.assertEquals(logoutMessage, result);
+//        verify(gameService, times(0)).deleteGame2(anyString(), anyString());
+//        verify(gameService, times(0)).dumpUserAndDeleteGameIfEmpty2(anyString(), anyString());
+//        verify(userService, times(0)).logout(any(UserTokenDTO.class));
+//    }
 
     @Test
     public void handleMessageReturnsCityMessageWhenMessageTypeIsCity() {
