@@ -46,7 +46,7 @@ public class GameWebSocketController {
         return gameService.updateGameStatus(gameId, gameStatus);
     }
 
-    @MessageMapping("/cities")
+    @MessageMapping("/{gameId}/cities")
     @SendTo("/topic/{gameId}/cities")
     public Message<?> sendCities(Message<?> message) {
         return messageHandler.handleMessage(message, null);
