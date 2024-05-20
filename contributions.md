@@ -310,7 +310,38 @@ This document serves to track the contributions of each team member as part of t
       
     - Task 2: writting Tests in Backend [#84](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/84) [#85](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/85) [#78](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/78) [#77](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/77)
       
-        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2604d13dbd736a9158da8c4f4b40128f2f130327) ( written Testcases for CityServiceTest DTOMapperTest UserSocketService Test and UserServiceTest)    
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2604d13dbd736a9158da8c4f4b40128f2f130327) ( written Testcases for CityServiceTest DTOMapperTest UserSocketService Test and UserServiceTest)
+
+
+- **Week 7**
+    - Task 1: Writing Tests:
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/74f5a308e98708ddfd10161f23a8aeaf233d3695) (MessageHandlerTest #86)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e3d546300f38656c5a6b2aa45e8151b84ec31698) (UserServiceIntegrationTest #77 )
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/db5ed85ad6dbf6f48a0c911364e800edb67702a6) (MessageHandler and Message Tests #86)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/85a763ebe489e5d9a08ae52312614da0a3973dfa) (commeted one test)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/8464da4b6b4e6a107a389d64fee0af0a66244a98) (testing of file MessageHandler.java and Message.java now at (96% line coverage)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/e82895eb6d394dd48c42f4547e4f59c3822943b9) (testing of file MessageHandler.java (87%) )
+
+    - Task 2: Bug fixing and UI bettering (It is hard to pin point all commits where I was part of, because we did many bug fixes in a group setting):
+
+         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/0b98dfc7a48398fe53a6751d64363c25c7ac8d83) (token displayed in chat after leaving repair )
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/34c5c2d3a499821c9462661a0b6dfb2da818f21b) (bug where token of play again is repaired #44)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/906a4e7b78d58360e27b3d638f583bbb09e02a63) (added more information to LOBBY and restructred files #9)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0bd3e369347a7e9912d5bacad32bc0d64c7fa602) ( desgin changes in backend #41)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1bddc36ea4dccd88605d7e4aeb1c76c390ec23df) (logout lobby creator Bugs #82; through acc from nik-stev)
+
+        [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ea63c5cf880c6011947cee14cc720bd3cc7198ae) (fixed leave game bug in lobby Bugs #82; through acc from nik-stev)
+
 
 ## Arber
 
