@@ -1,6 +1,7 @@
 package ch.uzh.ifi.hase.soprafs24.controller;
 
 import ch.uzh.ifi.hase.soprafs24.entity.User;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.TokenDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserGetDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPostDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.UserPutDTO;
@@ -77,6 +78,16 @@ public class UserController {
         }
     }
 
+    @PostMapping("/verify-token")
+    public ResponseEntity<?> verifyToken(@RequestBody TokenDTO tokenDTO) {
+        boolean isValid = userService.verifyToken(tokenDTO.getToken());
+        if (isValid) {
+            return ResponseEntity.ok().body("Token is valid.");
+        }
+        else {
+            return ResponseEntity.badRequest().body("Token is invalid.");
+        }
+    }
 
     @DeleteMapping("/users/{userID}")
     @ResponseStatus(HttpStatus.OK) //if it was found the OK https

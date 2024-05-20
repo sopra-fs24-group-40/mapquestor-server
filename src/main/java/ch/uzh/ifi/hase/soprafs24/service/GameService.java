@@ -227,11 +227,8 @@ public class GameService {
             } else {
                 selectedCities.add(city);
             }
-        }   
-        System.out.println("---------------" + game.getCities() + "---------------");
-        System.out.println("---------------" + selectedCities + "---------------");
+        }
         game.setCities(selectedCities);
-        System.out.println("---------------" + game.getCities() + "---------------"); 
         gameRepository.save(game);
         // citiesGetDTO.setCities(selectedCities);
         // System.out.println("---------------" + citiesGetDTO.getCities() + "---------------");
@@ -239,14 +236,12 @@ public class GameService {
         }
  
     public void dumpUserAndDeleteGameIfEmpty2(String token, String gameCode) {
-        System.out.println("User " + token + " left game " + gameCode);
         Game game = gameRepository.findByGameCode(gameCode)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
  
         User user = userRepository.findByToken(token)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with token: " + token));
        
-        System.out.println("------------------------" + user.getUsername() + "------------------------");
         // Remove the user from the game
         game.removePlayer(user);
         game.setPlayerCount(game.getPlayerCount() - 1);
