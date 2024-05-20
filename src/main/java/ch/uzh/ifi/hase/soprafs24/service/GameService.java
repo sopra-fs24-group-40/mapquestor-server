@@ -229,7 +229,7 @@ public class GameService {
         System.out.println("---------------" + game.getCities() + "---------------");
         System.out.println("---------------" + selectedCities + "---------------");
         game.setCities(selectedCities);
-        System.out.println("---------------" + game.getCities() + "---------------");
+        System.out.println("---------------" + game.getCities() + "---------------"); 
         gameRepository.save(game);
         // citiesGetDTO.setCities(selectedCities);
         // System.out.println("---------------" + citiesGetDTO.getCities() + "---------------");
