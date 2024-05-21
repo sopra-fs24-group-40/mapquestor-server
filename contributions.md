@@ -182,7 +182,22 @@ This document serves to track the contributions of each team member as part of t
             - Added a character limit for username when editing it in the profile page, so it's not possible to edit the username to a very long one. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fbb75271efac013cc8d31ac572274083e1ac11be) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
             - Commented out processLogoutReturnsOriginalMessageWhenGameIsNotFound test in message handler test, since it fails [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/46b7ee7bdf61991f83caa025f77f180c8182c35b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
             - Rigoros testing of our application with the group. Searching for bugs, that need to be fixed.
-
+        - Tuesday, 21-05-2024
+            - Removed location name inside ingame, because is was used for testing purposes in the past. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fb3c7fd435f2248a94081a01ddf200118f7dc118) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512406)
+            - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362751)
+            - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512145)
+            - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512406)
+            - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512479)
+            - Increased time of re-rendering of the profile page to two minutes, since 10 seconds are to short and the input field gets resetet, when user wants to edit username. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0af0672c0171be87a6f75220e213552691f8321e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+            - First draft of readme file in client with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a2d6fb8da5b9ac4421e644df6c2c1bfb0943970b)
+            - Tried to fix table of contents and made some changes in readme file in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0147b041432d2f967c3684ce9761c53c935a9532)
+            - Some more changes regarding table of contents in readme file in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/67ad54f7f5aeb95f743bf62a7723faf1093095f7)
+            - First draft of readme file in server with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/a6795b3836b36986b7423e30e1c07f1aef333a29)
+            - Second draft of readme file in server with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/09bf8bf420ca70490ee78ddea2774e7d67811f0f)
+            - Test push in client, due to GitHub having problems. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5624b88aff193a489ab05f028e09902b73bb4cfa)
+            - Test push in server, due to GitHub having problems. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/7553b4a0ebedb69706ac4a9ecc10f55b366aa2dc)
+            - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/9d70695358bc0db381278eb5694718073cd434b2)
+            - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2eb989edda57943f53ee5c7517cc0ba0871773cc)
 ## Shanthos
 
 - **Week 1**
