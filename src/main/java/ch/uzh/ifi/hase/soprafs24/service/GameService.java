@@ -139,7 +139,7 @@ public class GameService {
             throw new EntityNotFoundException("Spiel mit ID " + gameCode + " nicht gefunden.");
         }
     }
- 
+  
     public Game joinGame(String gameCode, String token) {
         Game game = gameRepository.findByGameCode(gameCode)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
