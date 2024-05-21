@@ -18,7 +18,7 @@ public class City {
     private double longitude;
 
 
-    // Constructors
+    // Constructors 
     public City() {
     }
 
