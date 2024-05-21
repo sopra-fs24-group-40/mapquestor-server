@@ -171,7 +171,7 @@ public class UserService {
         }
  
         user.setPlayedGames(user.getPlayedGames() + 1);
-        userRepository.save(user);
+        userRepository.save(user); 
     }
  
  
