@@ -181,6 +181,7 @@ This document serves to track the contributions of each team member as part of t
             - Added a character limit for username in login and register, so it's not possible to register with a very long username, making the leaderboard unreadable. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9a528e05b0b8f865d918778cd5613d17c9f907ac) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
             - Added a character limit for username when editing it in the profile page, so it's not possible to edit the username to a very long one. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fbb75271efac013cc8d31ac572274083e1ac11be) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
             - Commented out processLogoutReturnsOriginalMessageWhenGameIsNotFound test in message handler test, since it fails [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/46b7ee7bdf61991f83caa025f77f180c8182c35b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
+            - Rigoros testing of our application with the group. Searching for bugs, that need to be fixed.
 
 ## Shanthos
 
