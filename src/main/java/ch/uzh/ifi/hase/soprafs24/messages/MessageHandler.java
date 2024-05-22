@@ -4,11 +4,13 @@ import ch.uzh.ifi.hase.soprafs24.constant.MessageType;
 import ch.uzh.ifi.hase.soprafs24.entity.User;
 import ch.uzh.ifi.hase.soprafs24.entity.City;
 import ch.uzh.ifi.hase.soprafs24.entity.Game;
+import ch.uzh.ifi.hase.soprafs24.constant.GameStatus;
 import ch.uzh.ifi.hase.soprafs24.repository.UserRepository;
 import ch.uzh.ifi.hase.soprafs24.repository.GameRepository;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.PlayerInfoDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.UserTokenDTO;
 import ch.uzh.ifi.hase.soprafs24.rest.dto.game.CitiesGetDTO;
+import ch.uzh.ifi.hase.soprafs24.rest.dto.game.GameStatusDTO;
 import ch.uzh.ifi.hase.soprafs24.service.GameService;
 import ch.uzh.ifi.hase.soprafs24.service.UserService;
 import org.springframework.stereotype.Service;
@@ -61,6 +63,9 @@ public class MessageHandler {
             return processJoinMessage(joinMessage);
         }
         else if (message.getType() == MessageType.START_COUNTDOWN) {
+            GameStatusDTO gameStatusDTO = new GameStatusDTO();
+            gameStatusDTO.setStatus(GameStatus.INGAME);
+            gameService.updateGameStatus(gameCode, gameStatusDTO);
             return message;
         }
  
