@@ -213,6 +213,6 @@ public class UserServiceIntegrationTest {
         // Validate game deletion
         Optional<Game> deletedGame = gameRepository.findById(savedGame.getGameId());
         assertFalse(deletedGame.isPresent());
-    }
+    } 
 }
  
