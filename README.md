@@ -8,18 +8,20 @@ P.S. go check out our front-end implementation [here](https://github.com/sopra-f
 ## 📜 Table of Contents
 
 1. [👋 Introduction](#introduction)
-2. [🛠️ Technologies](#️technologies)
-3. [🧭 High-level components](#high-level-components)
-4. [🏎️ Launch & Deployment](#️launch-and-deployment)
-5. [🛣️ Roadmap](#️roadmap)
-6. [👔 Authors and acknowledgment](#authors-and-acknowledgment)
+2. [🛠️ Technologies](#technologies)
+3. [🧭 High-level components](#highlevelcomponents)
+4. [🏎️ Launch & Deployment](#launchanddeployment)
+5. [🛣️ Roadmap](#roadmap)
+6. [👔 Authors and acknowledgment](#authorsandacknowledgment)
 7. [📝 License](#license)
 
-## 👋 Introduction <a id="introduction"></a>
+<a id="introduction"></a>
+## 👋 Introduction
 
 To give people a fun way of learning about potential sightseeing destinations, we introduce a game called MapQuestor. It is playable by multiple users at once, this will increase engagement and raise a competitive spirit. A picture of a place of interest will be shown to the players and they must guess which city or country it is from.
 
-## 🛠️ Technologies <a id="technologies"></a>
+<a id="technologies"></a>
+## 🛠️ Technologies
 
 For the devolopment of the server, we relied on the following technologies:
 
@@ -31,7 +33,8 @@ For the devolopment of the server, we relied on the following technologies:
 * [Hibernate](https://hibernate.org/) - Object-relational mapping framework (implementation of JPA)
 * [Google cloud](https://cloud.google.com/?hl=en) - Handles the deployment
 
-## 🧭 High-level components <a id="high-level-components"></a>
+<a id="highlevelcomponents"></a>
+## 🧭 High-level components
 
 REST requests are encapsulated inside various controller classes. For stomp communication via websocket we use GameWebSocketController. User, Game, and City are the three entity types in the entity package. User and City entities are permanently stored in database, while Game entities are temporarily stored in GameRepository as long as a user is inside a game. Various service classes are invoked by the corresponding controller classes and they are responsible for handling all functionalities.
 
@@ -49,7 +52,8 @@ The following classes are described in detail for better understanding:
 
 [MessageHandler](https://github.com/sopra-fs24-group-40/mapquestor-server/blob/main/src/main/java/ch/uzh/ifi/hase/soprafs24/messages/MessageHandler.java) is used for processing websocket requests. It is responsible for handling all interactions between client and server that have to be synchronized throughout the application. It covers basic functionalities like logging out a user escpecially during a game session and game specific features like updating points after every round, chat function, communicating if a user wants to play again, and more. The communiction with the currect game happens via [GameService](https://github.com/sopra-fs24-group-40/mapquestor-server/blob/main/src/main/java/ch/uzh/ifi/hase/soprafs24/service/GameService.java).
 
-## 🏎️ Launch & Deployment <a id="launch-and-deployment"></a>
+<a id="launchanddeployment"></a>
+## 🏎️ Launch & Deployment
 
 The following steps are needed for a new developer joining our team.
 
@@ -90,13 +94,15 @@ Both client and server have to be running for the application to behave as expec
 
 We stronlgy recommend to follow this [tutorial](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) and to properly document and comment your release.
 
-## 🛣️ Roadmap <a id="roadmap"></a>
+<a id="roadmap"></a>
+## 🛣️ Roadmap
 
 - _Global leaderboard_ --> Leaderboard could be filterable by metrics (e.g. time or mode).
 - _Joker assignment_ --> Assign jokers depending on points after each round (e.g. player with least points gets a joker).
 - _Worldwide_ --> Include more cities and countries from other continents and game modes (e.g. City-Europe, Country-South-America, etc.).
 
-## 👔 Authors and acknowledgment <a id="authors-and-acknowledgment"></a>
+<a id="authorsandacknowledgment"></a>
+## 👔 Authors and acknowledgment
 
 Authors of MapQuestor:
 
@@ -108,7 +114,8 @@ Authors of MapQuestor:
 
 We want to use this opportunity to thank our teaching assistant [Louis Caerts](https://github.com/LouisCaerts). His guidance and assistance were helpful and we really appreciate it.
 
-## 📝 License <a id="license"></a>
+<a id="license"></a>
+## 📝 License
 
 This project is licensed under the Apache License Version 2.0.
 
