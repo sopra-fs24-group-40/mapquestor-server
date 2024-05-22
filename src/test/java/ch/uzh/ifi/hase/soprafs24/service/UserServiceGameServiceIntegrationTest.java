@@ -27,7 +27,7 @@ import java.util.Optional;
 
 @WebAppConfiguration
 @SpringBootTest
-public class UserServiceIntegrationTest {
+public class UserServiceGameServiceIntegrationTest {
 
     @Qualifier("userRepository")
     @Autowired
