@@ -1,6 +1,7 @@
 # MapQuestor
 <div style="text-align: justify">
-*picture*
+
+![Image](src/main/java/ch/uzh/ifi/hase/soprafs24/additional/LOGO1.png)
 
 Have you ever wanted to travel the world, but lack the money and time? That's where MapQuestor comes in mind... What are you waiting for? Become a MapQuestor!
 P.S. go check out our front-end implementation [here](https://github.com/sopra-fs24-group-40/mapquestor-client).
