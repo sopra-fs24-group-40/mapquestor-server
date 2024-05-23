@@ -25,7 +25,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private final UserService userService;
+    private final UserService userService; 
     private final GameService gameService;
 
     UserController(UserService userService, GameService gameService) {
