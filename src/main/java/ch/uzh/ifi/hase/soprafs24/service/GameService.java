@@ -150,6 +150,10 @@ public class GameService {
         if (user.getGame() != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is already in a game");
         }
+
+        if (game.getGameStatus() != GameStatus.LOBBY) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Game not in Lobby!");
+        }
  
         if (game.getPlayerCount() < game.getMaxPlayers()) {
             user.setStatus(UserStatus.INGAME);
