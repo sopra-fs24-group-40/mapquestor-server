@@ -514,7 +514,7 @@ This document serves to track the contributions of each team member as part of t
       - Made the leaderboard and chat titles dynamic in the ingame page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/bee646e90d348c4f70074ff769d6b4e54452d6a2) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
 
 - **Week 8**
-  Our Design was not consistent, different styles were used (bootstrap, css, etc.), there was not a design idea that was seen through all the pages of our application. So I did a design overhaul over the complete application to make everything more consistent, use the same style, use the same container sizes and styles, make things look more modern and smooth.
+  - Our Design was not consistent, different styles were used (bootstrap, css, etc.), there was not a design idea that was seen through all the pages of our application. So I did a design overhaul over the complete application to make everything more consistent, use the same style, use the same container sizes and styles, make things look more modern and smooth.
   - Monday, 20-05-2024
       - Design overhaul main page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0c3e318e77f8c38edfa568ad05290cb9e33c6d97) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/62171776fecdf40dc5be1d973031a42a34dd8fb5) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
       - Small Bug Fix Logout. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/bd7e5a7800377db8beae6a49c8b3110a479d46ef) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62362751)
