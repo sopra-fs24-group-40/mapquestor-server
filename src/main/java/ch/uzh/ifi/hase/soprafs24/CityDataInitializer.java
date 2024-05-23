@@ -69,7 +69,7 @@ public class CityDataInitializer implements CommandLineRunner {
                 new City("Monaco", "Monaco", 43.739295613361584, 7.427843956067588),
                 new City("Vatican City", "Vatican City", 41.902283460769716, 12.45896035312199),
                 new City("Belarus", "Minsk", 53.89396241050173, 27.563408308930303),
-                new City("Moldova", "Chișinău", 47.01312857730332, 28.84674184962407),
+                new City("Moldova", "Chisinau", 47.01312857730332, 28.84674184962407),
                 new City("Bosnia and Herzegovina", "Sarajevo", 43.858851531242124, 18.421260736051778),
                 new City("Albania", "Tirana", 41.32281184481657, 19.819903381065938),
                 new City("Kosovo", "Pristina", 42.65757093351852, 21.161787507807528),
