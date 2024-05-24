@@ -497,4 +497,37 @@ public class GameServiceTest {
             cityIds.add(city.getId().toString());
         }
     }
+    @Test
+    public void testReturnPlayers() {
+        // Given
+        String gameCode = "sampleGameCode";
+        Game game = new Game();
+        game.setGameCode(gameCode);
+
+        User player1 = new User();
+        player1.setUsername("Player1");
+        player1.setToken("token1");
+        game.addPlayer(player1);
+
+        User player2 = new User();
+        player2.setUsername("Player2");
+        player2.setToken("token2");
+        game.addPlayer(player2);
+
+        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+
+        // When
+        List<PlayerInfoDTO> playerInfoDTOs = gameService.returnPlayers(gameCode);
+
+        // Then
+        assertNotNull(playerInfoDTOs);
+        assertEquals(2, playerInfoDTOs.size());
+        assertEquals("Player1", playerInfoDTOs.get(0).getUsername());
+        assertEquals("token1", playerInfoDTOs.get(0).getToken());
+        assertEquals(0, playerInfoDTOs.get(0).getPoints());
+        assertEquals("Player2", playerInfoDTOs.get(1).getUsername());
+        assertEquals("token2", playerInfoDTOs.get(1).getToken());
+        assertEquals(0, playerInfoDTOs.get(1).getPoints());
+    }
+
 }
