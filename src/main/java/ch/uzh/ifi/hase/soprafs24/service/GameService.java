@@ -278,7 +278,22 @@ public class GameService {
  
         gameRepository.delete(game);
     }
+
+    public List<PlayerInfoDTO> returnPlayers(String gameCode) {
+        Game game = gameRepository.findByGameCode(gameCode)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Game not found with code: " + gameCode));
  
+        List<PlayerInfoDTO> playerInfoDTOs = game.getPlayers().stream()
+                .map(player -> {
+                    PlayerInfoDTO dto = new PlayerInfoDTO();
+                    dto.setUsername(player.getUsername());
+                    dto.setToken(player.getToken());
+                    dto.setPoints(0);
+                    return dto;
+                })
+                .collect(Collectors.toList());
+        return playerInfoDTOs;
+    }
  
 }
 //last push was together with @B-M and @LaughingF0x 

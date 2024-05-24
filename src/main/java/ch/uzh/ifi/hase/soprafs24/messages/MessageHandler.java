@@ -135,6 +135,12 @@ public class MessageHandler {
             Message<String> chatMessage = (Message<String>) message;
             return processCityMessage(chatMessage);
         }
+
+        else if (message.getType() == MessageType.PLAYERS) {
+            @SuppressWarnings("unchecked")
+            Message<String> chatMessage = (Message<String>) message;
+            return processPlayersMessage(chatMessage, gameCode);
+        }
  
  
         else {
@@ -203,6 +209,12 @@ public class MessageHandler {
     public Message<List<City>> processCityMessage(Message<String> message) {
         List<City> city = gameService.returnCities(message.getContent());
         return new Message<>(message.getFrom(), city, MessageType.CITY);
+    }
+
+    public Message<List<PlayerInfoDTO>> processPlayersMessage(Message<String> message, String gameCode) {
+        List<PlayerInfoDTO> players = gameService.returnPlayers(gameCode);
+        System.out.println("PLAYERS: " + players);
+        return new Message<>(message.getFrom(), players, MessageType.PLAYERS);
     }
 }
 
