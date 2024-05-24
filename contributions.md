@@ -235,6 +235,7 @@ This document serves to track the contributions of each team member as part of t
     - Friday, 24-05-2024
         - Fixed readme in server. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2f0153686b6cbe08e2559d8c4dd2eb049d154a19)
         - Fixed typo in readme in server. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/17044194fd36aee11ab46440fb71bd4d0a6d2b18)
+        - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/cbb85923c38f3f0788a784493bd774447b421005)
         - Final testing session of our application with the group.
         - Finalized report and slides.
         - Uploaded all to OLAT.
