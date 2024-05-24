@@ -448,6 +448,17 @@ This document serves to track the contributions of each team member as part of t
 - **Week 7** (13-05-2024 - 19-05-2024)
     - I took the "No continuous progress work done" Joker for this week.
 - **Week 8** (20-05-2024 - 24-05-2024)
+    - Monday 20-05-2024
+        - fixing restart/play again [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/54beaab6d6be7ec3a065fde989e7586665906db8) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/10)
+        - changes in socket for city [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8de3cb51847320ac626105ef19980403e261f63c) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4737d7b2340f34b1bcd5ceafa7980c9361e11d2b) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/64eab80bf8117525593a8374721aec9a901580c4) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/82)
+        - Bugfixes for logout functionality [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/bd7e5a7800377db8beae6a49c8b3110a479d46ef) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1aad343d8a37e9cfffb2212e87ed52870b7fcb1b) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/8724feba59f578e6c57159f591aed18bbf35a2fe) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/82)
+    - Wednesday 22-05-2024
+        - Work on Readme [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0daba6af85c8dcb9fae471efaffef6582a21ffb9)
+        - Delete game if game is starting but users leave during start [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a2f6b8a82c77861749ce0ec0d258c4d819ae1108) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
+    - Thursday 23-05-2024
+        - If game is Ingame and only creator is in it => close game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0c6144ad455216a291c99e7bd7d77da1afd7522a) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/46)
+        - Deletion of gamecode in localstorage [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fef9d81a0265242c3e4284be7cc2bc82d85f2c99) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
+        - Refactor Jokers [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/62e12538e4fe5d5a146cecb81d69eb451539c3ef) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/2e73583a54bc7d995408df334c099d4dee856fa7) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/04749eda4866ac434ae79a94fd127fd5039ed2eb) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
 
 
 ## Nikola
