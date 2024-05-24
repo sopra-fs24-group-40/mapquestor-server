@@ -186,6 +186,8 @@ public class GameService {
         // Remove the user from the game
         game.removePlayer(user);
         game.setPlayerCount(game.getPlayerCount() - 1);
+        game = gameRepository.save(game);
+        gameRepository.flush();
         user.setStatus(UserStatus.ONLINE);
         user.setGame(null);
         // Save the user's status and the updated game
