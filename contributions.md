@@ -2,7 +2,7 @@
 
 This document serves to track the contributions of each team member as part of the weekly TA meetings. Ensure traceability of your work by linking git commits to development tasks and updating this log file.
 
-## Benjamin
+## Benjamin Halfar (22-711-071)
 
 - **Week 1** (25-03-2024 - 07-04-2024)
     - Created controllers, DTOs and the necessary entities for the game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/293195330daf9954a50d76465f38867c1c25e5c1) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/27)
@@ -35,7 +35,7 @@ This document serves to track the contributions of each team member as part of t
 
 
 
-## Branislav
+## Branislav Milutinovic (21-743-497)
 
 - **Week 1** (25-03-2024 - 07-04-2024)
     - Thursday, 04-04-2024
@@ -240,7 +240,7 @@ This document serves to track the contributions of each team member as part of t
         - Finalized report and slides.
         - Uploaded all to OLAT.
 
-## Shanthos
+## Shanthos Magendran (21-703-111)
 
 - **Week 1** (25-03-2024 - 07-04-2024)
     - Task 1: Front-end user story 1. creating the Login and Register View [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179279)
@@ -410,7 +410,7 @@ This document serves to track the contributions of each team member as part of t
     - I took the "No continuous progress work done" Joker for this week. I worked with everyone on the last bug fixes but didn't push anything with my account.
 
 
-## Arber
+## Arber Markaj (21-702-295)
 
 - **Week 1** (25-03-2024 - 07-04-2024)
     - Task 1: Back-end user story 1, storing the user data [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179570)
@@ -461,7 +461,8 @@ This document serves to track the contributions of each team member as part of t
         - Refactor Jokers [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/62e12538e4fe5d5a146cecb81d69eb451539c3ef) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/2e73583a54bc7d995408df334c099d4dee856fa7) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/04749eda4866ac434ae79a94fd127fd5039ed2eb) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
 
 
-## Nikola
+## Nikola Stevanovic (16-913-303)
+
 - **Week 1** (25-03-2024 - 07-04-2024)
     - I took the "No continuous progress work done" Joker for this week.
 - **Week 2** (08-04-2024 - 14-04-2024)
