@@ -356,4 +356,18 @@ public class DTOMapperTest {
         assertNotNull(userTokenDTO);
         assertEquals(token, userTokenDTO.getToken());
     }
+
+    @Test
+    public void userToPlayerInfoDTOReturnsCorrectDTOWhenUserIsNotNull() {
+        DTOMapperImpl dtoMapper = new DTOMapperImpl();
+
+        User user = new User();
+        user.setUsername("testUsername");
+        user.setToken("testToken");
+
+        PlayerInfoDTO playerInfoDTO = dtoMapper.userToPlayerInfoDTO(user);
+
+        assertEquals(user.getUsername(), playerInfoDTO.getUsername());
+        assertEquals(user.getToken(), playerInfoDTO.getToken());
+    }
 }
