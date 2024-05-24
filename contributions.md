@@ -4,28 +4,28 @@ This document serves to track the contributions of each team member as part of t
 
 ## Benjamin
 
-- **Week 1**
+- **Week 1** (25-03-2024 - 07-04-2024)
     - Created controllers, DTOs and the necessary entities for the game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/293195330daf9954a50d76465f38867c1c25e5c1)
     - Implemented basic WebSocket-Support [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/13a0eb854599018dddea12d025606a0df714d190)
-- **Week 2**
+- **Week 2** (08-04-2024 - 14-04-2024)
     - Added join game support [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d)
     - Add users to a game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d)
-- **Week 3**
+- **Week 3** (15-04-2024 - 21-04-2024)
     - Added the game features and forwarded all users to game screen [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4a98f5da5c908f2c12140097a01211a87e3985c4) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/37)
     - Backend functionality, to store players etc in game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/35)
-- **Week 4**
+- **Week 4** (22-04-2024 - 26-04-2024)
     - A lot of bug fixes regarding sonarcloud and code quality [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/30304783c480839c862f21d2c0432f3fab9fec31)
     - Implement leave game if someone closes the window [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/304aee0b478611c109371751c914cd236a171809) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/36)
-- **Week 5**
+- **Week 5** (29-04-2024 - 05-05-2024)
     - Added the play again functionality in the backend [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1a57c0cc4adf1c603102b9611102b5f8e8d63afe) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/11)
     - Added web socket functionality for logout [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4189b092913afb9f63e9a4fe7f5c8e27ac6306b0) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=logout&pane=issue&itemId=62619373)
-- **Week 6**
+- **Week 6** (06-05-2024 - 12-05-2024)
     - Fixed bugs and added functionality that users get redirected in a game when refreshing [Commit Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=logout&pane=issue&itemId=62619373) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=bug&pane=issue&itemId=62362751)
     - Bugfixes backend [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ecc52d03cc7a41fafba45a0d99f9b300e3375071) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?filterQuery=bug&pane=issue&itemId=62362662)
-- **Week 7**
+- **Week 7** (13-05-2024 - 19-05-2024)
     - I took the "No continuous progress work done" Joker for this week.
 
-- **Week 8**
+- **Week 8** (20-05-2024 - 24-05-2024)
     - Changed loginguard & gameguard -> checks if token exists -> [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/63dcab7e7ac27a7f47d72735a931761c2ff294d4) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
     - Moved API-Key to .env and github secrets [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c4809321fafa859c8e8ccfd3a5fa22e68acb14f7) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
     - Fixed some errors regarding sonar cloud [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/af4101ea83f7cdddd5e7c288ad2efb9606322d1d) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
@@ -37,7 +37,7 @@ This document serves to track the contributions of each team member as part of t
 
 ## Branislav
 
-- **Week 1**
+- **Week 1** (25-03-2024 - 07-04-2024)
     - Thursday, 04-04-2024
         - Created first draft of the dashboard. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f6b26eaaca967f1a02b17fc56a67561554b79f03) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121340)
         - Added avatar to the game header. Second draft of the dashboard. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8319992172ce2de015d6c0a5d7fbbb031586fcec) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121340)
@@ -49,7 +49,7 @@ This document serves to track the contributions of each team member as part of t
         - First draft of all users page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f03b6b1265f8e80a67ca548941e7f6e9894ba97c) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59124176)
         - Added function to fetch all users in all users page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/23586624fc17275ac8ce99bf212010ca3aafcc21) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59124176)
 
-- **Week 2**
+- **Week 2** (08-04-2024 - 14-04-2024)
     - Monday, 08-04-2024
         - Added "Login" and "Register" buttons and fixed some minor errors. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e2b4ef512311ecf69582761dcf5753638c32419a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=57179279)
         - Fixed the position of the error message in the login page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ff0f8fe9a671a92a56d12791a24d0cae4b15f094) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=57179279)
@@ -66,7 +66,7 @@ This document serves to track the contributions of each team member as part of t
         - Updated the edit button, so only logged in user can click on it. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a17f1fe4aecb6b81d581692cc6b1e1d94d3e9a40) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/82329bb693cbdc5861089b3e9ad78365fceb6a0e)
 
-- **Week 3**
+- **Week 3** (15-04-2024 - 21-04-2024)
     - Monday, 15-04-2024
         - Updated profile page, so user can change credentials inside its page. No edit page is needed. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b61e4f377527f1042852548015cf9970bb816a74) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
         - Updated check of new username. Removed the possibility to change password, since it's not considered necessary. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5b8d6bcf99f5b12e10363fc0a14084650b75eaa2) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
@@ -88,7 +88,7 @@ This document serves to track the contributions of each team member as part of t
         - Minor fixes inside profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a8938534cfbe0a5d6c13a6e3c1a2a2a9628353cc) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785120)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/a17f29fb6116ae0eb06f59b7cd02d989fdbab520)
 
-- **Week 4**
+- **Week 4** (22-04-2024 - 26-04-2024)
     - Wednesday, 24-04-2024
         - Added test, where a successful login was tested. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/0423ed4873bb278365f831009ed31a569891c787) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=60858580)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/0061e1405abca8db670fc6a5989304adda2a4527)
@@ -98,7 +98,7 @@ This document serves to track the contributions of each team member as part of t
         - Worked on fixing Sonar settings with @domeniku7.
         - Worked on the M3 report.
 
-- **Week 5**
+- **Week 5** (29-04-2024 - 05-05-2024)
     - Monday, 29-04-2024
         - Helped with the live demo during the presentation.
     - Tuesday, 30-04-2024
@@ -124,7 +124,7 @@ This document serves to track the contributions of each team member as part of t
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ffc513ae103ebc4058a90757e78a38d5b5648af2)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/9a6db6e5f1e74d67437795d7740aecc52733fc5a)
 
-- **Week 6**
+- **Week 6** (06-05-2024 - 12-05-2024)
     - Monday, 06-05-2024
         - Removed unused code in game layout and profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/759f077b1744e0d3673ec1a46c9445c1b86c6ba5) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
         - Finished with edit of avatar in profile page. It is possible to toggle "Login" when pressing enter. Lobby displays game code. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f87101c9f0ac20fcd08f63d907b9a72ae8e4e078) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
@@ -141,13 +141,13 @@ This document serves to track the contributions of each team member as part of t
     - Friday, 10-05-2024
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2a0a43766e930a18cfa72a8cbc9457d5c26d27e8)
     
-- **Week 7**
-    - Monday, 13-04-2024
+- **Week 7** (13-05-2024 - 19-05-2024)
+    - Monday, 13-05-2024
         - Game layout and all users page re-render all 5, profile page all 10 seconds. For game layout, new registered users can be reached, when searching for them. All users page and profile page will update the status of the user, if user logs in, out, or is inside a game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/edeb16081c4bb8cc5adcefc81a6fdf72667a035e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
         - Added color yellow for users with status "INGAME" in all users page. It was already added to the profile page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f06a6c67df73fd82afa121cf682c4f265bf95311) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
         - Added a little welcome message, so it feels more personal, when logged-in. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5210ab486784d4b7f23f0f03d588c7ac29f9ebd0) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/48929db9c6f6faba87a54110b88e109be2ac24ee)
-    - Tuesday, 14-04-2024
+    - Tuesday, 14-05-2024
         - Removed Google street view link, so users can't click on it and get directed to Google street view, where they would see the location. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4453ada84b6fdb13da3abdf6f4225c7de5cc7783) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62362751)
         - Added mock bean, so tests in user controller would pass. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b6c840d8318c2e864abced0c46cb232f531fb2b9) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60858580)
         - Added avatar to user repository integration test, so the test won't fail. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5f020eb32f72ebb1d7566e65efa2c26f995637ae) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60960948)
@@ -184,31 +184,64 @@ This document serves to track the contributions of each team member as part of t
         - Added testReturnCities in game service test, to test returnCities in game service. Removed unused test. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5d7ec7a3d94a4ef694a861f2454ce3de257850f5) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240)
         - Removed addUserToGame in game service, since it's never used. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/48a9955ff93ba48eaa48c20d367642611f5de54a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
         - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4e57cd25c4cc81e123f7fe8ada3eb618bc36fb41)
-    - **Week 8**
-        - Monday, 20-05-2024
-            - Added a character limit for username in login and register, so it's not possible to register with a very long username, making the leaderboard unreadable. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9a528e05b0b8f865d918778cd5613d17c9f907ac) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
-            - Added a character limit for username when editing it in the profile page, so it's not possible to edit the username to a very long one. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fbb75271efac013cc8d31ac572274083e1ac11be) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
-            - Commented out processLogoutReturnsOriginalMessageWhenGameIsNotFound test in message handler test, since it fails [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/46b7ee7bdf61991f83caa025f77f180c8182c35b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
-            - Rigoros testing of our application with the group. Searching for bugs, that need to be fixed.
-        - Tuesday, 21-05-2024
-            - Removed location name inside ingame, because is was used for testing purposes in the past. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fb3c7fd435f2248a94081a01ddf200118f7dc118) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512406)
-            - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362751)
-            - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512145)
-            - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512406)
-            - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512479)
-            - Increased time of re-rendering of the profile page to two minutes, since 10 seconds are to short and the input field gets resetet, when user wants to edit username. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0af0672c0171be87a6f75220e213552691f8321e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
-            - First draft of readme file in client with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a2d6fb8da5b9ac4421e644df6c2c1bfb0943970b)
-            - Tried to fix table of contents and made some changes in readme file in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0147b041432d2f967c3684ce9761c53c935a9532)
-            - Some more changes regarding table of contents in readme file in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/67ad54f7f5aeb95f743bf62a7723faf1093095f7)
-            - First draft of readme file in server with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/a6795b3836b36986b7423e30e1c07f1aef333a29)
-            - Second draft of readme file in server with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/09bf8bf420ca70490ee78ddea2774e7d67811f0f)
-            - Test push in client, due to GitHub having problems. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5624b88aff193a489ab05f028e09902b73bb4cfa)
-            - Test push in server, due to GitHub having problems. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/7553b4a0ebedb69706ac4a9ecc10f55b366aa2dc)
-            - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/9d70695358bc0db381278eb5694718073cd434b2)
-            - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2eb989edda57943f53ee5c7517cc0ba0871773cc)
+
+- **Week 8** (20-05-2024 - 24-05-2024)
+    - Monday, 20-05-2024
+        - Added a character limit for username in login and register, so it's not possible to register with a very long username, making the leaderboard unreadable. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9a528e05b0b8f865d918778cd5613d17c9f907ac) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
+        - Added a character limit for username when editing it in the profile page, so it's not possible to edit the username to a very long one. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fbb75271efac013cc8d31ac572274083e1ac11be) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Commented out processLogoutReturnsOriginalMessageWhenGameIsNotFound test in message handler test, since it fails [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/46b7ee7bdf61991f83caa025f77f180c8182c35b) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362662)
+        - Rigoros testing of our application with the group. Searching for bugs, that need to be fixed.
+    - Tuesday, 21-05-2024
+        - Removed location name inside ingame, because is was used for testing purposes in the past. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/fb3c7fd435f2248a94081a01ddf200118f7dc118) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512406)
+        - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362751)
+        - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512145)
+        - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512406)
+        - Disabled back button of the browser, to keep our game in a consistent state. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/983470112e6724e349ecfc163ae0bd0409fa0a32) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512479)
+        - Increased time of re-rendering of the profile page to two minutes, since 10 seconds are to short and the input field gets resetet, when user wants to edit username. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0af0672c0171be87a6f75220e213552691f8321e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - First draft of readme file in client with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a2d6fb8da5b9ac4421e644df6c2c1bfb0943970b)
+        - Tried to fix table of contents and made some changes in readme file in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0147b041432d2f967c3684ce9761c53c935a9532)
+        - Some more changes regarding table of contents in readme file in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/67ad54f7f5aeb95f743bf62a7723faf1093095f7)
+        - First draft of readme file in server with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/a6795b3836b36986b7423e30e1c07f1aef333a29)
+        - Second draft of readme file in server with @domeniku7. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/09bf8bf420ca70490ee78ddea2774e7d67811f0f)
+        - Test push in client, due to GitHub having problems. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5624b88aff193a489ab05f028e09902b73bb4cfa)
+        - Test push in server, due to GitHub having problems. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/7553b4a0ebedb69706ac4a9ecc10f55b366aa2dc)
+        - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/9d70695358bc0db381278eb5694718073cd434b2)
+        - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2eb989edda57943f53ee5c7517cc0ba0871773cc)
+        - Updated contributions file. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/b054e7033fad70e6c3a5e5b428b698120610a2a1)
+        - Rigoros testing of our application with the group. Searching for bugs, that need to be fixed.
+        - First draft of the report with @domeniku7.
+    - Wednesday, 22-05-2024
+        - Shortened character limit for username from 20 to 12 character, due to "M" and "W" being too wide. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/aeff5294877284021f6a05b2688ad6f928435f12) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Fixed the display of error messages in profile page when editing username. Error message regarding the username having less than 4 characters is only displayed as long as the user is inside the input field and the input is less than 4 characters. Other error messages are displayed after clicking the "Save" button with an invalid username. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a29d7151772bbcce923ac3a35ed9404bf084a4a9) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Added character limits to search bars in leaderboard and in header to be 12, since a username can't have more than 12 characters. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/237f2bec5c6e1223f121204f002721e0f9649cbb) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Added createGame_validateCreator integration test, to test the creation of a user, setting the user as creator and creation of a game. Added createGame_twoUsers_joinGame_validatePlayers test, to test the creation of two users, setting one user as creator, creation of a game, second user joins game. Added createGame_deleteUser_validateGameDeletion test, to test the creation of two users, creation and deletion of a game. Deleted unused code. Assisted by @domeniku7, @LaughingF0x, and @nik-stev. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/132cb2b4ad0d44aab3194609495136498b741e10) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60867714)
+        - Tried to link table of content in readme in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9358b32accf776f9b08fc1884c86ecfb7e86bf22)
+        - Fixed table of content in readme in client. Contents are now linked. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0cbbda4a93328b7edec51c92e5d3636bb311fe8e)
+        - Fixed a type in readme in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0f052829798c52e3b4f4799b1450bf59293d1f95)
+        - Test push, due to GitHub having problems. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/47a0401878978d006b4b20326a2207cb527a73f5)
+        - Fixed table of content in readme in server. Contents are now linked. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afe2a0d642a5f8a70350e6f2136f549a245dfaa4)
+        - Rigoros testing of our application with the group. Searching for bugs, that need to be fixed.
+        - Worked on the report and slides.
+    - Thursday, 23-05-2024
+        - Added alert message, when lobby was closed, so users get notified. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c0b2dff3318c57177d335393ea8de91d89e8945e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=63512145)
+        - Removed unused code in main game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/668e6feaea9187d4022994cc4b0ec00af177f96e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62362751)
+        - Changed "Start Countdown" button to "Start Game", since we don't display a countdown anymore. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ffb2fe2002cc3b9e9f4200a93f0ead406a649260) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Made the "Rules" dropdown scrollable with @nik-stev. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a2c65eb435548d7cc61c967e46ec681704c0975a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
+        - Improved wording in readme in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/2fb87343d86a1655954602bc4c482cfda37a8fd5)
+        - Improved wording in readme in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/bae6a591cb1f76a2ab2e73678a23a7da42bb4e74)
+        - Added more links to the readme in client. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/65e34875b2a8cb8cabab690c0e8f25b8deea27b3)
+        - Rigoros testing of our application with the group. Searching for bugs, that need to be fixed.
+        - Worked on the report and slides.
+    - Friday, 24-05-2024
+        - Fixed readme in server. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2f0153686b6cbe08e2559d8c4dd2eb049d154a19)
+        - Fixed typo in readme in server. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/17044194fd36aee11ab46440fb71bd4d0a6d2b18)
+        - Final testing session of our application with the group.
+        - Finalized report and slides.
+        - Uploaded all to OLAT.
+
 ## Shanthos
 
-- **Week 1**
+- **Week 1** (25-03-2024 - 07-04-2024)
     - Task 1: Front-end user story 1. creating the Login and Register View [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179279)
  
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/90be600c8b40ad22a79af4c6cff8fa50b1dbedc0) (2 pics added and first draft of login page) 
@@ -238,7 +271,7 @@ This document serves to track the contributions of each team member as part of t
       
 
       
-- **Week 2**
+- **Week 2** (08-04-2024 - 14-04-2024)
     - Task 1: Leaderboard of the Endscreen [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56786647)
  
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/33219481e939c6ac04671092d0cad8d6c3ff72b1) (first draft of final leaderboard and tried to implement main menu and play again button)
@@ -268,7 +301,7 @@ This document serves to track the contributions of each team member as part of t
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e436338232119d58c99ea45c0d4eeb961db64845) (Added basic game functionality, fixed Bugs regarding websockets)
 
         
-- **Week 3**
+- **Week 3** (15-04-2024 - 21-04-2024)
     - Task 1: Reworked the Create Game File, has now proper functionality and proper UI Design [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785116)
 
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/05412db436f34632129a1b2a18c12f5f6f4d893f) (CreateGame.jsx has now proper functionality with the game modes & proper UI to work with + minor bug fixes in endgame and game)
@@ -286,7 +319,7 @@ This document serves to track the contributions of each team member as part of t
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/54e03f04bc403ffe001112ae149ce7edfc1d703c) (joining error partiallay fixed)
 
     
-- **Week 4**
+- **Week 4** (22-04-2024 - 26-04-2024)
     - Task 1: Added functionallity to "Search a User" it now leads to the User if the input is vaild and rasises warrning if not + prepared presention slides [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59121340)
  
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/005e02c65b9182d86a9efbdc98c7718dcb512389) (proper functionality for "search other users" with proper error message and search funtion)
@@ -301,7 +334,7 @@ This document serves to track the contributions of each team member as part of t
   
         Prepared presentation and Report (4.5h)  
 
-- **Week 5**
+- **Week 5** (29-04-2024 - 05-05-2024)
     - Task 1:  City mode and Country mode now work proparly [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/7)
  
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/cadd1222cab74f8b5709eebffab6a230f16a4cc6) (City mode and Country mode now work properly)
@@ -323,7 +356,7 @@ This document serves to track the contributions of each team member as part of t
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/498f172a45ba16fdeef6713e3ac56a1367c60450) (Fixed bugs with logout and game chat and sockets and conducting the game correctly)
 
     
-- **Week 6**
+- **Week 6** (06-05-2024 - 12-05-2024)
     - Task 1: Bugs fixing Frontend [#44](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=62362751) and UI/UX bettering:
                
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/553938035eddc813ad2be2a74723e7c0d064bc0f) (player cant start game when he's alone bug fix)
@@ -343,7 +376,7 @@ This document serves to track the contributions of each team member as part of t
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/2604d13dbd736a9158da8c4f4b40128f2f130327) ( written Testcases for CityServiceTest DTOMapperTest UserSocketService Test and UserServiceTest)
 
 
-- **Week 7**
+- **Week 7** (13-05-2024 - 19-05-2024)
     - Task 1: Writing Tests:
 
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/74f5a308e98708ddfd10161f23a8aeaf233d3695) (MessageHandlerTest #86)
@@ -372,21 +405,21 @@ This document serves to track the contributions of each team member as part of t
 
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ea63c5cf880c6011947cee14cc720bd3cc7198ae) (fixed leave game bug in lobby Bugs #82; through acc from nik-stev)
 
-- **Week 8**
+- **Week 8** (20-05-2024 - 24-05-2024)
     - I took the "No continuous progress work done" Joker for this week.
 
 
 ## Arber
 
-- **Week 1**
+- **Week 1** (25-03-2024 - 07-04-2024)
     - Task 1: Back-end user story 1, storing the user data [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=57179570)
     - Task 2: Ability to edit profile in the back-end [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/f05e66fdd36212bbf7a3d96625bc9874c47859f3) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56785118)
-- **Week 2**
+- **Week 2** (08-04-2024 - 14-04-2024)
   - Thursday, 11-04-2024
       - Return the map from the API, connecting to API [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0ec6be1613bee310ac3af9739d0136b379d1287e) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56784172)
   - Friday, 12-04-2024
     -  Task 2: edit page constructed, data gests changed in the server, further changes in the edit profile [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/65e9ac05818c3fa048b04baf596ca4a139700b80) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=56785117)
-- **Week 3**
+- **Week 3** (15-04-2024 - 21-04-2024)
   - Monday, 15-04-2024
       - Update leaderboard in Ingame component, addpoints Assign points correctly [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/f08cb49753029ded66844cb7642c67a9ba7cf77a) [Issue link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/30)
       - Disable street names in Ingame compnenet [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e134ed038591a996c66004ffbdb31c4dd3410147)
@@ -396,36 +429,37 @@ This document serves to track the contributions of each team member as part of t
       - Leave match option [Commit link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/5a34baa45f48fddab17f7cd5519695ab22d993d7) [Commit link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/15aeb32872597cd00c525b6845645ff2512af062) [Issue link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60422897)
   - Saturday, 20-04-2024
       - Work on Delay Joker with Nikola. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/8822d30becc9a9c223d5f533376115d8fa29844a) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
-- **Week 4**
+- **Week 4** (22-04-2024 - 26-04-2024)
   - Monday, 22-04-2024
       - Jokers. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1086b82da0dd3ab8f039730cb31f32b1975de9a9) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/46) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/18)
   - Thursday, 25-04-2024
       - Testing. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/fdbcc8ad31f685e9cb7f0228b96d75ce8dc9eccf) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/37d79336b38ce85190e5a0caeb534f7370457ae8) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60858602) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60860240) [Issue Link 3](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60867132)
-- **Week 5**
+- **Week 5** (29-04-2024 - 05-05-2024)
   - Monday, 30-04-2024, 02-05-2024
       - Avatar and conclude game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4792948eed55d1a6d02df46b4e3d1c8a8a7c7ddd) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/61268f3adc34e8dcd9024f5d6e0285b0e49a1df3) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784167)
   - Thursday, 31-04-2024
       - Play again. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/06c42d7aa300fc32346b0b80eb8f9b89a25cc0a8)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784166)
-- **Week 6**
+- **Week 6** (06-05-2024 - 12-05-2024)
   - Monday, 07-05-2024
       - Bug fixes. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/24d0845d2fd2c6a05bcd35c84360deb345ae6885) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0df72acdc261819e23420f4db60f12f994319e56) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4ea9a78dcca468af1de19a042ceca56cd67c257a) [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/4ea9a78dcca468af1de19a042ceca56cd67c257a) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
   - Thursday, 09-05-2024
        - Logout if closing tab. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/e697a0c87360051e4de2105a2f4f2e00d4861c1f)  [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62619373)
-- **Week 7**
+- **Week 7** (13-05-2024 - 19-05-2024)
     - I took the "No continuous progress work done" Joker for this week.
+- **Week 8** (20-05-2024 - 24-05-2024)
 
 
 ## Nikola
-- **Week 1**
+- **Week 1** (25-03-2024 - 07-04-2024)
     - I took the "No continuous progress work done" Joker for this week.
-- **Week 2**
+- **Week 2** (08-04-2024 - 14-04-2024)
   - Saturday, 13-04-2024
       - Task 1: Frontend Issue 17: User-Friendly Game Screen (placement of containers, sizeing, created timer).
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/b71fc2b8bff6ca33c5f24ddb882a58d057f3cc90) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/25003d452e36a1eb974afd269821ba0a4de041b7) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784177)
   - Sunday, 14-04-2024
       - Task 2: Frontend Issue 23: Make the hints and leaderboard (created the hints and placed it above the map, the leaderboard is on the left side and the chat field placed on the right side).
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/8bf9537417ac215056ff2b3f41fb4d483e99593e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784173)
-- **Week 3**
+- **Week 3** (15-04-2024 - 21-04-2024)
   - Monday, 15-04-2024
       - Small Design Changes for the All Users Page, Error correction on the Users Page.
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/195268599b62ba686cf4af1a36c2f77080df9c11) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a9f475ca1e70b94535970cee328148e2aa6dd6c9) [Commit Link 3](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/5acd72233065083181555cfb7f5ed4f85a6af6ad) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=59124176)
@@ -441,7 +475,7 @@ This document serves to track the contributions of each team member as part of t
       - Work on Delay Joker with Arber (Map turns invisible for other players after clicking the delay button).
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/ef8d9b2bf0ea03cc8650e2cb7037348b72623e9c) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/009fc087c2867a10605a80eaf7ca6aa18334a245) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784169) [Issue Link 2](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=56784168)
 
-- **Week 4**
+- **Week 4** (22-04-2024 - 26-04-2024)
   - Monday, 22-04-2024
       - Jokers with Arber (Work on delay Joker and on hint remove Joker (hints get removed)).
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/1770ea9bca85672e897103b901afeef399cc51a4) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/18)
@@ -451,7 +485,7 @@ This document serves to track the contributions of each team member as part of t
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/3e4534c64672e3957ea55dcba9d5c1ffd33e8b3a) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/29bedfa45db6344b7632fd2faed732f23e98bc21) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=60865791)
       - Worked on the report and presentation slides.
 
-- **Week 5**
+- **Week 5** (29-04-2024 - 05-05-2024)
   - Wednesday, 01-05-2024
       - Beta-testing with the group and working on the feedback.
   - Thursday, 02-05-2024
@@ -468,7 +502,7 @@ This document serves to track the contributions of each team member as part of t
       - Tried fixing the start of the countdown when the lobby is full, but still doesn't work always.
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/049618f7d0b92183d3f20a17d6127395c8b9779e) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
 
-- **Week 6**
+- **Week 6** (06-05-2024 - 12-05-2024)
   - Tuesday, 07-05-2024
       - Update the Location Coordinates of the cities (no more starting points in buildings).
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/1d89a6e823ee539c6a7e608ce0e03288d81d6365) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=62244787)
@@ -485,7 +519,7 @@ This document serves to track the contributions of each team member as part of t
       - Start Countdown when lobby is full (final fix, now the countdown timer actually starts when the lobby is full).
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/d570f61429d839b87d94d6319981aa5ea8f339ae) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
 
-- **Week 7**
+- **Week 7** (13-05-2024 - 19-05-2024)
   - Tuesday, 14-05-2024
       - Replaced the bar for the number of players, the number of rounds and the roundlength by dropdown menus.
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/9fe64f0b8a91ff17621e08ce0dc9956a3e44aa5c) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3?pane=issue&itemId=61428359)
@@ -513,7 +547,7 @@ This document serves to track the contributions of each team member as part of t
   - Sunday, 19-05-2024
       - Made the leaderboard and chat titles dynamic in the ingame page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/bee646e90d348c4f70074ff769d6b4e54452d6a2) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
 
-- **Week 8**
+- **Week 8** (20-05-2024 - 24-05-2024)
   - Our Design was not consistent, different styles were used (bootstrap, css, etc.), there was not a design idea that was seen through all the pages of our application. So I did a design overhaul over the complete application to make everything more consistent, use the same style, use the same container sizes and styles, make things look more modern and smooth.
   - Monday, 20-05-2024
       - Design overhaul main page. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/0c3e318e77f8c38edfa568ad05290cb9e33c6d97) [Commit Link 2](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/62171776fecdf40dc5be1d973031a42a34dd8fb5) [Issue Link](https://github.com/orgs/sopra-fs24-group-40/projects/3/views/1?pane=issue&itemId=61428359)
