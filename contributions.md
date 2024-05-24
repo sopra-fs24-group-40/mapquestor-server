@@ -26,12 +26,12 @@ This document serves to track the contributions of each team member as part of t
     - I took the "No continuous progress work done" Joker for this week.
 
 - **Week 8** (20-05-2024 - 24-05-2024)
-    - Changed loginguard & gameguard -> checks if token exists -> [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/63dcab7e7ac27a7f47d72735a931761c2ff294d4) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
-    - Moved API-Key to .env and github secrets [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c4809321fafa859c8e8ccfd3a5fa22e68acb14f7) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
-    - Fixed some errors regarding sonar cloud [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/af4101ea83f7cdddd5e7c288ad2efb9606322d1d) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
-    - Fixed bug with wins, not they get updated the right way [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/2e36ec3cf2825f6278f431cb7c4157e101511baa) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/47)
-    - Fixed Leaderboard search bar [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a010fdb9a3a907dbe6a9b5ea5476beadc5d6269c) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
-    - Fixed that username and password need to be at least 4 chars [Commit Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/commit/60277c8cc02e190cb40b993d17485e353413dc43) [Issue Link] (https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
+    - Changed loginguard & gameguard -> checks if token exists -> [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/63dcab7e7ac27a7f47d72735a931761c2ff294d4) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
+    - Moved API-Key to .env and github secrets [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/c4809321fafa859c8e8ccfd3a5fa22e68acb14f7) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
+    - Fixed some errors regarding sonar cloud [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/af4101ea83f7cdddd5e7c288ad2efb9606322d1d) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
+    - Fixed bug with wins, not they get updated the right way [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/2e36ec3cf2825f6278f431cb7c4157e101511baa) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/47)
+    - Fixed Leaderboard search bar [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/a010fdb9a3a907dbe6a9b5ea5476beadc5d6269c) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
+    - Fixed that username and password need to be at least 4 chars [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-client/commit/60277c8cc02e190cb40b993d17485e353413dc43) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-client/issues/44)
 
 
 
