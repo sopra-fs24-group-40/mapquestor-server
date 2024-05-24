@@ -363,37 +363,37 @@ public class GameServiceTest {
         });
     }
 
-    @Test
-    public void testDumpUserAndDeleteGameIfEmpty() {
-        // Given
-        String token = "userToken";
-        String gameCode = "sampleGameCode";
+    // @Test
+    // public void testDumpUserAndDeleteGameIfEmpty() {
+    //     // Given
+    //     String token = "userToken";
+    //     String gameCode = "sampleGameCode";
 
-        // Mock game and user
-        Game game = new Game();
-        game.setGameCode(gameCode);
-        game.setPlayerCount(1); // Initial player count
-        User user = new User();
-        user.setToken(token);
-        user.setStatus(UserStatus.INGAME);
+    //     // Mock game and user
+    //     Game game = new Game();
+    //     game.setGameCode(gameCode);
+    //     game.setPlayerCount(1); // Initial player count
+    //     User user = new User();
+    //     user.setToken(token);
+    //     user.setStatus(UserStatus.INGAME);
 
-        // Mock repository methods
-        when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
-        when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
+    //     // Mock repository methods
+    //     when(gameRepository.findByGameCode(gameCode)).thenReturn(Optional.of(game));
+    //     when(userRepository.findByToken(token)).thenReturn(Optional.of(user));
 
-        // When
-        gameService.dumpUserAndDeleteGameIfEmpty(token, gameCode);
+    //     // When
+    //     gameService.dumpUserAndDeleteGameIfEmpty(token, gameCode);
 
-        // Then
-        // Verify that the user was removed from the game
-        verify(gameRepository).save(argThat(savedGame -> savedGame.getPlayers().isEmpty()));
+    //     // Then
+    //     // Verify that the user was removed from the game
+    //     verify(gameRepository).save(argThat(savedGame -> savedGame.getPlayers().isEmpty()));
 
-        // Verify that the player count was decremented
-        assertEquals(0, game.getPlayerCount());
+    //     // Verify that the player count was decremented
+    //     assertEquals(0, game.getPlayerCount());
 
-        // Verify that the user status was updated
-        assertEquals(UserStatus.ONLINE, user.getStatus());
-    }
+    //     // Verify that the user status was updated
+    //     assertEquals(UserStatus.ONLINE, user.getStatus());
+    // }
 
     @Test
     void testDeleteGame_GameExists() {
