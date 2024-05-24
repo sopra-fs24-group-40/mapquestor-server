@@ -407,7 +407,7 @@ This document serves to track the contributions of each team member as part of t
         [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/ea63c5cf880c6011947cee14cc720bd3cc7198ae) (fixed leave game bug in lobby Bugs #82; through acc from nik-stev)
 
 - **Week 8** (20-05-2024 - 24-05-2024)
-    - I took the "No continuous progress work done" Joker for this week.
+    - I took the "No continuous progress work done" Joker for this week. I worked with everyone on the last bug fixes but didn't push anything with my account.
 
 
 ## Arber
