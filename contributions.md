@@ -5,11 +5,11 @@ This document serves to track the contributions of each team member as part of t
 ## Benjamin
 
 - **Week 1** (25-03-2024 - 07-04-2024)
-    - Created controllers, DTOs and the necessary entities for the game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/293195330daf9954a50d76465f38867c1c25e5c1)
+    - Created controllers, DTOs and the necessary entities for the game. [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/293195330daf9954a50d76465f38867c1c25e5c1) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/27)
     - Implemented basic WebSocket-Support [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/13a0eb854599018dddea12d025606a0df714d190)
 - **Week 2** (08-04-2024 - 14-04-2024)
-    - Added join game support [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d)
-    - Add users to a game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d)
+    - Added join game support [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/33)
+    - Add users to a game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/35)
 - **Week 3** (15-04-2024 - 21-04-2024)
     - Added the game features and forwarded all users to game screen [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/4a98f5da5c908f2c12140097a01211a87e3985c4) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/37)
     - Backend functionality, to store players etc in game [Commit Link](https://github.com/sopra-fs24-group-40/mapquestor-server/commit/afc9dd7e05070a9d717fbad5bcb5b7ac01fcd22d) [Issue Link](https://github.com/sopra-fs24-group-40/mapquestor-server/issues/35)
