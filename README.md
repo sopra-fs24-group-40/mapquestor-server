@@ -32,7 +32,7 @@ For the devolopment of the server, we relied on the following technologies:
 * [Stomp](https://stomp-js.github.io/stomp-websocket/) - Websocket communication 
 * [JPA](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/package-summary.html) - API for object-relational mapping to databases in Java applications
 * [Hibernate](https://hibernate.org/) - Object-relational mapping framework (implementation of JPA)
-* [Google cloud](https://cloud.google.com/?hl=en) - Handles the deployment
+* [Google Cloud](https://cloud.google.com/?hl=en) - Handles the deployment
 
 <a id="highlevelcomponents"></a>
 ## 🧭 High-level components
