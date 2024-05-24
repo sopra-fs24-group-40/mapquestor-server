@@ -113,7 +113,7 @@ Authors of MapQuestor:
 - [Nikola Stevanović](https://github.com/nik-stev)
 - [Arbër Markaj](https://github.com/domeniku7)
 
-We want to use this opportunity to thank our teaching assistant [Louis Caerts](https://github.com/LouisCaerts). His guidance and assistance were helpful and we really appreciate it.
+We want to use this opportunity to thank our teaching assistant [Louis Caerts](https://github.com/LouisCaerts). His guidance and assistance during our journey were helpful and we really appreciated it.
 
 <a id="license"></a>
 ## 📝 License
